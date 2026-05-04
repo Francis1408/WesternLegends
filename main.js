@@ -9,10 +9,14 @@ import { OutputPass } from 'three/examples/jsm/Addons.js';
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / innerHeight, 0.1, 1000)
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+
+const canvas = document.querySelector('#canvas')
+const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
+const container = canvas.parentElement;
+
+renderer.setSize(container.clientWidth, container.clientHeight, false);
 renderer.setAnimationLoop( animate );
-document.body.appendChild(renderer.domElement);
+
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -44,8 +48,11 @@ const highlightableNames = ['Black_jack', 'Bar']; // names from userData
 let highlightableMeshes = []; // filled after model loads
 
 window.addEventListener('mousemove', (event) => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  const rect = canvas.getBoundingClientRect(); // Maps the mouse relative to the canvas
+
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 });
 
 // Rendering an object
@@ -108,9 +115,15 @@ function animate( time ) {
 
 }
 
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+window.addEventListener('resize', resizeRenderer);
+
+function resizeRenderer() {
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  renderer.setSize(width, height, false);
+  composer.setSize(width, height);
+
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  composer.setSize(window.innerWidth, window.innerHeight);
-});
+}
