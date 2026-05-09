@@ -3,7 +3,7 @@ import {scenarios_data} from '../MockedData/scenarioData.js'
 
 const HIGHLIGHTABLE_NAMES = ['Black_jack', 'Bar'];
 
-export function loadModel(scene) {
+export function loadModel(scene, scenarioData) {
     return new Promise((resolve, reject) => {
         const loader = new GLTFLoader()
 
@@ -15,9 +15,10 @@ export function loadModel(scene) {
                 model.position.set(0, 0, 0)
                 model.scale.set(0.5, 0.5, 0.5)
                 scene.add(model)
+
                 // Get the meshes related to the names
-                const  highlightableMeshes = _collectHighlightable(model)
-                resolve(highlightableMeshes)
+                const meshNames = scenarioData.enviroments.map(env => env.id);
+                resolve(_collectHighlightable(model, meshNames));
             
             },
             // Progress loader
@@ -30,7 +31,7 @@ export function loadModel(scene) {
     })
 
     // Trasverse the models meshes to find the highlightable meshes
-    function _collectHighlightable(model) {
+    function _collectHighlightable(model, highlightableNames) {
         const meshes = []
 
         model.traverse((child) => {
@@ -38,7 +39,7 @@ export function loadModel(scene) {
 
             let obj = child
             while (obj) {
-            if (HIGHLIGHTABLE_NAMES.includes(obj.userData?.name)) {
+            if (highlightableNames.includes(obj.userData?.name)) {
                 meshes.push(child)
                 break
             }

@@ -12,14 +12,16 @@ import {scenarios_data} from '../MockedData/scenarioData.js'
 // Load cameras
 const cameraManager = new CameraManager(scenarios_data[0]);
 
-// Initialize components
+// Initialize modules
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
-const highlightableMeshes = [];
-const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass, highlightableMeshes);
+const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
+raycaster.loadHighlightNames(scenarios_data[0])
 
 setupLights(scene);
 setupGUI(cameraManager.camera, cameraManager.controls);
-loadModel(scene).then(meshes => highlightableMeshes.push(...meshes))
+loadModel(scene, scenarios_data[0]).then(meshes => {
+  raycaster.loadMeshes(meshes);
+});
 
 
 // Rendering loop
