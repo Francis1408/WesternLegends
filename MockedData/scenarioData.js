@@ -34,7 +34,7 @@ export const scenarios_data = [
             },
         ],
         "camera_pos": {
-            "x": -1.30,
+            "x": -0.30,
             "y": 1.74,
             "z": 2.30
         },
