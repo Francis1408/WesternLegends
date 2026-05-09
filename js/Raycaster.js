@@ -13,6 +13,8 @@ export class Raycaster {
         this.outlinePass = outlinePass;
         this.highlightableMeshes = highlightableMeshes;
 
+        this.hittedMeshName = null; // Saves the name of the mesh hitted by the ray
+
         this._bindMouseMove(canvas)
     }
 
@@ -21,6 +23,16 @@ export class Raycaster {
             const rect = canvas.getBoundingClientRect()
             this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
             this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+        })
+
+
+        canvas.addEventListener('click', (event) => {
+
+            if(HIGHLIGHTABLE_NAMES.includes(this.hittedMeshName)) {
+
+                console.log(`O elemento ${this.hittedMeshName} foi clicado`);
+                // Calls the camera animation handler
+            }
         })
     }
 
@@ -38,6 +50,7 @@ export class Raycaster {
             let namedObj = hit;
             while (namedObj.parent && !HIGHLIGHTABLE_NAMES.includes(namedObj.userData?.name)) {
                 namedObj = namedObj.parent;
+                this.hittedMeshName = namedObj.name;
             }
             // Collect all child meshes of the named group
             const toOutline = [];
@@ -46,6 +59,7 @@ export class Raycaster {
         } else {
 
             this.outlinePass.selectedObjects = [];
+            this.hittedMeshName = null;
         }
     }
 

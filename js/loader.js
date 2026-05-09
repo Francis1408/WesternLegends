@@ -1,4 +1,5 @@
 import { GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {scenarios_data} from '../MockedData/scenarioData.js'
 
 const HIGHLIGHTABLE_NAMES = ['Black_jack', 'Bar'];
 
@@ -8,7 +9,7 @@ export function loadModel(scene) {
 
         loader.load(
             // Loads the model from path
-            'Models/Valentine/Saloon.glb',
+            scenarios_data[0]["modelPath"],
             (gltf) => {
                 const model = gltf.scene
                 model.position.set(0, 0, 0)
