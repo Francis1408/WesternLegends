@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/Addons.js'
 export const canvas = document.querySelector('#canvas')
 export const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
 
-const container = canvas.parentElement;
+export const container = canvas.parentElement;
 renderer.setSize(container.clientWidth, container.clientHeight, false);
 renderer.setPixelRatio(window.devicePixelRatio);
 

@@ -1,4 +1,3 @@
-
 import GUI from 'lil-gui'
 
 export function setupGUI(camera, controls) {
