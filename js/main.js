@@ -10,23 +10,26 @@ import { setupGUI } from './gui.js'
 import {scenarios_data} from '../MockedData/scenarioData.js'
 
 const saloon = scenarios_data[0]
-const camera_pos = [saloon.camera_pos.x, saloon.camera_pos.y, saloon.camera_pos.z]
-const camera_target = [saloon.camera_target.x, saloon.camera_target.y, saloon.camera_pos.z]
-
-const camera = buildCameraSetup(camera_pos, camera_target);
+const camera_pos = [saloon.camera.position.x, saloon.camera.position.y, saloon.camera.position.z]
+const camera_target = [saloon.camera.target.x, saloon.camera.target.y, saloon.camera.target.z]
+const camera_up = [saloon.camera.up.x, saloon.camera.up.y, saloon.camera.up.z,]
+const { overviewCamera, controls } = buildCameraSetup(camera_pos, camera_target, camera_up);
 
 // Initialize components
-const postFX = new PostProcessing(renderer, scene, camera);
+const postFX = new PostProcessing(renderer, scene, overviewCamera);
 const highlightableMeshes = [];
-const raycaster = new Raycaster(canvas, camera, postFX.outlinePass, highlightableMeshes);
+const raycaster = new Raycaster(canvas, overviewCamera, postFX.outlinePass, highlightableMeshes);
 
-const controls = setupControls(camera)
+// controls.addEventListener('change', () => {
+//   console.log('position:', camera.position.clone());
+//   console.log('target:', controls.target.clone());
+//   console.log('up:', camera.up.clone()); // ← log this too
+// })
 
+setupControls(controls)
 setupLights(scene);
-setupGUI(camera, controls);
+setupGUI(overviewCamera, controls);
 loadModel(scene).then(meshes => highlightableMeshes.push(...meshes))
-
-camera.position.z = 5
 
 
 // Rendering loop
@@ -40,7 +43,7 @@ renderer.setAnimationLoop(() => {
 // ------------ EVENTS ----------------
 window.addEventListener('resize', () => {
 
-  resizeRenderer(postFX, camera);
+  resizeRenderer(postFX, overviewCamera);
 
 });
 

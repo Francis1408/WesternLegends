@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/Addons.js'
 
 
 export const canvas = document.querySelector('#canvas')
@@ -27,10 +28,17 @@ export function resizeRenderer(postFX, camera) {
 
 }
 
-export function buildCameraSetup(position, target) {
+export function buildCameraSetup(position, target, up) {
 
     const overviewCamera = new THREE.PerspectiveCamera(75, container.clientWidth/ container.clientHeight, 0.1, 1000);
-    overviewCamera.position.set(...position)
-    overviewCamera.target = new THREE.Vector3(...target)
-    return overviewCamera
+    
+    overviewCamera.position.set(...position);
+    overviewCamera.up.set(...up);
+
+    const controls = new OrbitControls(overviewCamera, renderer.domElement);
+    controls.target.set(...target);
+    controls.update();
+
+
+    return { overviewCamera, controls } ;
 }
