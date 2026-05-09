@@ -40,8 +40,6 @@ main {
 }
 
 .main_canvas canvas {
-  width: 100%;
-  height: 100%;
   display: block; 
 }
 

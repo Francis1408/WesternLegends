@@ -18,6 +18,7 @@ setupLights(scene);
 setupGUI(camera, controls);
 loadModel(scene).then(meshes => highlightableMeshes.push(...meshes))
 
+camera.position.z = 5
 
 
 // Rendering loop
@@ -27,10 +28,12 @@ renderer.setAnimationLoop(() => {
   controls.update()
 })
 
+
 // ------------ EVENTS ----------------
 window.addEventListener('resize', () => {
 
   resizeRenderer(postFX);
 
 });
+
 

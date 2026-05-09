@@ -6,9 +6,14 @@ export const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
 
 const container = canvas.parentElement;
 renderer.setSize(container.clientWidth, container.clientHeight, false);
+renderer.setPixelRatio(window.devicePixelRatio);
+
+// Tell the canvas to fill its container via the renderer
+canvas.style.width = '100%';
+canvas.style.height = '100%';
 
 export const scene = new THREE.Scene()
-export const camera = new THREE.PerspectiveCamera(75, container.innerWidth / container.innerHeight, 0.1, 1000)
+export const camera = new THREE.PerspectiveCamera(75, container.clientWidth/ container.clientHeight, 0.1, 1000)
 
 export function resizeRenderer(postFX) {
 
