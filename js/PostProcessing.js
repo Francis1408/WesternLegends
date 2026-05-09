@@ -39,4 +39,9 @@ export class PostProcessing {
     resize(width, height) {
         this.composer.setSize(width, height);
     }
+
+    updateCamera(newCamera) {
+        this.renderPass.camera  = newCamera
+        this.outlinePass.renderCamera = newCamera;
+    }
  }

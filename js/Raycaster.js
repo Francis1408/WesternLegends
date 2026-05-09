@@ -5,6 +5,10 @@ export class Raycaster {
 
     #highlightableNames = [];
     #highlightableMeshes = [];
+    // Array that store functions that will be called when a mapped mesh
+    // is clicked
+    #onClickHandlers = []; 
+    
 
     constructor(canvas, camera, outlinePass) {
 
@@ -18,6 +22,11 @@ export class Raycaster {
         this.hittedMeshName = null; // Saves the name of the mesh hitted by the ray
 
         this._bindMouseMove(canvas)
+    }
+
+    // Call function stored when mesh is clicked
+    onMeshClick(fn) {
+        this.#onClickHandlers.push(fn);
     }
 
     _bindMouseMove(canvas) {
@@ -34,6 +43,7 @@ export class Raycaster {
 
                 console.log(`O elemento ${this.hittedMeshName} foi clicado`);
                 // Calls the camera animation handler
+                this.#onClickHandlers.forEach(fn => fn(this.hittedMeshName));
             }
         })
     }
@@ -52,6 +62,10 @@ export class Raycaster {
             this.#highlightableNames.push(env.id);
         }
 
+    }
+
+    updateCamera(newCamera) {
+        this.camera = newCamera;
     }
 
     clearHighlithNames() {

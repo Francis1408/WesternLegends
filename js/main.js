@@ -23,6 +23,20 @@ loadModel(scene, scenarios_data[0]).then(meshes => {
   raycaster.loadMeshes(meshes);
 });
 
+// ------ SUBSCRIBERS BINDING ------
+raycaster.onMeshClick((meshName) => {
+  cameraManager.switchCamera(meshName);
+})
+
+cameraManager.subscribe((cam) => {
+  raycaster.updateCamera(cam);
+});
+
+cameraManager.subscribe((cam) => {
+  postFX.updateCamera(cam);
+});
+
+
 
 // Rendering loop
 renderer.setAnimationLoop(() => {

@@ -72,7 +72,7 @@ export class CameraManager {
 
     // Inform the subs that the camera has changed
     #notify() {
-        this.#subscribers.forEach(fn => fn(this.#activeCamera.camera));
+        this.#subscribers.forEach(fn => fn(this.#activeCamera));
     }
 
     // Change width and height on resize
@@ -81,5 +81,20 @@ export class CameraManager {
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
         }
+    }
+
+    switchCamera(targetCameraName) {
+
+        const targetCamera = null;
+        // Find the target camera
+        for (const entry of this.availableCameras) {
+            if (entry.id === targetCameraName) {
+                this.#activeCamera = entry.camera
+                this.#activeControls = entry.controls; 
+                this.#notify(); // Update all the subscribers
+                break;
+            } 
+        }
+
     }
 }
