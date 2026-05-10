@@ -61,6 +61,7 @@ main {
   min-width: 400px;
 }
 
+/*-------------- BUTTONS -------------------*/
 button {
   font-family: "Rye", serif;
   font-weight: 400;
@@ -68,6 +69,10 @@ button {
   padding: 12px 24px;
 }
 
+
+.occult {
+  display: none;
+}
 
 .hud_button {
   background-color: bisque;
