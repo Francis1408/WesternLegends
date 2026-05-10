@@ -1,5 +1,7 @@
 /* FRONT-END EVENTS */
 
+import { pass } from "three/tsl";
+
 export function setupEvents(container, cameraManager, postFX) {
 
     // ------------ RESIZE ----------------
@@ -15,5 +17,15 @@ export function setupEvents(container, cameraManager, postFX) {
     returnButton.addEventListener('click', () => {
         cameraManager.switchCamera('defaultCamera');
     });
+
+    cameraManager.subscribe((cam, id) => {
+        console.log(id)
+        if (id === 'defaultCamera') {
+            returnButton.classList.add('occult');
+        }
+        else {
+            returnButton.classList.remove('occult');
+        }
+    })
 
 }

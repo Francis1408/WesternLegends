@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/Addons.js';
 export class CameraManager {
     #activeCamera;
     #activeControls;
+    #activeCameraId;
     // Used to alert the other modules that the camera has changed
     #subscribers = []; 
 
@@ -72,7 +73,7 @@ export class CameraManager {
 
     // Inform the subs that the camera has changed
     #notify() {
-        this.#subscribers.forEach(fn => fn(this.#activeCamera));
+        this.#subscribers.forEach(fn => fn(this.#activeCamera, this.#activeCameraId));
     }
 
     // Change width and height on resize
@@ -91,6 +92,7 @@ export class CameraManager {
             if (entry.id === targetCameraName) {
                 this.#activeCamera = entry.camera
                 this.#activeControls = entry.controls; 
+                this.#activeCameraId = entry.id;
                 this.#notify(); // Update all the subscribers
                 break;
             } 

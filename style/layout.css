@@ -70,9 +70,6 @@ button {
 }
 
 
-.occult {
-  display: none;
-}
 
 .hud_button {
   background-color: bisque;
@@ -87,6 +84,10 @@ button {
   border: 4px solid rgb(152, 103, 38);
   box-shadow: 3px 3px 0 #2a1a06;
   transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.occult {
+  display: none;
 }
 
 .hud_button:hover {
