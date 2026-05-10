@@ -28,4 +28,15 @@ export function setupEvents(container, cameraManager, postFX) {
         }
     })
 
+    const cameraButton = document.querySelector('#camera_button');
+    cameraButton.addEventListener('click', () => {
+
+        cameraManager.toggleControls();
+
+        // Update button label
+        const isEnabled = cameraButton.dataset.active === 'true';
+        cameraButton.dataset.active = !isEnabled;
+    })
+
+
 }

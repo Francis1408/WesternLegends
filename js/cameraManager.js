@@ -6,6 +6,7 @@ export class CameraManager {
     #activeCamera;
     #activeControls;
     #activeCameraId;
+    #controlsEnabled = false; // Set camera controls disabled as default
     // Used to alert the other modules that the camera has changed
     #subscribers = []; 
 
@@ -28,6 +29,9 @@ export class CameraManager {
         // Add the main camera as the default one
         this.#activeCamera = this.availableCameras[0].camera;
         this.#activeControls = this.availableCameras[0].controls;
+
+        // Set controls disabled as default
+        this.#activeControls.enabled = this.#controlsEnabled;
     
     }
 
@@ -39,6 +43,13 @@ export class CameraManager {
 
     get controls() {
         return this.#activeControls;
+    }
+
+    toggleControls() {
+        this.#controlsEnabled = !this.#controlsEnabled;
+        this.#activeControls.enabled = this.#controlsEnabled;
+        const state = this.#activeControls.enabled ? 'ON' : 'OFF';
+        console.log('Camera Orbit: ' + state);
     }
 
     _createEntry(id, cameraData) {
@@ -93,6 +104,7 @@ export class CameraManager {
                 this.#activeCamera = entry.camera
                 this.#activeControls = entry.controls; 
                 this.#activeCameraId = entry.id;
+                this.#activeControls.enabled = this.#controlsEnabled;
                 this.#notify(); // Update all the subscribers
                 break;
             } 

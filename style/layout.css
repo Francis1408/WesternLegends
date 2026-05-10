@@ -69,8 +69,6 @@ button {
   padding: 12px 24px;
 }
 
-
-
 .hud_button {
   background-color: bisque;
   color: red;
@@ -106,3 +104,14 @@ button {
   right: 10px;
   width: auto;
 }
+
+.camera_button {
+  top: 70px;
+  right: 10px;
+  width: auto;
+}
+
+button[data-active="false"] {
+  opacity: 0.5;
+}
+
