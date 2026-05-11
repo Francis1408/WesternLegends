@@ -109,6 +109,9 @@ export class CameraManager {
                 this.#activeControls = entry.controls; 
                 this.#activeCameraId = entry.id;
                 this.#activeControls.enabled = this.#controlsEnabled;
+
+                // Check if 
+
                 this.#notify(); // Update all the subscribers
     
                 break;

@@ -1,4 +1,4 @@
-import {scene, renderer, canvas, resizeRenderer, buildCameraSetup, container} from './scene.js'
+import {scene, renderer, canvas, container} from './scene.js'
 import { setupLights } from './lights.js'
 import { PostProcessing } from './PostProcessing.js'
 import { Raycaster } from './Raycaster.js';
