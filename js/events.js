@@ -40,7 +40,6 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
     })
 
     const enterButton = document.querySelector('#enter_button');
-
     enterButton.addEventListener('click', () => {
 
         const currentScenario = sceneManager.current;
@@ -53,7 +52,7 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         });
     }
         
-});
+    });
     
     cameraManager.subscribe((cam, id) => {
         const currentScenario = sceneManager.current;
@@ -67,6 +66,22 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
             enterButton.classList.add('occult');
         }
     })
+
+    const leaveButton = document.querySelector('#leave_button');
+    leaveButton.addEventListener('click', async () => {
+        const meshes = await sceneManager.goBack();
+        raycaster.loadMeshes(meshes);
+    })
+
+    sceneManager.subscribe((scenarioData) => {
+        if (sceneManager.hasParent()) {
+            leaveButton.classList.remove('occult');
+        }
+        else {
+            leaveButton.classList.add('occult');
+        }
+    })
+
 
 
 }
