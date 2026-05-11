@@ -42,7 +42,7 @@ setupEvents(container, cameraManager, postFX);
 renderer.setAnimationLoop(() => {
   raycaster.update();
   postFX.render();
-  cameraManager.controls.update();
+  // cameraManager.controls.update();
 })
 
 

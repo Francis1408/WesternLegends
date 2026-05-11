@@ -27,11 +27,13 @@ export class CameraManager {
         }
         
         // Add the main camera as the default one
-        this.#activeCamera = this.availableCameras[0].camera;
-        this.#activeControls = this.availableCameras[0].controls;
+        this.#activeCamera = mainCamera.camera;
+        this.#activeControls = mainCamera.controls;
 
         // Set controls disabled as default
         this.#activeControls.enabled = this.#controlsEnabled;
+
+        console.log(this.availableCameras)
     
     }
 
@@ -66,7 +68,7 @@ export class CameraManager {
         camera.target = new THREE.Vector3( cameraData.target.x, cameraData.target.y, cameraData.target.z);
 
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true; 
+        // controls.enableDamping = true; 
         controls.target.copy(camera.target);
         controls.update();
 
@@ -97,18 +99,69 @@ export class CameraManager {
 
     switchCamera(targetCameraName) {
 
+
         const targetCamera = null;
         // Find the target camera
         for (const entry of this.availableCameras) {
             if (entry.id === targetCameraName) {
+
                 this.#activeCamera = entry.camera
                 this.#activeControls = entry.controls; 
                 this.#activeCameraId = entry.id;
                 this.#activeControls.enabled = this.#controlsEnabled;
                 this.#notify(); // Update all the subscribers
+    
                 break;
             } 
         }
 
+
+        /* TRIED TO MAKE AN ANIMATION - FAILED MISERABLY 
+
+        // Find taget camera info
+        const entry = this.availableCameras.find(e => e.id === targetCameraId);
+        if (!entry) return;
+
+        // Kill any ongoing transition
+        if (this.#activeTween) this.#activeTween.kill();
+
+        const fromPos    = this.#activeCamera.position.clone();
+        const fromTarget = this.#activeControls.target.clone();
+        const proxy      = { t: 0 };
+
+        this.#activeControls.enableDamping = false;
+
+        // gsap = lib to make transitions
+        this.#activeTween = gsap.to(proxy, {
+            t:1,
+            duration: 1.8,
+            ease: 'power2.inOut',
+            onUpdate: () => {
+                this.#activeCamera.position.lerpVectors(fromPos, entry.camera.position, proxy.t);
+                this.#activeControls.target.lerpVectors(fromTarget, entry.camera.target, proxy.t);
+                this.#activeControls.update();
+            },
+            onComplete: () => {
+
+                this.#activeCamera.position.copy(entry.camera.position);
+                this.#activeControls.target.copy(entry.camera.target);
+
+                // Copy dest cam values to the active camera
+                this.#activeCamera   = entry.camera;
+                this.#activeControls = entry.controls;
+                this.#activeCameraId = entry.id;
+
+                this.#activeControls.enableDamping = true;
+                this.#activeControls.update();
+
+                this.#notify();
+                this.#activeTween = null;
+            }
+        })
+        
+        */
+
     }
+
+
 }
