@@ -22,13 +22,16 @@ export class CameraManager {
 
         // Add  the other enviroment cameras
         for (const env of scenarioData.enviroments) {
-            const entry = this._createEntry(env.id, env.camera);
-            this.availableCameras.push(entry);
+            if (env.previewCamera) {
+                const entry = this._createEntry(env.id, env.previewCamera);
+                this.availableCameras.push(entry);
+            }
         }
         
         // Add the main camera as the default one
         this.#activeCamera = mainCamera.camera;
         this.#activeControls = mainCamera.controls;
+        this.#activeCameraId = mainCamera.id;
 
         // Set controls disabled as default
         this.#activeControls.enabled = this.#controlsEnabled;
@@ -51,6 +54,7 @@ export class CameraManager {
 
         this.#activeCamera = mainCamera.camera;
         this.#activeControls = mainCamera.controls;
+        this.#activeCameraId = mainCamera.id;
 
         this.#activeControls.enabled = this.#controlsEnabled;
 

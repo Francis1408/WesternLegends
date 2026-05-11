@@ -105,6 +105,12 @@ button {
   width: auto;
 }
 
+.enter_button {
+  top: 100px;
+  right: 10px;
+  width: auto;
+}
+
 .camera_button {
   top: 70px;
   right: 10px;
