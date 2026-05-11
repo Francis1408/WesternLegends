@@ -10,6 +10,22 @@ import { SceneManager } from './sceneManager.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
 
+/*
+MODULES DYNAMIC
+
+Scene Manager: Retains the scene properties such as the current scene model on canvas 
+and the stack that informs how deep the user is inside the models three (inside buildings inside a town)
+
+Camara Manager: Retains all the cameras infos which are available in the scene. Each camera has an id and
+a dict of positional properties
+
+Raycaster: Algorithm that returns the meshes name which the mouse pointer is on
+
+Envents: HUD events
+
+
+*/ 
+
 // Core modules
 const sceneManager = new SceneManager();
 const cameraManager = new CameraManager(scenarios_data[0]);
@@ -41,6 +57,10 @@ cameraManager.subscribe((cam) => {
 cameraManager.subscribe((cam) => {
   postFX.updateCamera(cam);
 });
+
+cameraManager.subscribe((cam, id) => {
+  sceneManager.setFocused(id);
+})
 
 // Setup
 setupLights(scene);

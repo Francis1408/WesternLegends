@@ -12,7 +12,6 @@ export const scenarios_data = [
             {
                 "id" : "Saloon",
                 "modelPath": "Models/Valentine/Saloon.glb", 
-
                 "previewCamera" : {
                     "position": { "x": -11.44, "y": 2.43, "z": 51.30 },
                     "target": { "x": -17.84, "y": -0.26, "z": 61.01 },

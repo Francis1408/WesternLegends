@@ -43,13 +43,17 @@ export class CameraManager {
 
         this._clearCameraList();
 
+     
         // Add new cameras info
         const mainCamera = this._createEntry('defaultCamera', scenarioData.camera);
         this.availableCameras.push(mainCamera)
 
         for (const env of scenarioData.enviroments) {
-            const entry = this._createEntry(env.id, env.camera);
-            this.availableCameras.push(entry);
+            if(env.previewCamera) {
+                
+                const entry = this._createEntry(env.id, env.previewCamera);
+                this.availableCameras.push(entry);
+            }
         }
 
         this.#activeCamera = mainCamera.camera;
