@@ -45,7 +45,7 @@ cameraManager.subscribe((cam) => {
 // Setup
 setupLights(scene);
 setupGUI(cameraManager.camera, cameraManager.controls);
-setupEvents(container, cameraManager, postFX);
+setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {
