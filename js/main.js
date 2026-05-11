@@ -6,21 +6,30 @@ import { loadModel } from './loader.js'
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
 import { setupEvents } from './events.js';
+import { SceneManager } from './sceneManager.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
 
 // Core modules
+const sceneManager = new SceneManager();
 const cameraManager = new CameraManager(scenarios_data[0]);
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
 const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
 
-// Load data
-raycaster.loadHighlightNames(scenarios_data[0])
-loadModel(scene, scenarios_data[0]).then(meshes => {
+// Initial load
+sceneManager.load(scenarios_data[0]).then(meshes => {
   raycaster.loadMeshes(meshes);
-});
+})
+
 
 // Subscribers
+sceneManager.subscribe((scenarioData) => {
+  cameraManager.loadScenario(scenarioData);
+  raycaster.clearMeshes();
+  raycaster.clearHighlithNames();
+  raycaster.loadHighlightNames(scenarioData);
+})
+
 raycaster.onMeshClick((meshName) => {
   cameraManager.switchCamera(meshName);
 })

@@ -33,11 +33,31 @@ export class CameraManager {
         // Set controls disabled as default
         this.#activeControls.enabled = this.#controlsEnabled;
 
-        console.log(this.availableCameras)
     
     }
 
-    
+    loadScenario(scenarioData) {
+
+        this._clearCameraList();
+
+        // Add new cameras info
+        const mainCamera = this._createEntry('defaultCamera', scenarioData.camera);
+        this.availableCameras.push(mainCamera)
+
+        for (const env of scenarioData.enviroments) {
+            const entry = this._createEntry(env.id, env.camera);
+            this.availableCameras.push(entry);
+        }
+
+        this.#activeCamera = mainCamera.camera;
+        this.#activeControls = mainCamera.controls;
+
+        this.#activeControls.enabled = this.#controlsEnabled;
+
+        this.#notify()
+
+    }
+
     // Get active camera
     get camera() {
         return this.#activeCamera;

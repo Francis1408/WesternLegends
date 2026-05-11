@@ -1,7 +1,4 @@
 import { GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {scenarios_data} from '../MockedData/scenarioData.js'
-
-const HIGHLIGHTABLE_NAMES = ['Black_jack', 'Bar'];
 
 export function loadModel(scene, scenarioData) {
     return new Promise((resolve, reject) => {
@@ -9,7 +6,7 @@ export function loadModel(scene, scenarioData) {
 
         loader.load(
             // Loads the model from path
-            scenarios_data[0]["modelPath"],
+            scenarioData.modelPath,
             (gltf) => {
                 const model = gltf.scene
                 model.position.set(0, 0, 0)
@@ -18,7 +15,9 @@ export function loadModel(scene, scenarioData) {
 
                 // Get the meshes related to the names
                 const meshNames = scenarioData.enviroments.map(env => env.id);
-                resolve(_collectHighlightable(model, meshNames));
+                const meshes = _collectHighlightable(model, meshNames);
+                
+                resolve({ model, meshes });
             
             },
             // Progress loader

@@ -64,13 +64,14 @@ export class Raycaster {
 
     }
 
+    clearHighlithNames() {
+        this.#highlightableNames = [];
+    }
+    
     updateCamera(newCamera) {
         this.camera = newCamera;
     }
 
-    clearHighlithNames() {
-        this.#highlightableNames = [];
-    }
 
     // Apply raycast logic
     update() {
