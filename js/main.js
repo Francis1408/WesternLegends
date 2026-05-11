@@ -38,6 +38,10 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 })
 
 
+// GUI
+const gui = setupGUI(cameraManager.camera, cameraManager.controls);
+
+
 // Subscribers
 sceneManager.subscribe((scenarioData) => {
   cameraManager.loadScenario(scenarioData);
@@ -62,9 +66,12 @@ cameraManager.subscribe((cam, id) => {
   sceneManager.setFocused(id);
 })
 
+cameraManager.subscribe((cam, id) => {
+  gui.update(cam, cameraManager.controls);
+})
+
 // Setup
 setupLights(scene);
-setupGUI(cameraManager.camera, cameraManager.controls);
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
 
 // Rendering loop
