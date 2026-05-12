@@ -37,6 +37,20 @@ export class SceneManager {
         return meshes;
     }
 
+    // Clear stack tree and load a fresh scenario
+    async reset(scenarioData) {
+        const meshes = await this.#loadModel(scenarioData);
+        
+        this.clearStack()
+        // Add to the stack
+        this.#stack.push(scenarioData)
+        // Notify subscribers with the new enviroment list
+        this.#notify(scenarioData);
+
+        return meshes;
+    }
+
+    // Go up one position from the scenes stack tree
     async goBack() {
         if (this.#stack.length <= 1) return;
 
@@ -70,9 +84,14 @@ export class SceneManager {
         return !!envData.modelPath;
     }
 
+    clearStack() {
+        this.#stack = [];
+    }
+
     subscribe(fn) {
         this.#subscribers.push(fn);
     }
+
 
     #notify(scenarioData) {
         this.#subscribers.forEach(fn => fn(scenarioData));

@@ -80,6 +80,20 @@ main {
   height: 100%;
 }
 
+.map_panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.map_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
 
 /*---------- TABS ---------------*/
 
@@ -132,6 +146,11 @@ button {
   transition: transform 0.1s, box-shadow 0.2s;
 }
 
+.map_button {
+  position:relative;
+
+}
+
 .occult {
   display: none;
 }
@@ -169,3 +188,17 @@ button[data-active="false"] {
   opacity: 0.5;
 }
 
+/*-------------- INPUS -------------------*/
+
+input {
+  font-family: "Rye", Georgia, serif;
+  background: bisque;
+  color: rgb(80, 30, 30);
+  border: 3px solid #2a1a06;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 #0a0600;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  font-size: 14px;
+}

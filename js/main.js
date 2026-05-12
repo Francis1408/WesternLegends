@@ -5,7 +5,7 @@ import { Raycaster } from './Raycaster.js';
 import { loadModel } from './loader.js'
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
-import { setupEvents, setupTabs } from './events.js';
+import { setupEvents, setupTabs, setMapHud } from './events.js';
 import { SceneManager } from './sceneManager.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
@@ -73,6 +73,11 @@ cameraManager.subscribe((cam, id) => {
 // Setup
 setupLights(scene);
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
+setMapHud(scenarios_data, (scenario) => {
+  sceneManager.reset(scenario).then(meshes => {
+    raycaster.loadMeshes(meshes);
+  });
+})
 setupTabs();
 
 // Rendering loop

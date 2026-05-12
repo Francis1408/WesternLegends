@@ -84,7 +84,6 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
 }
 
 // ------------ TAB BUTTONS ----------------
-
 export function setupTabs() {
 
     const tabs    = document.querySelectorAll('.tabs_button');
@@ -105,4 +104,31 @@ export function setupTabs() {
         }) 
     })
 
+}
+
+// ------------ MAP HUD ----------------
+export function setMapHud(scenarios, onConfirm) {
+    let index = 0;
+    const input = document.querySelector("#area_display");
+    const backward = document.querySelector('#backward');
+    const forward  = document.querySelector('#forward');
+    const submit   = document.querySelector('#submit');
+
+     console.log(input, backward, forward);
+
+    input.value = scenarios[index].id;
+
+     backward.addEventListener('click', () => {
+        index = (index - 1 + scenarios.length) % scenarios.length;
+        input.value = scenarios[index].id;
+    });
+
+    forward.addEventListener('click', () => {
+        index = (index + 1) % scenarios.length;
+        input.value = scenarios[index].id;
+    });
+
+    submit.addEventListener('click', () => {
+        onConfirm(scenarios[index]);
+    });
 }
