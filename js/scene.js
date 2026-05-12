@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
 
 
-export const canvas = document.querySelector('#canvas')
+export const canvas = document.querySelector('#scenario_canvas')
 export const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
 
 export const container = canvas.parentElement;
