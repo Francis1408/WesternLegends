@@ -1,7 +1,6 @@
 /* FRONT-END EVENTS */
 
 import { pass } from "three/tsl";
-import {scenarios_data} from '../MockedData/scenarioData.js'
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX) {
 

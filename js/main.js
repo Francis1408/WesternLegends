@@ -28,12 +28,12 @@ Envents: HUD events
 
 // Core modules
 const sceneManager = new SceneManager();
-const cameraManager = new CameraManager(scenarios_data[0]);
+const cameraManager = new CameraManager(scenarios_data[1]);
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
 const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
 
 // Initial load
-sceneManager.load(scenarios_data[0]).then(meshes => {
+sceneManager.load(scenarios_data[1]).then(meshes => {
   raycaster.loadMeshes(meshes);
 })
 

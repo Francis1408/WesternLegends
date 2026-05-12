@@ -1,5 +1,5 @@
 export const scenarios_data = [
-
+// ------------------------ VALENTINE-------------------------------
     {   
         "id" : "Valentine",
         "modelPath": "Models/Valentine/Valentine.glb", 
@@ -128,6 +128,88 @@ export const scenarios_data = [
             
         ]
 
-    }
+    },
+// ------------------------ ARMADILLO -------------------------------
+    {   
+        "id" : "Armadillo",
+        "modelPath": "Models/Armadillo/Armadillo.glb", 
+        "camera": {
+            "position": { "x": -11.14, "y": 3.27, "z": -2.19 },
+            "target": { "x": 11.70, "y": -13.34, "z": -17.13 },
+            "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "enviroments" : [
+            {
+                "id" : "Saloon",
+                "modelPath": "Models/Armadillo/Saloon.glb", 
+                "previewCamera" : {
+                    "position": { "x": -9.04, "y": -0.53, "z": -6.08 },
+                    "target": { "x": -10.43, "y": -6.09, "z": -32.02 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": -1.03, "y": 1.41, "z": 2.33 },
+                    "target": { "x": -0.86, "y": 1.06, "z": 1.74 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : [
+                    {
+                        "id": "Bar",
+                        "enviroments" : [],
+                        "previewCamera": {
+                            "position": { "x": 1.15, "y": 0.40, "z": -0.35 },
+                            "target": { "x": 1.22, "y": 0.14, "z": -1.54 },
+                            "up": { "x": 0, "y": 1, "z": 0 }
+                        } 
+                    }, 
+
+                    {
+                        "id": "Black_jack",
+                        "enviroments" : [],
+                        "previewCamera": {
+                            "position": { "x": 0.55, "y": 0.24, "z": 0.86 },
+                            "target": { "x": 0.34, "y": 0.17, "z": 0.69 },
+                            "up": { "x": 0, "y": 1, "z": 0 }
+                        }
+
+                    },
+                ]
+            },
+
+            {
+                "id" : "Gun_shop",
+                "modelPath": "Models/Armadillo/Gun_shop.glb", 
+                "previewCamera" : {
+                    "position": { "x": -0.68, "y": -0.63, "z": -7.33 },
+                    "target": { "x": 19.85, "y": -3.69, "z": -7.13 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": 0.04, "y": 1.17, "z": -0.90 },
+                    "target": { "x": 7.35, "y": -2.20, "z": 14.63 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Trading_post",
+                "modelPath": "Models/Armadillo/Trading_post.glb", 
+                "previewCamera" : {
+                    "position": { "x": -0.17, "y": -1.04, "z": 0.28 },
+                    "target": { "x": 17.99, "y": -3.78, "z": 6.23 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": -0.41, "y": 0.99, "z": 0.00 },
+                    "target": { "x": -28.74, "y": -6.10, "z": 13.69 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []
+            }
+           
+        ]
+    },
 
 ]

@@ -62,6 +62,8 @@ export class Raycaster {
             this.#highlightableNames.push(env.id);
         }
 
+        console.log(this.#highlightableNames)
+
     }
 
     clearHighlithNames() {
