@@ -27,12 +27,12 @@
     <main>
       <div class="linha">
         <div class="frame">
-          <div class="canvas-tabs">
-            <button class="tabs_button active" data-target="wrap-main">Town</button>
-            <button class="tabs_button" data-target="wrap-secondary">Map</button>
+          <div class="canvas_tabs">
+            <button class="tabs_button active" data-target="scenario">Town</button>
+            <button class="tabs_button" data-target="map">Map</button>
           </div>
 
-          <div class="canvas-wrap active" id="scenario">
+          <div class="canvas_wrap active" id="scenario">
             <button class="return_button hud_button occult" id="return_button">RETURN</button>
             <button class="enter_button hud_button occult" id="enter_button">ENTER</button>
             <button class="leave_button hud_button occult" id="leave_button">LEAVE</button>
@@ -40,10 +40,11 @@
             <canvas class="canvas" id="scenario_canvas" ></canvas>
           </div>
 
-          <div class="canvas-wrap"> </div>
-
+          <div class="canvas_wrap" id="map"> 
+            <h1>MAPA</h1>
+          </div>
+            
         </div>
-
 
         <section class="controles">
             <h1>INVENTARIO</h1>

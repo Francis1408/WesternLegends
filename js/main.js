@@ -5,7 +5,7 @@ import { Raycaster } from './Raycaster.js';
 import { loadModel } from './loader.js'
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
-import { setupEvents } from './events.js';
+import { setupEvents, setupTabs } from './events.js';
 import { SceneManager } from './sceneManager.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
@@ -28,12 +28,12 @@ Envents: HUD events
 
 // Core modules
 const sceneManager = new SceneManager();
-const cameraManager = new CameraManager(scenarios_data[1]);
+const cameraManager = new CameraManager(scenarios_data[0]);
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
 const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
 
 // Initial load
-sceneManager.load(scenarios_data[1]).then(meshes => {
+sceneManager.load(scenarios_data[0]).then(meshes => {
   raycaster.loadMeshes(meshes);
 })
 
@@ -73,6 +73,7 @@ cameraManager.subscribe((cam, id) => {
 // Setup
 setupLights(scene);
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
+setupTabs();
 
 // Rendering loop
 renderer.setAnimationLoop(() => {

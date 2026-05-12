@@ -81,6 +81,28 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         }
     })
 
+}
 
+// ------------ TAB BUTTONS ----------------
+
+export function setupTabs() {
+
+    const tabs    = document.querySelectorAll('.tabs_button');
+    const panels  = document.querySelectorAll('.canvas_wrap');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.target;
+
+            tabs.forEach(t   => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+
+            tab.classList.add('active');
+            document.getElementById(`${target}`).classList.add('active');
+
+            // Re-trigger resize so Three.js recalculates canvas dimensions
+            window.dispatchEvent(new Event('resize'));
+        }) 
+    })
 
 }
