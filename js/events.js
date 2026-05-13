@@ -1,6 +1,6 @@
 /* FRONT-END EVENTS */
 
-import { pass } from "./three/tsl";
+import { pass } from "three/tsl";
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX) {
 
