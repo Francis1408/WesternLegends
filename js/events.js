@@ -123,7 +123,7 @@ export function setMapHud(scenarios, onConfirm) {
 
     forward.addEventListener('click', () => {
         index = (index + 1) % scenarios.length;
-        input.value = scenarios[index].id;
+        input.value = scenarios[index].id.replace("_", " ");
     });
 
     submit.addEventListener('click', () => {
