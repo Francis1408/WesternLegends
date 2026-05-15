@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/Addons.js';
-import { RenderPass } from 'three/examples/jsm/Addons.js'
-import { OutlinePass } from 'three/examples/jsm/Addons.js'
-import { OutputPass } from 'three/examples/jsm/Addons.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js'
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 
 export class PostProcessing {
 
