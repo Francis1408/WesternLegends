@@ -212,6 +212,80 @@ export const scenarios_data = [
         ]
     },
 
+    // ----------------------- REDROCK -------------------------------
+    {
+        "id" : "Redrock",
+        "modelPath": "Models/Redrock/Redrock.glb", 
+        "camera": {
+            "position": { "x": -0.07, "y": 0.41, "z": -5.81},
+            "target": { "x": -0.34, "y": -1.71, "z": -15.59 },
+            "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "enviroments" : [
+            {
+                "id" : "Stable",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 0.61, "y": -0.40, "z": -11.89 },
+                    "target": { "x": 3.31, "y": -0.88, "z": -11.79 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Trading_post",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 0.00, "y": -0.14, "z": -19.56 },
+                    "target": { "x": -11.32, "y": -0.12, "z": -19.46 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Jail",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 0.94, "y": -0.60, "z": -17.81 },
+                    "target": { "x": 4.05, "y": -0.71, "z": -17.83 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Gun_shop",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": -0.43, "y": -0.64, "z": -13.61 },
+                    "target": { "x": -0.95, "y": -0.67, "z": -13.63 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Bank",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 0.14, "y": 0.20, "z": -23.18 },
+                    "target": { "x": 10.15, "y": -0.04, "z": -23.33 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+        ]
+    },
+
    // ------------------------ WELLINGTON -------------------------------
 
    {   
@@ -287,6 +361,81 @@ export const scenarios_data = [
            
         ]
     },
+    // ----------------------- TERMINUS-------------------------------------
+
+    {   
+        "id" : "Terminus",
+        "modelPath": "Models/Terminus/Terminus.glb", 
+        "camera": {
+            "position": { "x": 14.61, "y": -4.86, "z": -35.91 },
+            "target": { "x": 14.26, "y": -13.90, "z": -14.70 },
+            "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "enviroments" : [
+            {
+                "id" : "Station",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 13.37, "y": -7.97, "z": -21.48 },
+                    "target": { "x": 13.07, "y": -9.15, "z": -12.95 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
+                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Hotel",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 14.19, "y": -7.87, "z": -22.81 },
+                    "target": { "x": 23.35, "y": -7.67, "z": -22.72 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
+                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Saloon",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 12.87, "y": -8.18, "z": -26.22 },
+                    "target": { "x": 7.37, "y": -9.19, "z": -26.38 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
+                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Trading_post",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 14.10, "y": -8.36, "z": -26.50 },
+                    "target": { "x": 25.69, "y": -10.40, "z": -26.51 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+                    
+            },
+           
+        ]
+    },
 
     // ------------------------ COMANCHE TRIBE -------------------------------
     {   
@@ -313,4 +462,69 @@ export const scenarios_data = [
     
         ]
     },
+
+    // ------------------------ QUERY -------------------------------
+    {
+        "id" : "Query",
+        "modelPath": "Models/Query/Query.glb", 
+        "camera": {
+            "position": { "x": -13.11, "y": 6.28, "z": -19.58 },
+            "target": { "x": 0.73, "y": -1.62, "z": -2.03 },
+            "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "enviroments" : [
+            {
+                "id" : "Mine",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 4.52, "y": 0.56, "z": -4.46 },
+                    "target": { "x": 7.04, "y": 0.01, "z": -4.29 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+            {
+                "id" : "Station",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": -12.67, "y": 0.86, "z": -18.13 },
+                    "target": { "x": 0.56, "y": -2.40, "z": -2.21 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+        ]
+    },
+
+     // ----------------------- THIEF CAMP -------------------------------
+    {
+        "id" : "Thief_Camp",
+        "modelPath": "Models/Thief_camp/Thief_camp.glb", 
+        "camera": {
+            "position": { "x": 12.44, "y": 9.93, "z": -15.49},
+            "target": { "x": 1.81, "y": -1.00, "z": -1.12 },
+            "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "enviroments" : [
+            {
+                "id" : "Camp",
+                "modelPath": null, 
+                "previewCamera" : {
+                    "position": { "x": 0.18, "y": 0.97, "z": -7.56 },
+                    "target": { "x": -1.02, "y": 0.77, "z": -7.75 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": null,
+                "enviroments" : []
+            },
+
+        ]
+    },
+
 ]
