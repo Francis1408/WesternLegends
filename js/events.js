@@ -82,10 +82,11 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
 }
 
 // ------------ TAB BUTTONS ----------------
-export function setupTabs() {
+export function setupTabs(sceneManager) {
 
     const tabs    = document.querySelectorAll('.tabs_button');
     const panels  = document.querySelectorAll('.canvas_wrap');
+    const town_tab = document.querySelector('#town_tab');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -102,7 +103,15 @@ export function setupTabs() {
         }) 
     })
 
+    sceneManager.subscribe((scenarioData) => {
+
+        let scenario_name = scenarioData.id
+        town_tab.innerHTML = String(scenario_name).replace("_", " ");
+    })
+
 }
+
+
 
 // ------------ MAP HUD ----------------
 export function setMapHud(scenarios, onConfirm) {

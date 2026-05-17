@@ -78,7 +78,7 @@ setMapHud(scenarios_data, (scenario) => {
     raycaster.loadMeshes(meshes);
   });
 })
-setupTabs();
+setupTabs(sceneManager);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {
