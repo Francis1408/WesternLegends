@@ -39,6 +39,7 @@ export class Raycaster {
 
         canvas.addEventListener('click', (event) => {
 
+            console.log(this.hittedMeshName);
             if(this.#highlightableNames.includes(this.hittedMeshName)) {
 
                 console.log(`O elemento ${this.hittedMeshName} foi clicado`);

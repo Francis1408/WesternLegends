@@ -144,8 +144,8 @@ export const scenarios_data = [
                 "id" : "Saloon",
                 "modelPath": "Models/Armadillo/Saloon.glb", 
                 "previewCamera" : {
-                    "position": { "x": -9.04, "y": -0.53, "z": -6.08 },
-                    "target": { "x": -10.43, "y": -6.09, "z": -32.02 },
+                    "position": { "x": -9.17, "y": -0.53, "z": -6.54 },
+                    "target": { "x": -9.68, "y": -3.99, "z": -29.76 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -197,13 +197,13 @@ export const scenarios_data = [
                 "id" : "Trading_post",
                 "modelPath": "Models/Armadillo/Trading_post.glb", 
                 "previewCamera" : {
-                    "position": { "x": -0.17, "y": -1.04, "z": 0.28 },
-                    "target": { "x": 17.99, "y": -3.78, "z": 6.23 },
+                    "position": { "x": 0.17, "y": -0.16, "z": -2.83 },
+                    "target": { "x": 0.12, "y": -3.78, "z": 11.06 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -0.41, "y": 0.99, "z": 0.00 },
-                    "target": { "x": -28.74, "y": -6.10, "z": 13.69 },
+                    "position": { "x": -0.15, "y": 0.99, "z": 0.20 },
+                    "target": { "x": 14.92, "y": -2.20, "z": 8.32 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "enviroments" : []
@@ -237,49 +237,65 @@ export const scenarios_data = [
 
             {
                 "id" : "Trading_post",
-                "modelPath": null, 
+                "modelPath": "Models/Redrock/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 0.00, "y": -0.14, "z": -19.56 },
                     "target": { "x": -11.32, "y": -0.12, "z": -19.46 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": null,
+                "camera": {
+                     "position": { "x": -4.05, "y": 1.16, "z": 50.13 },
+                    "target": { "x": -0.32, "y": 0.05, "z": 51.33 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
                 "enviroments" : []
             },
 
             {
                 "id" : "Jail",
-                "modelPath": null, 
+                "modelPath": "Models/Redrock/Jail.glb", 
                 "previewCamera" : {
                     "position": { "x": 0.94, "y": -0.60, "z": -17.81 },
                     "target": { "x": 4.05, "y": -0.71, "z": -17.83 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": null,
+                "camera": {
+                    "position": { "x": -4.20, "y": -0.16, "z": 0.21 },
+                    "target": { "x": 11.97, "y": -1.43, "z": -3.94 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
                 "enviroments" : []
             },
 
             {
                 "id" : "Gun_shop",
-                "modelPath": null, 
+                "modelPath": "Models/Redrock/Gun_shop.glb", 
                 "previewCamera" : {
                     "position": { "x": -0.43, "y": -0.64, "z": -13.61 },
                     "target": { "x": -0.95, "y": -0.67, "z": -13.63 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": null,
+                "camera": {
+                    "position": { "x": -1.59, "y": 0.89, "z": 0.37 },
+                    "target": { "x": -14.21, "y": -1.71, "z": 0.61 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
                 "enviroments" : []
             },
 
             {
                 "id" : "Bank",
-                "modelPath": null, 
+                "modelPath": "Models/Redrock/Bank.glb", 
                 "previewCamera" : {
                     "position": { "x": 0.14, "y": 0.20, "z": -23.18 },
                     "target": { "x": 10.15, "y": -0.04, "z": -23.33 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": null,
+                "camera": {
+                    "position": { "x": 1.83, "y": 2.38, "z": -0.40 },
+                    "target": { "x": 12.30, "y": 0.45, "z": -0.09 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
                 "enviroments" : []
             },
 
@@ -355,10 +371,8 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
-                "enviroments" : []
-                    
-            },
-           
+                "enviroments" : []          
+            },  
         ]
     },
     // ----------------------- TERMINUS-------------------------------------
@@ -391,15 +405,15 @@ export const scenarios_data = [
 
             {
                 "id" : "Hotel",
-                "modelPath": null, 
+                "modelPath": "Models/Terminus/Hotel.glb", 
                 "previewCamera" : {
                     "position": { "x": 14.19, "y": -7.87, "z": -22.81 },
                     "target": { "x": 23.35, "y": -7.67, "z": -22.72 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
-                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "position": { "x": 2.86, "y": 1.01, "z": -0.60 },
+                    "target": { "x": 2.70, "y": 0.74, "z": 0.02 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "enviroments" : []
@@ -407,29 +421,54 @@ export const scenarios_data = [
 
             {
                 "id" : "Saloon",
-                "modelPath": null, 
+                "modelPath": "Models/Terminus/Saloon.glb", 
                 "previewCamera" : {
                     "position": { "x": 12.87, "y": -8.18, "z": -26.22 },
                     "target": { "x": 7.37, "y": -9.19, "z": -26.38 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
-                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "position": { "x": -0.27, "y": 0.99, "z": 0.18 },
+                    "target": { "x": -2.85, "y": 0.08, "z": -0.14 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "enviroments" : []
+                "enviroments" : [
+                    {
+                        "id": "Bar",
+                        "enviroments" : [],
+                        "previewCamera": {
+                            "position": { "x": -2.09, "y": 0.98, "z": 0.34 },
+                            "target": { "x": -3.09, "y": 0.77, "z": 0.28 },
+                            "up": { "x": 0, "y": 1, "z": 0 }
+                        } 
+                    }, 
+
+                    {
+                        "id": "Black_jack",
+                        "enviroments" : [],
+                        "previewCamera": {
+                            "position": { "x": -0.27, "y": 0.92, "z": -0.09 },
+                            "target": { "x": -2.20, "y": 0.18, "z": -1.30 },
+                            "up": { "x": 0, "y": 1, "z": 0 }
+                        }
+
+                    },
+                ]
             },
 
             {
                 "id" : "Trading_post",
-                "modelPath": null, 
+                "modelPath": "Models/Terminus/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 14.10, "y": -8.36, "z": -26.50 },
                     "target": { "x": 25.69, "y": -10.40, "z": -26.51 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": null,
+                "camera": {
+                    "position": { "x": 1.35, "y": 0.89, "z": -0.40 },
+                    "target": { "x": 2.96, "y": 0.39, "z": -0.42 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
                 "enviroments" : []
                     
             },
