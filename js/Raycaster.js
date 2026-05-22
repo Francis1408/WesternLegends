@@ -79,7 +79,7 @@ export class Raycaster {
     // Apply raycast logic
     update() {
 
-        if (this.#highlightableMeshes.length === 0) return 
+        if (this.#highlightableMeshes.length === 0) return; 
 
         this.raycaster.setFromCamera(this.mouse, this.camera);
         const intersects = this.raycaster.intersectObjects(this.#highlightableMeshes, false);
@@ -88,10 +88,10 @@ export class Raycaster {
             // Find the top-level named object to outline all its meshes
             const hit = intersects[0].object;
             let namedObj = hit;
-            while (namedObj.parent && !this.#highlightableNames.includes(namedObj.userData?.name)) {
+            while (namedObj.parent && !this.#highlightableNames.includes(namedObj.name)) {
                 namedObj = namedObj.parent;
-                this.hittedMeshName = namedObj.name;
             }
+            this.hittedMeshName = this.#highlightableNames.includes(namedObj.name) ? namedObj.name : null;
             // Collect all child meshes of the named group
             const toOutline = [];
             namedObj.traverse((c) => { if (c.isMesh) toOutline.push(c); });

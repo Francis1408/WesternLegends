@@ -34,11 +34,11 @@ export function loadModel(scene, scenarioData) {
         const meshes = []
 
         model.traverse((child) => {
-            if (!child.isMesh) return
+            if (!child.isMesh && !child.isSkinnedMesh) return
 
             let obj = child
             while (obj) {
-            if (highlightableNames.includes(obj.userData?.name)) {
+            if (highlightableNames.includes(obj.name)) {
                 meshes.push(child)
                 break
             }

@@ -373,6 +373,22 @@ export const scenarios_data = [
                 "camera": null,
                 "enviroments" : []          
             },  
+
+            {
+                "id" : "Jail",
+                "modelPath": "Models/Wellington/Jail.glb", 
+                "previewCamera" : {
+                    "position": { "x": -8.43, "y": -1.95, "z": -4.61 },
+                    "target": { "x": -8.52, "y": -2.32, "z": -15.25 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "camera": {
+                    "position": { "x": -0.18, "y": 0.78, "z": -0.01 },
+                    "target": { "x": -0.12, "y": -0.05, "z": -15.39 },
+                    "up": { "x": 0, "y": 1, "z": 0 }
+                },
+                "enviroments" : []          
+            },
         ]
     },
     // ----------------------- TERMINUS-------------------------------------
