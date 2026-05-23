@@ -3,6 +3,10 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { GammaCorrectionShader } from 'three/addons/shaders/GammaCorrectionShader.js';
+
 
 export class PostProcessing {
 
@@ -27,8 +31,24 @@ export class PostProcessing {
         this.outlinePass.hiddenEdgeColor.set('#190a05');
         this.composer.addPass(this.outlinePass);
 
+
+        
+        this.bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            0.3,  // strength
+            0.5,  // radius
+            0.85  // threshold
+        );
+        this.composer.addPass(this.bloomPass);
+
+        // const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+        // this.composer.addPass(gammaCorrectionPass);
+
         this.outputPass = new OutputPass();
         this.composer.addPass(this.outputPass);
+
+        
+
     }
 
     render() {
