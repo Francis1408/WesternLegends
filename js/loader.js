@@ -1,4 +1,6 @@
+import * as THREE from 'three';
 import { GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import { NPC } from './Npc';
 
 export function loadModel(scene, scenarioData) {
     return new Promise((resolve, reject) => {
@@ -10,13 +12,13 @@ export function loadModel(scene, scenarioData) {
             (gltf) => {
                 const model = gltf.scene
                 model.position.set(0, 0, 0)
-                model.scale.set(0.5, 0.5, 0.5)
+                model.scale.set(1, 1, 1)
                 scene.add(model)
 
                 // Get the meshes related to the names
                 const meshNames = scenarioData.enviroments.map(env => env.id);
                 const meshes = _collectHighlightable(model, meshNames);
-                
+
                 resolve({ model, meshes });
             
             },
@@ -28,6 +30,7 @@ export function loadModel(scene, scenarioData) {
             reject
         )     
     })
+    
 
     // Trasverse the models meshes to find the highlightable meshes
     function _collectHighlightable(model, highlightableNames) {
@@ -50,3 +53,41 @@ export function loadModel(scene, scenarioData) {
     }
 }
 
+export function loadNPCs(scene, npcsData) {
+
+    const loader = new GLTFLoader()
+    const loadSingle = (npcData) => {
+        return new Promise((resolve, reject) => {
+            loader.load(
+                // Loads the model from path
+                npcData.modelPath,
+                (gltf) => {
+                    const model = gltf.scene
+                    model.position.set(...npcData.position ?? [0, 0, 0]);
+                    model.scale.set(1, 1, 1)
+                    scene.add(model)
+
+                    // Set animation mixer
+                    const mixer = new THREE.AnimationMixer(model);
+                    const animations = {};
+                    gltf.animations.forEach((clip) => {
+                        animations[clip.name] = mixer.clipAction(clip);
+                    })
+                    
+                    const npc = new NPC(npcData.name ?? 'Default', animations, animations['Sit_idle'], mixer, model);
+
+                    resolve(npc);
+                    
+                },
+                // Progress loader
+                (progress) => {
+                    const pct = (progress.loaded / progress.total * 100).toFixed(1)
+                    console.log(`Loading ${npcData.name}: ${pct}%`);
+                },
+                reject
+            )     
+        })
+    }
+
+    return Promise.all(npcsData.map(loadSingle));
+}

@@ -2,7 +2,6 @@ import {scene, renderer, canvas, container} from './scene.js'
 import { setupLights, setupLightsGUI, light, ambientLight } from './lights.js'
 import { PostProcessing } from './PostProcessing.js'
 import { Raycaster } from './Raycaster.js';
-import { loadModel } from './loader.js'
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
 import { setupEvents, setupTabs, setMapHud } from './events.js';
@@ -33,6 +32,7 @@ const cameraManager = new CameraManager(scenarios_data[0]);
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
 const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
 
+
 // Initial load
 sceneManager.load(scenarios_data[0]).then(meshes => {
   raycaster.loadMeshes(meshes);
@@ -40,7 +40,7 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 
 
 // GUI
-// const gui = setupGUI(cameraManager.camera, cameraManager.controls);
+const gui = setupGUI(cameraManager.camera, cameraManager.controls);
 
 
 // Subscribers
@@ -67,9 +67,9 @@ cameraManager.subscribe((cam, id) => {
   sceneManager.setFocused(id);
 })
 
-// cameraManager.subscribe((cam, id) => {
-//   gui.update(cam, cameraManager.controls);
-// })
+cameraManager.subscribe((cam, id) => {
+  gui.update(cam, cameraManager.controls);
+})
 
 // Setup
 setupLights(scene);
@@ -82,10 +82,11 @@ setMapHud(scenarios_data, (scenario) => {
 setupTabs(sceneManager);
 setSky(scene, 'img/Generic_SimpleSky_01.png')
 
-setupLightsGUI(light, ambientLight, postFX.bloomPass);
+// setupLightsGUI(light, ambientLight, postFX.bloomPass);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {
+  sceneManager.updateAnimations();
   raycaster.update();
   postFX.render();
   // cameraManager.controls.update();

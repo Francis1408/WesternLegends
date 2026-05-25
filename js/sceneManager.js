@@ -1,4 +1,6 @@
-import { loadModel } from "./loader.js";
+import * as THREE from 'three';
+
+import { loadModel, loadNPCs } from "./loader.js";
 import { scene } from './scene.js';
 
 export class SceneManager {
@@ -7,7 +9,8 @@ export class SceneManager {
     #subscribers = [];
     #stack = []; // History of loaded scenarios
     #focusedId  = null;
-
+    #npcs = []; // Save the npc list
+    #timer = new THREE.Timer();
 
 
     async #loadModel(scenarioData) {
@@ -17,10 +20,22 @@ export class SceneManager {
             this.#currentModel = null;
         }
 
+        // Clear npcs list
+        if(this.#npcs) {
+            this.#npcs.forEach((npc) => {
+                scene.remove(npc.model);
+            })
+            this.#npcs = []
+        }
+
         if (!scenarioData.modelPath) return [];
 
-        const { model, meshes } = await loadModel(scene, scenarioData);
+        const [{ model, meshes }, npcs] = await Promise.all([
+            loadModel(scene, scenarioData),
+            loadNPCs(scene, scenarioData.npcs ?? [])
+        ]) 
         this.#currentModel = model;
+        this.#npcs = [...npcs];
 
         return meshes;
     }
@@ -63,12 +78,23 @@ export class SceneManager {
         return meshes ?? [];
     }
 
+    updateAnimations() {
+
+        this.#timer.update()
+        const delta = this.#timer.getDelta();
+        this.#npcs.forEach(npc => npc.update(delta));
+    }
+
     get current() {
         return this.#stack[this.#stack.length - 1];
     }
 
     get focusedId() {
         return this.#focusedId;
+    }
+
+    get npcs() {
+        return this.#npcs;
     }
 
     // CHeck if stack has more than one scene

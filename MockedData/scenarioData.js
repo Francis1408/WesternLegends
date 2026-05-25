@@ -4,17 +4,24 @@ export const scenarios_data = [
         "id" : "Valentine",
         "modelPath": "Models/Valentine/Valentine.glb", 
         "camera": {
-            "position": { "x": -12.59, "y": 3.99, "z": 33.78 },
-            "target": { "x": -6.29, "y": -6.02, "z": 52.43 },
+            "position": { "x": -24.48, "y": 7.80, "z": 68.90 },
+            "target": { "x": -22.05, "y": -0.50, "z": 90.74 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
+        "npcs": [
+            {
+                "modelPath": "Models/Characters/Badguy_03.glb",
+                "name": "Cowboy",
+                "position": [-30.50, 0.195, 86.43]
+            }
+        ],
         "enviroments" : [
             {
                 "id" : "Saloon",
                 "modelPath": "Models/Valentine/Saloon.glb", 
                 "previewCamera" : {
-                    "position": { "x": -11.44, "y": 2.43, "z": 51.30 },
-                    "target": { "x": -17.84, "y": -0.26, "z": 61.01 },
+                    "position": { "x": -24.17, "y": 3.40, "z": 104.99 },
+                    "target": { "x": -26.92, "y": 3.50, "z": 108.85 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -50,8 +57,8 @@ export const scenarios_data = [
                 "id" : "Stable",
                 "modelPath": "Models/Valentine/Stable.glb", 
                 "previewCamera": {
-                    "position": { "x": -11.07, "y": 1.87, "z": 43.75 },
-                    "target": { "x": 4.63, "y": -1.99, "z": 42.30 },
+                    "position": { "x": -21.50, "y": 2.49, "z": 87.45 },
+                    "target": { "x": -11.62, "y": 1.95, "z": 86.82 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -66,8 +73,8 @@ export const scenarios_data = [
                 "id" : "Bank",
                 "modelPath": "Models/Valentine/Bank.glb", 
                 "previewCamera": {
-                    "position": { "x": -11.90, "y": 1.68, "z": 50.70 },
-                    "target": { "x": -26.02, "y": -1.91, "z": 53.29 },
+                    "position": { "x": -24.83, "y": 2.56, "z": 101.55 },
+                    "target": { "x": -30.44, "y": 2.99, "z": 102.48 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -82,8 +89,8 @@ export const scenarios_data = [
                 "id" : "Hotel",
                 "modelPath": "Models/Valentine/Hotel.glb", 
                 "previewCamera": {
-                    "position": { "x": -12.63, "y": 2.57, "z": 41.35 },
-                    "target": { "x": -26.75, "y": 0.76, "z": 43.20 },
+                    "position": { "x": -25.07, "y": 3.20, "z": 82.85 },
+                    "target": { "x": -30.73, "y": 3.18, "z": 83.58 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -98,8 +105,8 @@ export const scenarios_data = [
                 "id" : "Jail",
                 "modelPath": "Models/Valentine/Jail.glb", 
                 "previewCamera": {
-                    "position": { "x": -8.42, "y": 1.51, "z": 58.04 },
-                    "target": { "x": -6.15, "y": 1.27, "z": 57.60 },
+                    "position": { "x": -16.51, "y": 2.73, "z": 115.77 },
+                    "target": { "x": -15.50, "y": 2.71, "z": 115.61 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -114,8 +121,8 @@ export const scenarios_data = [
                 "id" : "Trading_post",
                 "modelPath": "Models/Valentine/Trading_post.glb", 
                 "previewCamera" : {
-                    "position": { "x": -10.17, "y": 1.69, "z": 52.15 },
-                    "target": { "x": -0.16, "y": 0.26, "z": 50.59 },
+                    "position": { "x": -18.04, "y": 2.76, "z": 103.78 },
+                    "target": { "x": -7.63, "y": 2.78, "z": 102.08 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
