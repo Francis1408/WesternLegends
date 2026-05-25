@@ -19,6 +19,18 @@ export class NPC {
         }
     }
 
+    playAnimation(name, crossFadeDuration = 0.3) {
+        const next = this.animations[name];
+        if (!next || next === this.currentAnimation) return;
+
+        if (this.currentAnimation) {
+            this.currentAnimation.fadeOut(crossFadeDuration);
+        }
+
+        next.reset().fadeIn(crossFadeDuration).play();
+        this.currentAction = next;
+    }
+
     update(delta) {
         this.mixer.update(delta);
     }

@@ -37,11 +37,6 @@ export function setupGUILight(camera, controls) {
   const py= posFolder.add(camera.position, 'y').listen().decimals(2)
   const pz = posFolder.add(camera.position, 'z').listen().decimals(2)
 
-  const targetFolder = gui.addFolder('Target')
-  const tx = targetFolder.add(controls.target, 'x').listen().decimals(2)
-  const ty = targetFolder.add(controls.target, 'y').listen().decimals(2)
-  const tz = targetFolder.add(controls.target, 'z').listen().decimals(2)
-
   function update(newCamera, newControls) {
 
     px.object = newCamera.position;

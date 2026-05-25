@@ -1,3 +1,5 @@
+import { color } from "three/tsl";
+
 export const scenarios_data = [
 // ------------------------ VALENTINE-------------------------------
     {   
@@ -15,6 +17,33 @@ export const scenarios_data = [
                 "position": [-30.50, 0.195, 86.43]
             }
         ],
+
+        "lights" : {
+            "directional" : {
+                "position" : [32.8, 42.8, 3.2],
+                "color" : '#ead380',
+                "intensity" : 4
+            },
+
+            "ambient" : {
+                "color" : '#71a2a2',
+                "intensity" : 1.305
+            }
+        },
+        "post_processing" : {
+            "bloom" : {
+                "strength" : 0.087,
+                "radius" : 1.238,
+                "threshold" : 0.263
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
+        },
+
         "enviroments" : [
             {
                 "id" : "Saloon",
@@ -25,17 +54,44 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -1.03, "y": 1.41, "z": 2.33 },
+                    "position": { "x": -2.01, "y": 2.58, "z": 4.68 },
                     "target": { "x": -0.86, "y": 1.06, "z": 1.74 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [77.2, 32.8, 3.2],
+                        "color" : '#ecbfbb',
+                        "intensity" : 4.35
+                    },
+
+                    "ambient" : {
+                        "color" : '#9e8670',
+                        "intensity" : 0.897
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 0.27,
+                        "radius" : 0.82,
+                        "threshold" : 0.422
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : [
                     {
                         "id": "Bar",
                         "enviroments" : [],
                         "previewCamera": {
-                            "position": { "x": 1.15, "y": 0.40, "z": -0.35 },
-                            "target": { "x": 1.22, "y": 0.14, "z": -1.54 },
+                            "position": { "x": 2.69, "y": 0.71, "z": -1.06 },
+                            "target": { "x": 2.73, "y": 0.62, "z": -1.70 },
                             "up": { "x": 0, "y": 1, "z": 0 }
                         } 
                     }, 
@@ -44,8 +100,8 @@ export const scenarios_data = [
                         "id": "Black_jack",
                         "enviroments" : [],
                         "previewCamera": {
-                            "position": { "x": 0.55, "y": 0.24, "z": 0.86 },
-                            "target": { "x": 0.34, "y": 0.17, "z": 0.69 },
+                            "position": { "x": 1.16, "y": 0.73, "z": 1.72 },
+                            "target": { "x": -0.14, "y": 0.19, "z": 0.82 },
                             "up": { "x": 0, "y": 1, "z": 0 }
                         }
 
@@ -62,10 +118,37 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -4.85, "y": 0.78, "z": 43.51 },
-                    "target": { "x": 4.67, "y": -1.64, "z": 42.13 },
+                    "position": { "x": -10.99, "y": 1.50, "z": 87.50 },
+                    "target": { "x": 15.88, "y": -3.19, "z": 80.16 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [136, 165.6, 101.6],
+                        "color" : '#b1a07c',
+                        "intensity" : 5.21
+                    },
+
+                    "ambient" : {
+                        "color" : '#dfcebf',
+                        "intensity" : 1.377
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 0.789,
+                        "radius" : 1.09,
+                        "threshold" : 0.312
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -78,10 +161,37 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 5.58, "y": -0.71, "z": 0.64 },
-                    "target": { "x": 6.56, "y": -0.75, "z": 0.63 },
+                    "position": { "x": 11.74, "y": -1.42, "z": 1.00 },
+                    "target": { "x": 13.63, "y": -1.78, "z": 0.82 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [86.8, 180.4, 136],
+                        "color" : '#ecdfbb',
+                        "intensity" : 4.22
+                    },
+
+                    "ambient" : {
+                        "color" : '#dbc6b3',
+                        "intensity" : 1.377
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 0.42,
+                        "radius" : 0.894,
+                        "threshold" : 0.299
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -94,10 +204,37 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 2.10, "y": 0.35, "z": -0.77 },
-                    "target": { "x": -37.47, "y": -11.23, "z": 7.04 },
+                    "position": { "x": 4.20, "y": 0.67, "z": -1.03 },
+                    "target": { "x": -37.64, "y": -10.32, "z": 7.35 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [106.4, -6.4, 3.2],
+                        "color" : '#cdc3ad',
+                        "intensity" : 2.87
+                    },
+
+                    "ambient" : {
+                        "color" : '#bcb094',
+                        "intensity" : 1.377
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 1.083,
+                        "radius" : 1.116,
+                        "threshold" : 0.459
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -110,10 +247,37 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -4.23, "y": -0.27, "z": 0.29 },
-                    "target": { "x": -2.50, "y": -0.61, "z": -0.06 },
+                    "position": { "x": -8.04, "y": -0.42, "z": 0.45 },
+                    "target": { "x": -2.72, "y": -1.05, "z": -0.53 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [-60.4, 32.8, 18],
+                        "color" : '#8c8269',
+                        "intensity" : 8.16
+                    },
+
+                    "ambient" : {
+                        "color" : '#dbc6b3',
+                        "intensity" : 1.377,
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 0.42,
+                        "radius" : 1.042,
+                        "threshold" : 0.299
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -126,10 +290,37 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -4.19, "y": 1.27, "z": 51.84 },
-                    "target": { "x": -0.15, "y": 0.10, "z": 50.83 },
+                    "position": { "x": -9.08, "y": 2.19, "z": 103.10 },
+                    "target": { "x": 20.23, "y": 1.94, "z": 95.67 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [-26, 52.4, 3.2],
+                        "color" : '#b6ac96',
+                        "intensity" : 5.21
+                    },
+
+                    "ambient" : {
+                        "color" : '#dfcebf',
+                        "intensity" : 1.377
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : 0.492,
+                        "radius" : 0.722,
+                        "threshold" : 0.471
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
             
@@ -141,9 +332,35 @@ export const scenarios_data = [
         "id" : "Armadillo",
         "modelPath": "Models/Armadillo/Armadillo.glb", 
         "camera": {
-            "position": { "x": -11.14, "y": 3.27, "z": -2.19 },
-            "target": { "x": 11.70, "y": -13.34, "z": -17.13 },
+            "position": { "x": -26.35, "y": 4.77, "z": -5.97 },
+            "target": { "x": 11.43, "y": -13.35, "z": -17.52 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [
@@ -151,22 +368,49 @@ export const scenarios_data = [
                 "id" : "Saloon",
                 "modelPath": "Models/Armadillo/Saloon.glb", 
                 "previewCamera" : {
-                    "position": { "x": -9.17, "y": -0.53, "z": -6.54 },
-                    "target": { "x": -9.68, "y": -3.99, "z": -29.76 },
+                    "position": { "x": -17.75, "y": -1.37, "z": -12.86 },
+                    "target": { "x": -17.36, "y": -3.62, "z": -31.08 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -1.03, "y": 1.41, "z": 2.33 },
-                    "target": { "x": -0.86, "y": 1.06, "z": 1.74 },
+                    "position": { "x": -0.74, "y": 2.40, "z": 3.65 },
+                    "target": { "x": -0.35, "y": 1.31, "z": 1.69 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : [
                     {
                         "id": "Bar",
                         "enviroments" : [],
                         "previewCamera": {
-                            "position": { "x": 1.15, "y": 0.40, "z": -0.35 },
-                            "target": { "x": 1.22, "y": 0.14, "z": -1.54 },
+                            "position": { "x": 0.48, "y": 1.91, "z": -1.61 },
+                            "target": { "x": 0.47, "y": 1.76, "z": -2.18 },
                             "up": { "x": 0, "y": 1, "z": 0 }
                         } 
                     }, 
@@ -175,8 +419,8 @@ export const scenarios_data = [
                         "id": "Black_jack",
                         "enviroments" : [],
                         "previewCamera": {
-                            "position": { "x": 0.55, "y": 0.24, "z": 0.86 },
-                            "target": { "x": 0.34, "y": 0.17, "z": 0.69 },
+                            "position": { "x": -0.70, "y": 1.97, "z": 2.72 },
+                            "target": { "x": -0.79, "y": 0.66, "z": 0.52 },
                             "up": { "x": 0, "y": 1, "z": 0 }
                         }
 
@@ -188,15 +432,42 @@ export const scenarios_data = [
                 "id" : "Gun_shop",
                 "modelPath": "Models/Armadillo/Gun_shop.glb", 
                 "previewCamera" : {
-                    "position": { "x": -0.68, "y": -0.63, "z": -7.33 },
-                    "target": { "x": 19.85, "y": -3.69, "z": -7.13 },
+                    "position": { "x": 0.72, "y": -0.68, "z": -14.27 },
+                    "target": { "x": 18.89, "y": -2.32, "z": -14.00 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 0.04, "y": 1.17, "z": -0.90 },
-                    "target": { "x": 7.35, "y": -2.20, "z": 14.63 },
+                    "position": { "x": 0.36, "y": 1.80, "z": -1.08 },
+                    "target": { "x": 10.18, "y": -3.57, "z": 12.26 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -204,15 +475,42 @@ export const scenarios_data = [
                 "id" : "Trading_post",
                 "modelPath": "Models/Armadillo/Trading_post.glb", 
                 "previewCamera" : {
-                    "position": { "x": 0.17, "y": -0.16, "z": -2.83 },
-                    "target": { "x": 0.12, "y": -3.78, "z": 11.06 },
+                    "position": { "x": 0.86, "y": -1.15, "z": -5.95 },
+                    "target": { "x": 0.54, "y": -0.77, "z": 5.26 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -0.15, "y": 0.99, "z": 0.20 },
-                    "target": { "x": 14.92, "y": -2.20, "z": 8.32 },
+                    "position": { "x": 0.10, "y": 1.83, "z": 0.02 },
+                    "target": { "x": 14.77, "y": -2.41, "z": 8.39 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             }
            
@@ -224,9 +522,36 @@ export const scenarios_data = [
         "id" : "Redrock",
         "modelPath": "Models/Redrock/Redrock.glb", 
         "camera": {
-            "position": { "x": -0.07, "y": 0.41, "z": -5.81},
-            "target": { "x": -0.34, "y": -1.71, "z": -15.59 },
+            "position": { "x": 0.30, "y": 1.13, "z": -12.36},
+            "target": { "x": 0.20, "y": 0.00, "z": -16.17 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [
@@ -234,11 +559,38 @@ export const scenarios_data = [
                 "id" : "Stable",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": 0.61, "y": -0.40, "z": -11.89 },
-                    "target": { "x": 3.31, "y": -0.88, "z": -11.79 },
+                    "position": { "x": 1.76, "y": -1.39, "z": -23.75 },
+                    "target": { "x": 4.64, "y": -1.86, "z": -23.75 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
                 "enviroments" : []
             },
 
@@ -246,15 +598,43 @@ export const scenarios_data = [
                 "id" : "Trading_post",
                 "modelPath": "Models/Redrock/Trading_post.glb", 
                 "previewCamera" : {
-                    "position": { "x": 0.00, "y": -0.14, "z": -19.56 },
-                    "target": { "x": -11.32, "y": -0.12, "z": -19.46 },
+                    "position": { "x": 0.01, "y": -0.76, "z": -38.76 },
+                    "target": { "x": -12.01, "y": -0.23, "z": -39.17 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                     "position": { "x": -4.05, "y": 1.16, "z": 50.13 },
-                    "target": { "x": -0.32, "y": 0.05, "z": 51.33 },
+                     "position": { "x": -8.58, "y": 2.35, "z": 100.20 },
+                    "target": { "x": 0.45, "y": 1.34, "z": 103.42 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -262,15 +642,43 @@ export const scenarios_data = [
                 "id" : "Jail",
                 "modelPath": "Models/Redrock/Jail.glb", 
                 "previewCamera" : {
-                    "position": { "x": 0.94, "y": -0.60, "z": -17.81 },
-                    "target": { "x": 4.05, "y": -0.71, "z": -17.83 },
+                    "position": { "x": 2.04, "y": -0.99, "z": -35.65 },
+                    "target": { "x": 6.53, "y": -1.24, "z": -35.65 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -4.20, "y": -0.16, "z": 0.21 },
-                    "target": { "x": 11.97, "y": -1.43, "z": -3.94 },
+                    "position": { "x": -7.64, "y": -0.49, "z": 0.55 },
+                    "target": { "x": 11.97, "y": -1.28, "z": -3.97 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -278,15 +686,43 @@ export const scenarios_data = [
                 "id" : "Gun_shop",
                 "modelPath": "Models/Redrock/Gun_shop.glb", 
                 "previewCamera" : {
-                    "position": { "x": -0.43, "y": -0.64, "z": -13.61 },
-                    "target": { "x": -0.95, "y": -0.67, "z": -13.63 },
+                    "position": { "x": -1.60, "y": -1.14, "z": -27.28 },
+                    "target": { "x": -6.09, "y": -1.06, "z": -27.26 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -1.59, "y": 0.89, "z": 0.37 },
-                    "target": { "x": -14.21, "y": -1.71, "z": 0.61 },
+                    "position": { "x": -3.36, "y": 1.77, "z": 0.32 },
+                    "target": { "x": -14.31, "y": -1.35, "z": 0.60 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -294,15 +730,43 @@ export const scenarios_data = [
                 "id" : "Bank",
                 "modelPath": "Models/Redrock/Bank.glb", 
                 "previewCamera" : {
-                    "position": { "x": 0.14, "y": 0.20, "z": -23.18 },
-                    "target": { "x": 10.15, "y": -0.04, "z": -23.33 },
+                    "position": { "x": 0.80, "y": -0.35, "z": -46.22 },
+                    "target": { "x": 9.64, "y": 0.04, "z": -46.22 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 1.83, "y": 2.38, "z": -0.40 },
-                    "target": { "x": 12.30, "y": 0.45, "z": -0.09 },
+                    "position": { "x": 4.05, "y": 4.88, "z": -0.43 },
+                    "target": { "x": 12.86, "y": 4.03, "z": -0.17 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -315,9 +779,36 @@ export const scenarios_data = [
         "id" : "Wellington",
         "modelPath": "Models/Wellington/Wellington.glb", 
         "camera": {
-            "position": { "x": 9.68, "y": 1.57, "z": 1.12 },
-            "target": { "x": 0.31, "y": -6.86, "z": -12.46 },
+            "position": { "x": 18.38, "y": 0.40, "z": -0.13 },
+            "target": { "x": 4.32, "y": -9.00, "z": -14.64 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+        
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [
@@ -325,15 +816,43 @@ export const scenarios_data = [
                 "id" : "Gun_shop",
                 "modelPath": "Models/Wellington/Gun_shop.glb", 
                 "previewCamera" : {
-                    "position": { "x": 4.81, "y": -1.85, "z": -17.98 },
-                    "target": { "x": -0.59, "y": -1.53, "z": -18.14 },
+                    "position": { "x": 9.96, "y": -4.24, "z": -35.90 },
+                    "target": { "x": 4.22, "y": -3.77, "z": -35.98 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
-                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
+                    "position": { "x": 5.71, "y": -0.11, "z": 4.24 },
+                    "target": { "x": 2.29, "y": -1.72, "z": -1.59},
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -341,15 +860,43 @@ export const scenarios_data = [
                 "id" : "Bank",
                 "modelPath": "Models/Wellington/Bank.glb", 
                 "previewCamera" : {
-                    "position": { "x": 3.24, "y": -1.46, "z": -6.63 },
-                    "target": { "x": -2.54, "y": -1.60, "z": -12.62 },
+                    "position": { "x": 6.34, "y": -3.27, "z": -12.23 },
+                    "target": { "x": 1.07, "y": -3.26, "z": -17.37 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 0.10, "y": 0.00, "z": 0.90 },
-                    "target": { "x": -0.45, "y": -2.55, "z": -17.11 },
+                    "position": { "x": 0.05, "y": 0.05, "z": 2.00 },
+                    "target": { "x": -0.42, "y": -1.60, "z": -17.19 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -357,15 +904,43 @@ export const scenarios_data = [
                 "id" : "Hotel",
                 "modelPath": "Models/Wellington/Hotel.glb", 
                 "previewCamera" : {
-                    "position": { "x": 2.99, "y": -1.42, "z": -1.84 },
-                    "target": { "x": -5.98, "y": -1.89, "z": 5.05 },
+                    "position": { "x": 6.69, "y": -3.17, "z": -4.07 },
+                    "target": { "x": -3.40, "y": -3.75, "z": 2.46 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 0.73, "y": 0.71, "z": -3.08 },
-                    "target": { "x": -9.28, "y": -8.52, "z": 26.04 },
+                    "position": { "x": 2.10, "y": 1.10, "z": -6.00 },
+                    "target": { "x": -13.28, "y": -3.12, "z": 24.87 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -373,8 +948,8 @@ export const scenarios_data = [
                 "id" : "Station",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": 5.87, "y": -1.99, "z": -17.16 },
-                    "target": { "x": 5.87, "y": -1.97, "z": -18.01 },
+                    "position": { "x": 11.57, "y": -3.46, "z": -34.41 },
+                    "target": { "x": 11.50, "y": -3.46, "z": -43.26 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
@@ -385,8 +960,8 @@ export const scenarios_data = [
                 "id" : "Jail",
                 "modelPath": "Models/Wellington/Jail.glb", 
                 "previewCamera" : {
-                    "position": { "x": -8.43, "y": -1.95, "z": -4.61 },
-                    "target": { "x": -8.52, "y": -2.32, "z": -15.25 },
+                    "position": { "x": -16.25, "y": -3.38, "z": -9.03 },
+                    "target": { "x": -16.16, "y": -3.66, "z": -18.44 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -394,6 +969,34 @@ export const scenarios_data = [
                     "target": { "x": -0.12, "y": -0.05, "z": -15.39 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []          
             },
         ]
@@ -404,9 +1007,36 @@ export const scenarios_data = [
         "id" : "Terminus",
         "modelPath": "Models/Terminus/Terminus.glb", 
         "camera": {
-            "position": { "x": 14.61, "y": -4.86, "z": -35.91 },
-            "target": { "x": 14.26, "y": -13.90, "z": -14.70 },
+            "position": { "x": 27.52, "y": -12.19, "z": -77.84 },
+            "target": { "x": 24.15, "y": -24.43, "z": -21.19 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+        
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [
@@ -414,15 +1044,11 @@ export const scenarios_data = [
                 "id" : "Station",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": 13.37, "y": -7.97, "z": -21.48 },
-                    "target": { "x": 13.07, "y": -9.15, "z": -12.95 },
+                    "position": { "x": 27.73, "y": -15.74, "z": -42.49 },
+                    "target": { "x": 27.79, "y": -16.41, "z": -35.05 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
-                "camera": {
-                    "position": { "x": 2.84, "y": 0.02, "z": 2.03 },
-                    "target": { "x": 1.00, "y": -1.03, "z": -1.07 },
-                    "up": { "x": 0, "y": 1, "z": 0 }
-                },
+                "camera": null,
                 "enviroments" : []
             },
 
@@ -430,8 +1056,8 @@ export const scenarios_data = [
                 "id" : "Hotel",
                 "modelPath": "Models/Terminus/Hotel.glb", 
                 "previewCamera" : {
-                    "position": { "x": 14.19, "y": -7.87, "z": -22.81 },
-                    "target": { "x": 23.35, "y": -7.67, "z": -22.72 },
+                    "position": { "x": 30.23, "y": -15.27, "z": -40.05 },
+                    "target": { "x": 59.18, "y": -16.03, "z": -46.32 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -439,6 +1065,34 @@ export const scenarios_data = [
                     "target": { "x": 2.70, "y": 0.74, "z": 0.02 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
             },
 
@@ -446,8 +1100,8 @@ export const scenarios_data = [
                 "id" : "Saloon",
                 "modelPath": "Models/Terminus/Saloon.glb", 
                 "previewCamera" : {
-                    "position": { "x": 12.87, "y": -8.18, "z": -26.22 },
-                    "target": { "x": 7.37, "y": -9.19, "z": -26.38 },
+                    "position": { "x": 25.03, "y": -16.87, "z": -52.55 },
+                    "target": { "x": -7.97, "y": -21.68, "z": -51.52 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -455,6 +1109,34 @@ export const scenarios_data = [
                     "target": { "x": -2.85, "y": 0.08, "z": -0.14 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : [
                     {
                         "id": "Bar",
@@ -483,8 +1165,8 @@ export const scenarios_data = [
                 "id" : "Trading_post",
                 "modelPath": "Models/Terminus/Trading_post.glb", 
                 "previewCamera" : {
-                    "position": { "x": 14.10, "y": -8.36, "z": -26.50 },
-                    "target": { "x": 25.69, "y": -10.40, "z": -26.51 },
+                    "position": { "x": 27.65, "y": -16.73, "z": -53.05 },
+                    "target": { "x": 58.93, "y": -19.15, "z": -52.96 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
@@ -492,6 +1174,34 @@ export const scenarios_data = [
                     "target": { "x": 2.96, "y": 0.39, "z": -0.42 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
+
                 "enviroments" : []
                     
             },
@@ -508,6 +1218,33 @@ export const scenarios_data = [
             "target": { "x": -2.48, "y": -8.27, "z": -8.26 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
+
+        "lights" : {
+                    "directional" : {
+                        "position" : [],
+                        "color" : null,
+                        "intensity" : null
+                    },
+
+                    "ambient" : {
+                        "color" : null,
+                        "intensity" : null
+                    }
+                },
+                
+                "post_processing" : {
+                    "bloom" : {
+                        "strength" : null,
+                        "radius" : null,
+                        "threshold" : null
+                    }
+                },
+
+                "sky" : {
+                    "clouds" : false,
+                    "topColor": null,
+                    "bottom": null,
+                },
 
         "enviroments" : [
             {
@@ -533,6 +1270,33 @@ export const scenarios_data = [
             "position": { "x": -13.11, "y": 6.28, "z": -19.58 },
             "target": { "x": 0.73, "y": -1.62, "z": -2.03 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+        
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [
@@ -571,6 +1335,33 @@ export const scenarios_data = [
             "position": { "x": 12.44, "y": 9.93, "z": -15.49},
             "target": { "x": 1.81, "y": -1.00, "z": -1.12 },
             "up": { "x": 0, "y": 1, "z": 0 }
+        },
+
+        "lights" : {
+            "directional" : {
+                "position" : [],
+                "color" : null,
+                "intensity" : null
+            },
+
+            "ambient" : {
+                "color" : null,
+                "intensity" : null
+            }
+        },
+        
+        "post_processing" : {
+            "bloom" : {
+                "strength" : null,
+                "radius" : null,
+                "threshold" : null
+            }
+        },
+
+        "sky" : {
+            "clouds" : false,
+            "topColor": null,
+            "bottom": null,
         },
 
         "enviroments" : [

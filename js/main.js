@@ -1,5 +1,5 @@
 import {scene, renderer, canvas, container} from './scene.js'
-import { setupLights, setupLightsGUI, light, ambientLight } from './lights.js'
+import { Lights } from './lights.js'
 import { PostProcessing } from './PostProcessing.js'
 import { Raycaster } from './Raycaster.js';
 import { setupGUI } from './gui.js' 
@@ -31,7 +31,7 @@ const sceneManager = new SceneManager();
 const cameraManager = new CameraManager(scenarios_data[0]);
 const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
 const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
-
+const lights = new Lights(scene);
 
 // Initial load
 sceneManager.load(scenarios_data[0]).then(meshes => {
@@ -39,13 +39,16 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 })
 
 
-// GUI
+// // GUI
 const gui = setupGUI(cameraManager.camera, cameraManager.controls);
 
 
 // Subscribers
 sceneManager.subscribe((scenarioData) => {
+  console.log('scenarioData received:', scenarioData);
   cameraManager.loadScenario(scenarioData);
+  lights.updateLights(scenarioData);
+  postFX.updateAttributes(scenarioData);
   raycaster.clearMeshes();
   raycaster.clearHighlithNames();
   raycaster.loadHighlightNames(scenarioData);
@@ -72,7 +75,7 @@ cameraManager.subscribe((cam, id) => {
 })
 
 // Setup
-setupLights(scene);
+// setupLights(scene);
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
 setMapHud(scenarios_data, (scenario) => {
   sceneManager.reset(scenario).then(meshes => {
@@ -80,9 +83,9 @@ setMapHud(scenarios_data, (scenario) => {
   });
 })
 setupTabs(sceneManager);
-setSky(scene, 'img/Generic_SimpleSky_01.png')
+setSky(scene)
 
-// setupLightsGUI(light, ambientLight, postFX.bloomPass);
+// lights.setupLightsGUI(postFX.bloomPass);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {

@@ -64,4 +64,20 @@ export class PostProcessing {
         this.renderPass.camera  = newCamera
         this.outlinePass.renderCamera = newCamera;
     }
+
+    updateAttributes(scenarioData) {
+
+        if(!scenarioData.post_processing) return;
+
+        const postFxData = scenarioData.post_processing;
+
+        if (postFxData.bloom) {
+
+            this.bloomPass.strength = postFxData.bloom.strength
+            this.bloomPass.radius = postFxData.bloom.radius
+            this.bloomPass.threshold = postFxData.bloom.threshold
+        }
+
+        
+    }
  }

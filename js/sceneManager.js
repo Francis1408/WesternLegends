@@ -79,7 +79,7 @@ export class SceneManager {
     }
 
     updateAnimations() {
-
+        
         this.#timer.update()
         const delta = this.#timer.getDelta();
         this.#npcs.forEach(npc => npc.update(delta));
