@@ -12,7 +12,7 @@ export const scenarios_data = [
         },
         "npcs": [
             {
-                "modelPath": "Models/Characters/Badguy_03.glb",
+                "modelPath": "Models/Characters/Business_man/Business_man_01.glb",
                 "name": "Cowboy",
                 "position": [-30.50, 0.195, 86.43]
             }
@@ -40,8 +40,8 @@ export const scenarios_data = [
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottom": null,
+            "topColor": 0x0077ff,
+            "bottomColor": 0xffffff,
         },
 
         "enviroments" : [
@@ -81,8 +81,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : [
@@ -145,8 +145,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -188,8 +188,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -231,8 +231,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -274,8 +274,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -317,8 +317,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -339,28 +339,28 @@ export const scenarios_data = [
 
         "lights" : {
             "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
+                "position" : [-200, 32.6, 200],
+                "color" : '#f5a614',
+                "intensity" : 4.1
             },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : '#bda461',
+                "intensity" : 1.968
             }
         },
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 1.674,
+                "radius" : 0.402,
+                "threshold" : 0.435
             }
         },
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottom": null,
+            "topColor": 0x6699cc,
+            "bottomColor": 0xffaa66,
         },
 
         "enviroments" : [
@@ -380,28 +380,28 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-1.6, -50.8, 32.8],
+                        "color" : '#f5a614',
+                        "intensity" : 10
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#bda461',
+                        "intensity" : 1.968
                     }
                 },
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.603,
+                        "radius" : 1.188,
+                        "threshold" : 0.484
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : [
@@ -444,28 +444,28 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-11.6, -36, 200],
+                        "color" : '#f5a614',
+                        "intensity" : 5.88
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#bda461',
+                        "intensity" : 1.00
                     }
                 },
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.27,
+                        "radius" : 1.238,
+                        "threshold" : 0.189
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : []
@@ -487,28 +487,28 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [136, 13.2, -1.6],
+                        "color" : '#f5a614',
+                        "intensity" : 3.24
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#bda461',
+                        "intensity" : 1.932
                     }
                 },
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.162,
+                        "radius" : 0.796,
+                        "threshold" : 0.189
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : []
@@ -529,29 +529,29 @@ export const scenarios_data = [
 
         "lights" : {
             "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
+                "position" : [77.2, 23.2, 32.8],
+                "color" : '#f89d66',
+                "intensity" : 2.5
             },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : '#e65f33',
+                "intensity" : 1.413
             }
         },
 
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 0.492,
+                "radius" : 0.992,
+                "threshold" : 0.496
             }
         },
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottom": null,
+            "topColor": 0xff4500,
+            "bottomColor": 0xffcc88,
         },
 
         "enviroments" : [
@@ -564,33 +564,6 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
-
-                "lights" : {
-                    "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
-                    },
-
-                    "ambient" : {
-                        "color" : null,
-                        "intensity" : null
-                    }
-                },
-                
-                "post_processing" : {
-                    "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
-                    }
-                },
-
-                "sky" : {
-                    "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
-                },
                 "enviroments" : []
             },
 
@@ -610,29 +583,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-21.2, 28, 3.2],
+                        "color" : '#f89d66',
+                        "intensity" : 2.63
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : 0.309
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.42,
+                        "radius" : 1.09,
+                        "threshold" : 0.103
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0xff4500,
+                    "bottomColor": 0xffcc88,
                 },
 
                 "enviroments" : []
@@ -654,29 +627,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-109.6, -6.4, -200],
+                        "color" : '#f89d66',
+                        "intensity" : 2.38
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : 0.639
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.198,
+                        "radius" : 1.966,
+                        "threshold" : 0.054
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0xff4500,
+                    "bottomColor": 0xffcc88,
                 },
 
                 "enviroments" : []
@@ -698,29 +671,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [37.6, 8.4, -20],
+                        "color" : '#f89d66',
+                        "intensity" : 4.1
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : 0.639
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.972,
+                        "radius" : 1.042,
+                        "threshold" : 0.521
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0xff4500,
+                    "bottomColor": 0xffcc88,
                 },
 
                 "enviroments" : []
@@ -742,29 +715,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-31.2, 13.2, 3.2],
+                        "color" : '#f89d66',
+                        "intensity" : 3.24
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : 0.639
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.123,
+                        "radius" : 0.968,
+                        "threshold" : 0.054
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0xff4500,
+                    "bottomColor": 0xffcc88,
                 },
 
                 "enviroments" : []
@@ -786,29 +759,29 @@ export const scenarios_data = [
 
         "lights" : {
             "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
+                "position" : [92, 52.4, 32.8],
+                "color" : '#dbd276',
+                "intensity" : 4.47
             },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : '#827673',
+                "intensity" : 3
             }
         },
         
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 0.087,
+                "radius" : 1.214,
+                "threshold" : 0.398
             }
         },
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottom": null,
+            "topColor": 0x0077ff,
+            "bottomColor": 0xffffff,
         },
 
         "enviroments" : [
@@ -828,29 +801,30 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [8.4, 23.2, 67.2],
+                        "color" : '#dbd276',
+                        "intensity" : 5.82
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#827673',
+                        "intensity" : 0
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 1.194,
+                        "radius" : 0.5,
+                        "threshold" : 0.914
+                        
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -872,29 +846,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-16.4, -6.4, -13.2],
+                        "color" : '#dbd276',
+                        "intensity" : 5.82
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#827673',
+                        "intensity" : 1.968
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.75,
+                        "radius" : 1.116,
+                        "threshold" : 0.422
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -916,29 +890,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [92, 3.2, -20],
+                        "color" : '#dbd276',
+                        "intensity" : 6.19
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#827673',
+                        "intensity" : 0.381
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 1.452,
+                        "radius" : 0.5,
+                        "threshold" : 0.705
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []
@@ -965,36 +939,36 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -0.18, "y": 0.78, "z": -0.01 },
+                    "position": { "x": -0.27, "y": 1.53, "z": -0.07 },
                     "target": { "x": -0.12, "y": -0.05, "z": -15.39 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [6.4, 77.2, -20],
+                        "color" : '#dbd276',
+                        "intensity" : 6.1
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#827673',
+                        "intensity" : 2.04
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 2.08,
+                        "radius" : 0.71,
+                        "threshold" : 0.4
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottom": null,
+                    "topColor": 0x0077ff,
+                    "bottomColor": 0xffffff,
                 },
 
                 "enviroments" : []          
@@ -1035,8 +1009,8 @@ export const scenarios_data = [
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottom": null,
+            "topColor": 0x6699cc,
+            "bottomColor": 0xffaa66,
         },
 
         "enviroments" : [
@@ -1090,7 +1064,7 @@ export const scenarios_data = [
                 "sky" : {
                     "clouds" : false,
                     "topColor": null,
-                    "bottom": null,
+                    "bottomColor": null,
                 },
 
                 "enviroments" : []
@@ -1134,7 +1108,7 @@ export const scenarios_data = [
                 "sky" : {
                     "clouds" : false,
                     "topColor": null,
-                    "bottom": null,
+                    "bottomColor": null,
                 },
 
                 "enviroments" : [
@@ -1199,7 +1173,7 @@ export const scenarios_data = [
                 "sky" : {
                     "clouds" : false,
                     "topColor": null,
-                    "bottom": null,
+                    "bottomColor": null,
                 },
 
                 "enviroments" : []
@@ -1243,7 +1217,7 @@ export const scenarios_data = [
                 "sky" : {
                     "clouds" : false,
                     "topColor": null,
-                    "bottom": null,
+                    "bottomColor": null,
                 },
 
         "enviroments" : [
@@ -1296,7 +1270,7 @@ export const scenarios_data = [
         "sky" : {
             "clouds" : false,
             "topColor": null,
-            "bottom": null,
+            "bottomColor": null,
         },
 
         "enviroments" : [
@@ -1361,7 +1335,7 @@ export const scenarios_data = [
         "sky" : {
             "clouds" : false,
             "topColor": null,
-            "bottom": null,
+            "bottomColor": null,
         },
 
         "enviroments" : [
