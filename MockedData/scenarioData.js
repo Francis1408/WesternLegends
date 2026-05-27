@@ -10,14 +10,29 @@ export const scenarios_data = [
             "target": { "x": -22.05, "y": -0.50, "z": 90.74 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
-        "npcs": [
-            {
-                "modelPath": "Models/Characters/Business_man/Business_man_01.glb",
-                "name": "Cowboy",
-                "position": [-30.50, 0.195, 86.43]
-            }
-        ],
 
+        // Blender (X, Z, -Y)
+        // Three.js (X, Y, Z)
+        "npcs": [
+            // {
+            //     "modelPath": "Models/Characters/Business_man/Business_man_01.glb",
+            //     "name": "Cowboy",
+            //     "position": [-30.61, 0.21, 86.35],
+            //     "rotation": [0, 90, 0],
+            //     "animationList" : ["Sit_idle"]
+            // },
+
+            {
+                "modelPath": "Models/Characters/Cowboy/Cowboy_01.glb",
+                "name": "Cowboy",
+                "position": [-26.59, 0, 93.04],
+                "rotation": [0, 90, 0],
+                "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"]
+            },
+
+
+        ],
+        
         "lights" : {
             "directional" : {
                 "position" : [32.8, 42.8, 3.2],
@@ -988,22 +1003,22 @@ export const scenarios_data = [
 
         "lights" : {
             "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
+                "position" : [-109.6, 23.2, -46],
+                "color" : '#f89d66',
+                "intensity" : 3.73
             },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : '#e65f33',
+                "intensity" : 0.3
             }
         },
         
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 0.0678,
+                "radius" : 0.698,
+                "threshold" : 0.422
             }
         },
 
@@ -1063,8 +1078,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottomColor": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : []
@@ -1086,29 +1101,29 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [121.2, 23.2, 23.2],
+                        "color" : '#f89d66',
+                        "intensity" : 1.27
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : 0.3
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 2.115,
+                        "radius" : 0.918,
+                        "threshold" : 0.103
                     }
                 },
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottomColor": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : [
@@ -1151,14 +1166,14 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [-200, 136, 72],
+                        "color" : '#f89d66',
+                        "intensity" : 2.87
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : '#e65f33',
+                        "intensity" : '#e65f33'
                     }
                 },
                 
@@ -1172,8 +1187,8 @@ export const scenarios_data = [
 
                 "sky" : {
                     "clouds" : false,
-                    "topColor": null,
-                    "bottomColor": null,
+                    "topColor": 0x6699cc,
+                    "bottomColor": 0xffaa66,
                 },
 
                 "enviroments" : []

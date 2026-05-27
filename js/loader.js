@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import { NPC } from './Npc';
+import { degrees } from 'three/tsl';
 
 export function loadModel(scene, scenarioData) {
     return new Promise((resolve, reject) => {
@@ -64,6 +65,12 @@ export function loadNPCs(scene, npcsData) {
                 (gltf) => {
                     const model = gltf.scene
                     model.position.set(...npcData.position ?? [0, 0, 0]);
+
+                    // Apply angle convertion at run time
+                    const DEG = (degrees) => degrees * (Math.PI / 180);
+                    const rotation = (npcData.rotation ?? [0, 0, 0]).map(DEG);
+                    model.rotation.set(...rotation);
+                    
                     model.scale.set(1, 1, 1)
                     scene.add(model)
 
@@ -74,7 +81,14 @@ export function loadNPCs(scene, npcsData) {
                         animations[clip.name] = mixer.clipAction(clip);
                     })
                     
-                    const npc = new NPC(npcData.name ?? 'Default', animations, animations['Sit_idle'], mixer, model);
+                    const npc = new NPC(
+                        npcData.name ?? 'Default', 
+                        mixer, 
+                        model,
+                        animations, 
+                        animations[npcData.animationList[0]] ?? null,
+                        npcData.animationList 
+                    );
 
                     resolve(npc);
                     
