@@ -5,59 +5,29 @@ export const scenarios_data = [
     {   
         "id" : "Valentine",
         "modelPath": "Models/Valentine/Valentine.glb", 
-        "camera": {
-            "position": { "x": -24.48, "y": 7.80, "z": 68.90 },
-            "target": { "x": -22.05, "y": -0.50, "z": 90.74 },
-            "up": { "x": 0, "y": 1, "z": 0 }
-        },
-
+        "camera": { "position": { "x": -24.48, "y": 7.80, "z": 68.90 }, "target": { "x": -22.05, "y": -0.50, "z": 90.74 }, "up": { "x": 0, "y": 1, "z": 0 } },
         // Blender (X, Z, -Y)
         // Three.js (X, Y, Z)
         "npcs": [
-            // {
-            //     "modelPath": "Models/Characters/Business_man/Business_man_01.glb",
-            //     "name": "Cowboy",
-            //     "position": [-30.61, 0.21, 86.35],
-            //     "rotation": [0, 90, 0],
-            //     "animationList" : ["Sit_idle"]
-            // },
-
-            {
-                "modelPath": "Models/Characters/Cowboy/Cowboy_01.glb",
-                "name": "Cowboy",
-                "position": [-26.59, 0, 93.04],
-                "rotation": [0, 90, 0],
-                "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"]
-            },
-
-
+            { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "NPC_01", "position": [-30.61, 0.21, 86.35], "rotation": [0, 90, 0], "animationList" : ["Sit_idle"] },
+            { "modelPath": "Models/Characters/Cowboy/Cowboy_01.glb", "name": "NPC_02", "position": [-26.59, 0, 93.04], "rotation": [0, 0, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Woman/Woman_01.glb", "name": "NPC_03", "position": [-25.87, 0.02, 94.7], "rotation": [0, 180, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_f_01"] },
+            { "modelPath": "Models/Characters/Working_girl/Working_girl_01.glb", "name": "NPC_04", "position": [-27.24, 4.27, 110.49], "rotation": [0, 90, 0], "animationList" : ["Sit_talking_f"] },
+            { "modelPath": "Models/Characters/Badguy/Badguy_03.glb", "name": "NPC_05", "position": [-28.59, 0.57, 112.43], "rotation": [0, 160, 0], "animationList" : ["Lean_foot"] },
+            { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_01.glb", "name": "NPC_06", "position": [-13.72, 0.29, 80.5], "rotation": [0, 160, 0], "animationList" : ["Dealing"] },
+            { "modelPath": "Models/Characters/Cowboy/Cowboy_02.glb", "name": "NPC_07", "position": [-14.99, 0.29, 100.64], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Salesman/Salesman_01.glb", "name": "NPC_08", "position": [-30.43, 3.30, 102.8], "rotation": [0, 180, 0], "animationList" : ["Lean_shoulder"] },
         ],
         
         "lights" : {
-            "directional" : {
-                "position" : [32.8, 42.8, 3.2],
-                "color" : '#ead380',
-                "intensity" : 4
-            },
-
-            "ambient" : {
-                "color" : '#71a2a2',
-                "intensity" : 1.305
-            }
+            "directional" : { "position" : [32.8, 42.8, 3.2], "color" : '#ead380', "intensity" : 4 },
+            "ambient" : { "color" : '#71a2a2', "intensity" : 1.305 }
         },
         "post_processing" : {
-            "bloom" : {
-                "strength" : 0.087,
-                "radius" : 1.238,
-                "threshold" : 0.263
-            }
+            "bloom" : { "strength" : 0.087, "radius" : 1.238, "threshold" : 0.263 }
         },
 
-        "sky" : {
-            "clouds" : false,
-            "topColor": 0x0077ff,
-            "bottomColor": 0xffffff,
-        },
+        "sky" : { "clouds" : false, "topColor": 0x0077ff, "bottomColor": 0xffffff },
 
         "enviroments" : [
             {
