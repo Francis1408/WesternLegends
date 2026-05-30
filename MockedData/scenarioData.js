@@ -22,6 +22,9 @@ export const scenarios_data = [
             { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_02", "position": [-12.79, 0.22, 75.94], "rotation": [0, -30, 0], "animationList" : ["Idle", "Eat"] },
             { "modelPath": "Models/Horse/Horse_02.glb", "name": "HORSE_03", "position": [-11.80, 0.22, 80.46], "rotation": [0, 30, 0], "animationList" : ["Idle", "Eat"] },
             { "modelPath": "Models/Horse/Horse_03.glb", "name": "HORSE_04", "position": [-10.22, 0.22, 80.57], "rotation": [0, 20, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_04.glb", "name": "HORSE_05", "position": [-21.17, 0.16, 115.37], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Horse/Horse_05.glb", "name": "HORSE_06", "position": [-21.71, 0.16, 111.42], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_07", "position": [-13.06, 0.29, 109.56], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
 
         ],
         
@@ -52,13 +55,15 @@ export const scenarios_data = [
 
                 "npcs": [
                     { "modelPath": "Models/Characters/Thug_man/Thug_man_01.glb", "name": "NPC_01", "position": [-0.45, -0.84, -0.50], "rotation": [0, 30, 0], "animationList" : ["Dealing"] },
-                    { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "BARMAN", "position": [3.34, -0.84, -2.77], "rotation": [0, 0, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "BARMAN", "position": [3.34, -0.84, -2.77], "rotation": [0, -15, 0], "animationList" : ["Idle"] },
                     { "modelPath": "Models/Characters/Working_girl/Working_girl_02.glb", "name": "NPC_02", "position": [-0.53, 2.07, -2.69], "rotation": [0, 30, 0], "animationList" : ["Talk_f_01", "Talk_01", "Talk_02", "Talk_03"] },
                     { "modelPath": "Models/Characters/Working_girl/Working_girl_03.glb", "name": "NPC_03", "position": [0.52, 2.07, -2.43], "rotation": [0, 200, 0], "animationList" : ["Talk_f_01", "Talk_01", "Talk_02", "Talk_03"] },
-                    { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "NPC_04", "position": [-2.57, -0.82, 1.98], "rotation": [0, -90, 0], "animationList" : ["Piano"] },
+                    { "modelPath": "Models/Characters/Business_man/Business_man_02.glb", "name": "NPC_04", "position": [-2.57, -0.82, 1.98], "rotation": [0, -90, 0], "animationList" : ["Piano"] },
                     { "modelPath": "Models/Characters/Sheriff/Sheriff_01.glb", "name": "NPC_05", "position": [1.39, -0.82, 2.03], "rotation": [0, 30, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
                     { "modelPath": "Models/Characters/Gunman/Gunman_01.glb", "name": "NPC_06", "position": [2.05, -0.82, 4.04], "rotation": [0, -180, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
-                    { "modelPath": "Models/Characters/Gunman/Gunman_01.glb", "name": "NPC_06", "position": [2.05, -0.82, 4.04], "rotation": [0, -180, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
+                    { "modelPath": "Models/Characters/Bandit_man/Bandit_man_01.glb", "name": "NPC_06", "position": [3.40, -0.82, 1.21], "rotation": [0, -200, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
+                    { "modelPath": "Models/Characters/Thug_man/Thug_man_02.glb", "name": "NPC_06", "position": [4.77, -0.82, 0.78], "rotation": [0, -100, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
+                    { "modelPath": "Models/Characters/Badguy/Badguy_02.glb", "name": "NPC_06", "position": [6.56, -0.84, 1.58], "rotation": [0, -100, 0], "animationList" : ["Lean_shoulder"] },
                 ],
 
                 "lights" : {
@@ -125,6 +130,12 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs" : [
+                    { "modelPath": "Models/Characters/Cowgirl/Cowgirl_01.glb", "name": "SALESMAN", "position": [-6.94, 0.02, 88.69], "rotation": [0, -120, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_01", "position": [-6.94, 0.03, 91.00], "rotation": [0, 180, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Horse/Horse_05.glb", "name": "HORSE_02", "position": [-7.99, 0.03, 91.06], "rotation": [0, 180, 0], "animationList" : ["Idle"] },
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [136, 165.6, 101.6],
@@ -167,6 +178,10 @@ export const scenarios_data = [
                     "target": { "x": 13.63, "y": -1.78, "z": 0.82 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs" : [
+                    { "modelPath": "Models/Characters/Salesman/Salesman_01.glb", "name": "SALESMAN", "position": [14.30, -3.10, 0.66], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -211,6 +226,10 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs" : [
+                    { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "SALESMAN", "position": [0.93, -1.01, -2.09], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [106.4, -6.4, 3.2],
@@ -254,6 +273,10 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs" : [
+                    { "modelPath": "Models/Characters/Sheriff/Sheriff_02.glb", "name": "SHERIFF", "position": [-5.29, -1.56, 0.40], "rotation": [0, -90, 0], "animationList" : ["Sit_idle"] },
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [-60.4, 32.8, 18],
@@ -296,6 +319,10 @@ export const scenarios_data = [
                     "target": { "x": 20.23, "y": 1.94, "z": 95.67 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs" : [
+                    { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_02.glb", "name": "SALESMAN", "position": [-5.55, 0.62, 103.21], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
