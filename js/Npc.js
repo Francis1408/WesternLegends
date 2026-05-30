@@ -8,7 +8,7 @@ export class NPC {
     mixer = null;
     model = null;
 
-    #fadeTime = 0.1;
+    #fadeTime = 0.7;
     #isPlayingOnce = false; // guard to avoid interrupting another playOnce
 
     constructor(name, mixer, model, animations, currentAnimation, animationLoopList = []) {
@@ -50,12 +50,12 @@ export class NPC {
 
             next.loop = THREE.LoopOnce;
             next.clampWhenFinished = true; // Holds the last frame from the last animation
-            next.reset().play();
             
-            // if (this.currentAnimation) {
-                //     next.crossFadeFrom(this.currentAnimation, this.#fadeTime, true);
-                // }
+            if (this.currentAnimation) {
+                    next.crossFadeFrom(this.currentAnimation, this.#fadeTime, true);
+                }
                 
+            next.reset().play();
             this.currentAnimation = next;
 
 
