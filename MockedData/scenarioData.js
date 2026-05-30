@@ -366,12 +366,15 @@ export const scenarios_data = [
             "up": { "x": 0, "y": 1, "z": 0 }
         },
 
+        "npcs": [
+            { "modelPath": "Models/Characters/Mexican_girl/Mexican_girl_01.glb", "name": "NPC_01", "position": [-9.40, -3.40, -8.16], "rotation": [0, 30, 0], "animationList" : ["Sit_idle"] },
+            { "modelPath": "Models/Characters/Mexican_02/Mexican_02_01.glb", "name": "NPC_02", "position": [4.47, -3.56, -12.94], "rotation": [0, -60, 0], "animationList" : ["Lean_foot"] },
+            { "modelPath": "Models/Horse/Horse_03.glb", "name": "HORSE_01", "position": [4.58, -3.20, -3.19], "rotation": [0, -60, 0], "animationList" : ["Idle", "Eat"] }, 
+        ],
+
+
         "lights" : {
-            "directional" : {
-                "position" : [-200, 32.6, 200],
-                "color" : '#f5a614',
-                "intensity" : 4.1
-            },
+            "directional" : { "position" : [-200, 32.6, 200], "color" : '#f5a614', "intensity" : 4.1 },
 
             "ambient" : {
                 "color" : '#bda461',
@@ -407,52 +410,34 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
-                "lights" : {
-                    "directional" : {
-                        "position" : [-1.6, -50.8, 32.8],
-                        "color" : '#f5a614',
-                        "intensity" : 10
-                    },
+                "npcs": [
+                    { "modelPath": "Models/Characters/Mexican_01/Mexican_02.glb", "name": "NPC_01", "position": [-1.70, 0.57, 0.38], "rotation": [0, 30, 0], "animationList" : ["Dealing"] },
+                    { "modelPath": "Models/Characters/Mexican_01/Mexican_01.glb", "name": "NPC_02", "position": [1.44, 0.57, 0.05], "rotation": [0, -60, 0], "animationList" : ["Sit_idle", "Sit_talking"] },
+                    { "modelPath": "Models/Characters/Mexican_02/Mexican_02_02.glb", "name": "BARMAN", "position": [0.31, 0.57, -3.38], "rotation": [0, 0, 0], "animationList" : ["Idle"] }, 
+                ],
 
-                    "ambient" : {
-                        "color" : '#bda461',
-                        "intensity" : 1.968
-                    }
+                "lights" : { 
+                    "directional" : { "position" : [-1.6, -50.8, 32.8], "color" : '#f5a614', "intensity" : 10 },
+
+                    "ambient" : { "color" : '#bda461', "intensity" : 1.968 }
                 },
                 "post_processing" : {
-                    "bloom" : {
-                        "strength" : 0.603,
-                        "radius" : 1.188,
-                        "threshold" : 0.484
-                    }
+                    "bloom" : { "strength" : 0.603, "radius" : 1.188, "threshold" : 0.484 }
                 },
 
-                "sky" : {
-                    "clouds" : false,
-                    "topColor": 0x6699cc,
-                    "bottomColor": 0xffaa66,
-                },
+                "sky" : { "clouds" : false, "topColor": 0x6699cc, "bottomColor": 0xffaa66 },
 
                 "enviroments" : [
                     {
                         "id": "Bar",
                         "enviroments" : [],
-                        "previewCamera": {
-                            "position": { "x": 0.48, "y": 1.91, "z": -1.61 },
-                            "target": { "x": 0.47, "y": 1.76, "z": -2.18 },
-                            "up": { "x": 0, "y": 1, "z": 0 }
-                        } 
+                        "previewCamera": { "position": { "x": 0.48, "y": 1.91, "z": -1.61 }, "target": { "x": 0.47, "y": 1.76, "z": -2.18 }, "up": { "x": 0, "y": 1, "z": 0 } } 
                     }, 
 
                     {
                         "id": "Black_jack",
                         "enviroments" : [],
-                        "previewCamera": {
-                            "position": { "x": -0.70, "y": 1.97, "z": 2.72 },
-                            "target": { "x": -0.79, "y": 0.66, "z": 0.52 },
-                            "up": { "x": 0, "y": 1, "z": 0 }
-                        }
-
+                        "previewCamera": { "position": { "x": -0.70, "y": 1.97, "z": 2.72 }, "target": { "x": -0.79, "y": 0.66, "z": 0.52 }, "up": { "x": 0, "y": 1, "z": 0 } }
                     },
                 ]
             },
@@ -460,16 +445,12 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "modelPath": "Models/Armadillo/Gun_shop.glb", 
-                "previewCamera" : {
-                    "position": { "x": 0.72, "y": -0.68, "z": -14.27 },
-                    "target": { "x": 18.89, "y": -2.32, "z": -14.00 },
-                    "up": { "x": 0, "y": 1, "z": 0 }
-                },
-                "camera": {
-                    "position": { "x": 0.36, "y": 1.80, "z": -1.08 },
-                    "target": { "x": 10.18, "y": -3.57, "z": 12.26 },
-                    "up": { "x": 0, "y": 1, "z": 0 }
-                },
+                "previewCamera" : { "position": { "x": 0.72, "y": -0.68, "z": -14.27 }, "target": { "x": 18.89, "y": -2.32, "z": -14.00 }, "up": { "x": 0, "y": 1, "z": 0 }},
+                "camera": { "position": { "x": 0.36, "y": 1.80, "z": -1.08 }, "target": { "x": 10.18, "y": -3.57, "z": 12.26 }, "up": { "x": 0, "y": 1, "z": 0 } },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Mexican_02/Mexican_02_01.glb", "name": "NPC_01", "position": [2.10, 0.43, 2.36], "rotation": [0, 200, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -513,6 +494,10 @@ export const scenarios_data = [
                     "target": { "x": 14.77, "y": -2.41, "z": 8.39 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Mexican_girl/Mexican_girl_01.glb", "name": "NPC_01", "position": [2.93, 0.43, 2.71], "rotation": [0, 230, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
