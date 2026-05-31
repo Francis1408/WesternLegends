@@ -1252,45 +1252,44 @@ export const scenarios_data = [
         "id" : "Comanche_Tribe",
         "modelPath": "Models/Comanche_tribe/Comanche_tribe.glb", 
         "camera": {
-            "position": { "x": 2.23, "y": 14.70, "z": 19.66 },
-            "target": { "x": -2.48, "y": -8.27, "z": -8.26 },
+            "position": { "x": 8.44, "y": 12.67, "z": 28.69 },
+            "target": { "x": -2.48, "y": -6.27, "z": -8.26 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
 
+        "npcs": [
+            { "modelPath": "Models/Characters/Native_chief/Native_chief_01.glb", "name": "CHIEF", "position": [-7.04, 1.07, -15.26], "rotation": [0, -30, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Native_girl/Native_girl_01.glb", "name": "NPC_01", "position": [-7.16, 1.07, -4.57], "rotation": [0, -30, 0], "animationList" : ["Dealing"] },
+            { "modelPath": "Models/Characters/Native_man/Native_man_01.glb", "name": "NPC_02", "position": [-2.48, 1.76, -0.56], "rotation": [0, 90, 0], "animationList" : ["Sit_talking"] },
+            { "modelPath": "Models/Characters/Native_man_02/Native_man_02.glb", "name": "NPC_03", "position": [5.0, -1.36, 4.99], "rotation": [0, 90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Native_man/Native_man_01.glb", "name": "NPC_04", "position": [6.16, -1.14, 4.86], "rotation": [0, -90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            // Animals
+            { "modelPath": "Models/Horse/Horse_03.glb", "name": "HORSE_01", "position": [3.97, -1.54, 18.48], "rotation": [0, -100, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_04.glb", "name": "HORSE_02", "position": [38.64, -5.68, -5.74], "rotation": [0, 100, 0], "animationList" : ["Idle", "Eat"] },
+        ],
+
         "lights" : {
-                    "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
-                    },
-
-                    "ambient" : {
-                        "color" : null,
-                        "intensity" : null
-                    }
-                },
+            "directional" : { "position" : [-11.6, 18, -16.4], "color" : '#ffd27f', "intensity" : 4.71 },
+            "ambient" : { "color" : '#d7c96a', "intensity" : 1.12 }
+        },
                 
-                "post_processing" : {
-                    "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
-                    }
-                },
+        "post_processing" : {
+            "bloom" : { "strength" : 0.123, "radius" : 1.116, "threshold" : 0.299 }
+        },
 
-                "sky" : {
-                    "clouds" : false,
-                    "topColor": null,
-                    "bottomColor": null,
-                },
+        "sky" : {
+            "clouds" : false,
+            "topColor": 0x0077ff, 
+            "bottomColor": 0xffffff
+        },
 
         "enviroments" : [
             {
                 "id" : "Tribe",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": -5.77, "y": 2.70, "z": -3.54 },
-                    "target": { "x": -3.63, "y": -0.59, "z": -13.44 },
+                    "position": { "x": -9.89, "y": 3.22, "z": -12.89 },
+                    "target": { "x": -6.48, "y": 2.58, "z": -17.89 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
