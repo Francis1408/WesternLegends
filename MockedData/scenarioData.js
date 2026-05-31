@@ -212,7 +212,7 @@ export const scenarios_data = [
                 },
 
                 "npcs" : [
-                    { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "SALESMAN", "position": [0.93, -1.01, -2.09], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "RECEPCIONIST", "position": [0.93, -1.01, -2.09], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
                 ],
 
                 "lights" : {
@@ -760,10 +760,26 @@ export const scenarios_data = [
         "id" : "Wellington",
         "modelPath": "Models/Wellington/Wellington.glb", 
         "camera": {
-            "position": { "x": 18.38, "y": 0.40, "z": -0.13 },
+            "position": { "x": 21.23, "y": 2.31, "z": 2.81 },
             "target": { "x": 4.32, "y": -9.00, "z": -14.64 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
+
+        "npcs": [
+            { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "NPC_01", "position": [4.29, -7.37, -11.67], "rotation": [0, 30, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Salesman/Salesman_01.glb", "name": "NPC_02", "position": [4.55, -7.37, -10.05], "rotation": [0, 120, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Business_man/Business_man_03.glb", "name": "NPC_03", "position": [5.70, -7.37, -11.33], "rotation": [0, -90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Woman/Woman_01.glb", "name": "NPC_04", "position": [17.85, -7.37, -9.89], "rotation": [0, 0, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_f_01"] },
+            { "modelPath": "Models/Characters/Salesman/Salesman_03.glb", "name": "NPC_05", "position": [19.15, -7.37, -8.94], "rotation": [0, -120, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "NPC_07", "position": [3.63, -3.52, -19.31], "rotation": [0, 30, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Business_man/Business_man_02.glb", "name": "NPC_06", "position": [18.09, -6.92, -19.27], "rotation": [0, -60, 0], "animationList" : ["Sit_idle"] },
+            { "modelPath": "Models/Characters/Cowboy/Cowboy_03.glb", "name": "NPC_08", "position": [0.14, -3.52, -2.30], "rotation": [0, -90, 0], "animationList" : ["Lean_shoulder"] },
+            { "modelPath": "Models/Characters/Business_man/Business_man_03.glb", "name": "NPC_09", "position": [11.85, -7.23, -40.73], "rotation": [0, 0, 0], "animationList" : ["Sit_idle"] },
+            // Animals
+            { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_01", "position": [-3.74, -7.37, -12.39], "rotation": [0, 180, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Horse/Horse_03.glb", "name": "HORSE_02", "position": [8.76, -7.37, -20.08], "rotation": [0, 0, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_02.glb", "name": "HORSE_03", "position": [7.75, -7.37, -20.11], "rotation": [0, 0, 0], "animationList" : ["Idle", "Eat"] },
+        ],
 
         "lights" : {
             "directional" : {
@@ -806,6 +822,10 @@ export const scenarios_data = [
                     "target": { "x": 2.29, "y": -1.72, "z": -1.59},
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Business_man/Business_man_03.glb", "name": "SALESMAN", "position": [4.28, -1.98, 0.99], "rotation": [0, 30, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -852,6 +872,10 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs": [
+                    { "modelPath": "Models/Characters/Salesman/Salesman_04.glb", "name": "SALESMAN", "position": [-0.25, -1.77, -1.32], "rotation": [0, 0, 0], "animationList" : ["Idle"] },
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [-16.4, -6.4, -13.2],
@@ -895,6 +919,10 @@ export const scenarios_data = [
                     "target": { "x": -13.28, "y": -3.12, "z": 24.87 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Business_man/Business_man_02.glb", "name": "RECEPCIONIST", "position": [-1.04, -0.30, -5.49], "rotation": [0, 100, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -951,6 +979,11 @@ export const scenarios_data = [
                     "target": { "x": -0.12, "y": -0.05, "z": -15.39 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Sheriff/Sheriff_01.glb", "name": "SHERIFF", "position": [-0.28, -0.01, -3.70], "rotation": [0, 0, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Characters/Bandit_man/Bandit_man_01.glb", "name": "NPC_01", "position": [-3.93, 0.10, -5.45], "rotation": [0, 0, 0], "animationList" : ["Sit_idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {

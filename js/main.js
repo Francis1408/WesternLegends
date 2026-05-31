@@ -41,7 +41,7 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 
 
 // // // GUI
-// const gui = setupGUI(cameraManager.camera, cameraManager.controls);
+const gui = setupGUI(cameraManager.camera, cameraManager.controls);
 
 
 // Subscribers
@@ -72,9 +72,9 @@ cameraManager.subscribe((cam, id) => {
   sceneManager.setFocused(id);
 })
 
-// cameraManager.subscribe((cam, id) => {
-//   gui.update(cam, cameraManager.controls);
-// })
+cameraManager.subscribe((cam, id) => {
+  gui.update(cam, cameraManager.controls);
+})
 
 // Setup
 // setupLights(scene);
@@ -86,7 +86,7 @@ setMapHud(scenarios_data, (scenario) => {
 })
 setupTabs(sceneManager);
 
-lights.setupLightsGUI(postFX.bloomPass);
+// lights.setupLightsGUI(postFX.bloomPass);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {
