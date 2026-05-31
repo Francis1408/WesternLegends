@@ -1027,6 +1027,15 @@ export const scenarios_data = [
             "up": { "x": 0, "y": 1, "z": 0 }
         },
 
+        "npcs": [
+            { "modelPath": "Models/Characters/Cowboy/Cowboy_04.glb", "name": "NPC_01", "position": [33.13, -19.34, -58.34], "rotation": [0, -30, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02"] },
+            { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_03.glb", "name": "NPC_02", "position": [33.45, -19.25, -56.52], "rotation": [0, 270, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02"] },
+            { "modelPath": "Models/Characters/Business_man/Business_man_03.glb", "name": "NPC_03", "position": [34.85, -15.97, -46.94], "rotation": [0, 270, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Badguy/Badguy_02.glb", "name": "NPC_04", "position": [20.99, -19.41, -54.12], "rotation": [0, -270, 0], "animationList" : ["Lean_foot"] },
+            { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "NPC_05", "position": [22.23, -18.27, -33.50], "rotation": [0, 270, 0], "animationList" : ["Sit_idle"] },
+            { "modelPath": "Models/Characters/Woman/Woman_02.glb", "name": "NPC_06", "position": [18.77, -18.27, -33.79], "rotation": [0, 270, 0], "animationList" : ["Sit_talking_f"] },
+        ],
+
         "lights" : {
             "directional" : {
                 "position" : [-109.6, 23.2, -46],
@@ -1076,10 +1085,14 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 2.86, "y": 1.01, "z": -0.60 },
-                    "target": { "x": 2.70, "y": 0.74, "z": 0.02 },
+                    "position": { "x": 5.92, "y": 1.51, "z": -1.83 },
+                    "target": { "x": 5.57, "y": 0.77, "z": 0.91 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Business_man/Business_man_03.glb", "name": "RECEPCIONIST", "position": [6.14, -0.02, 1.34], "rotation": [0, 180, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -1120,10 +1133,16 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": -0.27, "y": 0.99, "z": 0.18 },
-                    "target": { "x": -2.85, "y": 0.08, "z": -0.14 },
+                    "position": { "x": -0.55, "y": 1.68, "z": 0.20 },
+                    "target": { "x": -3.09, "y": 0.66, "z": -0.12 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_02.glb", "name": "BARMAN", "position": [-6.78, -0.02, 1.26], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+                    { "modelPath": "Models/Characters/Badguy/Badguy_03.glb", "name": "NPC_01", "position": [-2.06, 0.14, 1.15], "rotation": [0, -90, 0], "animationList" : ["Sit_idle", "Sit_talking"] },
+                    { "modelPath": "Models/Characters/Thug_man/Thug_man_03.glb", "name": "NPC_02", "position": [-3.20, -0.02, -0.80], "rotation": [0, 130, 0], "animationList" : ["Dealing"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -1185,10 +1204,14 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": {
-                    "position": { "x": 1.35, "y": 0.89, "z": -0.40 },
-                    "target": { "x": 2.96, "y": 0.39, "z": -0.42 },
+                    "position": { "x": 3.11, "y": 1.63, "z": -0.96 },
+                    "target": { "x": 3.33, "y": 1.57, "z": -0.94 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Gunman/Gunman_01.glb", "name": "SELLER", "position": [5.73, -0.04, -1.02], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
