@@ -67,30 +67,15 @@ export const scenarios_data = [
                 ],
 
                 "lights" : {
-                    "directional" : {
-                        "position" : [77.2, 32.8, 3.2],
-                        "color" : '#ecbfbb',
-                        "intensity" : 4.35
-                    },
+                    "directional" : { "position" : [77.2, 32.8, 3.2], "color" : '#ecbfbb', "intensity" : 4.35 },
 
-                    "ambient" : {
-                        "color" : '#9e8670',
-                        "intensity" : 0.897
-                    }
+                    "ambient" : { "color" : '#9e8670', "intensity" : 0.897 }
                 },
                 "post_processing" : {
-                    "bloom" : {
-                        "strength" : 0.27,
-                        "radius" : 0.82,
-                        "threshold" : 0.422
-                    }
+                    "bloom" : { "strength" : 0.27, "radius" : 0.82, "threshold" : 0.422 }
                 },
 
-                "sky" : {
-                    "clouds" : false,
-                    "topColor": 0x0077ff,
-                    "bottomColor": 0xffffff,
-                },
+                "sky" : { "clouds" : false, "topColor": 0x0077ff, "bottomColor": 0xffffff},
 
                 "enviroments" : [
                     {
@@ -535,38 +520,30 @@ export const scenarios_data = [
     {
         "id" : "Redrock",
         "modelPath": "Models/Redrock/Redrock.glb", 
-        "camera": {
-            "position": { "x": 0.30, "y": 1.13, "z": -12.36},
-            "target": { "x": 0.20, "y": 0.00, "z": -16.17 },
-            "up": { "x": 0, "y": 1, "z": 0 }
-        },
+        "camera": { "position": { "x": 0.30, "y": 1.13, "z": -12.36}, "target": { "x": 0.20, "y": 0.00, "z": -16.17 }, "up": { "x": 0, "y": 1, "z": 0 } },
+
+        "npcs": [
+            { "modelPath": "Models/Characters/Badguy/Badguy_01.glb", "name": "NPC_01", "position": [-4.12, -3.43, -25.02], "rotation": [0, 0, 0], "animationList" : ["Lean_shoulder"] },
+            { "modelPath": "Models/Characters/Woman/Woman_02.glb", "name": "NPC_02", "position": [-4.10, -3.43, -37.51], "rotation": [0, -60, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Cowboy/Cowboy_03.glb", "name": "NPC_03", "position": [6.72, -3.43, -43.57], "rotation": [0, 0, 0], "animationList" : ["Lean_foot"] },
+            { "modelPath": "Models/Characters/Cowgirl/Cowgirl_02.glb", "name": "NPC_04", "position": [6.78, -3.04, -21.42], "rotation": [0, -120, 0], "animationList" : ["Sit_idle"] },
+            // Animals
+            { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_01", "position": [13.68, -3.49, -24.59], "rotation": [0, -90, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_02.glb", "name": "HORSE_02", "position": [19.05, -3.49, -24.04], "rotation": [0, 120, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_02.glb", "name": "HORSE_03", "position": [19.62, -3.49, -18.52], "rotation": [0, -30, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_05.glb", "name": "HORSE_04", "position": [3.45, -3.26, -29.03], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+        ],
 
         "lights" : {
-            "directional" : {
-                "position" : [77.2, 23.2, 32.8],
-                "color" : '#f89d66',
-                "intensity" : 2.5
-            },
-
-            "ambient" : {
-                "color" : '#e65f33',
-                "intensity" : 1.413
-            }
+            "directional" : { "position" : [77.2, 23.2, 32.8], "color" : '#f89d66', "intensity" : 2.5 },
+            "ambient" : { "color" : '#e65f33', "intensity" : 1.413 }
         },
 
         "post_processing" : {
-            "bloom" : {
-                "strength" : 0.492,
-                "radius" : 0.992,
-                "threshold" : 0.496
-            }
+            "bloom" : { "strength" : 0.492, "radius" : 0.992, "threshold" : 0.496 }
         },
 
-        "sky" : {
-            "clouds" : false,
-            "topColor": 0xff4500,
-            "bottomColor": 0xffcc88,
-        },
+        "sky" : { "clouds" : false, "topColor": 0xff4500, "bottomColor": 0xffcc88, },
 
         "enviroments" : [
             {
@@ -594,6 +571,10 @@ export const scenarios_data = [
                     "target": { "x": 0.45, "y": 1.34, "z": 103.42 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_01.glb", "name": "NPC_01", "position": [-5.98, 0.57, 101.74], "rotation": [0, -120, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
@@ -639,6 +620,10 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs": [
+                    { "modelPath": "Models/Characters/Sheriff/Sheriff_03.glb", "name": "NPC_01", "position": [-5.37, -1.53, 0.47], "rotation": [0, -90, 0], "animationList" : ["Sit_idle"] },
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [-109.6, -6.4, -200],
@@ -683,6 +668,11 @@ export const scenarios_data = [
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
 
+                "npcs": [
+                    { "modelPath": "Models/Characters/Gunman/Gunman_02.glb", "name": "NPC_01", "position": [-6.38, 0.0, 1.01], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
+
+                ],
+
                 "lights" : {
                     "directional" : {
                         "position" : [37.6, 8.4, -20],
@@ -726,6 +716,10 @@ export const scenarios_data = [
                     "target": { "x": 12.86, "y": 4.03, "z": -0.17 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
+
+                "npcs": [
+                    { "modelPath": "Models/Characters/Salesman/Salesman_02.glb", "name": "NPC_01", "position": [6.84, 2.96, -0.78], "rotation": [0, -90, 0], "animationList" : ["Idle"] },
+                ],
 
                 "lights" : {
                     "directional" : {
