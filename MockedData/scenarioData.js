@@ -1369,36 +1369,41 @@ export const scenarios_data = [
         "id" : "Thief_Camp",
         "modelPath": "Models/Thief_camp/Thief_camp.glb", 
         "camera": {
-            "position": { "x": 12.44, "y": 9.93, "z": -15.49},
-            "target": { "x": 1.81, "y": -1.00, "z": -1.12 },
+            "position": { "x": 28.77, "y": 24.00, "z": -29.06},
+            "target": { "x": 8.15, "y": -3.04, "z": 2.05 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
 
+        "npcs": [
+            { "modelPath": "Models/Characters/Bandit_man/Bandit_man_02.glb", "name": "NPC_01", "position": [6.47, 0.33, -16.48], "rotation": [0, -30, 0], "animationList" : ["Sit_talking", "Sit_talking_02", "Sit_victory"] },
+            { "modelPath": "Models/Characters/Badguy/Badguy_02.glb", "name": "NPC_02", "position": [4.40, 0.33, -17.04], "rotation": [0, 30, 0], "animationList" : ["Sit_talking", "Sit_talking_02", "Sit_victory"] },
+            { "modelPath": "Models/Characters/Bandit_man/Bandit_man_01.glb", "name": "SELLER", "position": [-2.10, 0.21, -14.29], "rotation": [0, 120, 0], "animationList" : ["Sit_idle"] },
+            // Animals
+            { "modelPath": "Models/Horse/Horse_01.glb", "name": "HORSE_01", "position": [3.97, 0.15, -7.33], "rotation": [0, -90, 0], "animationList" : ["Idle", "Eat"] },
+            { "modelPath": "Models/Horse/Horse_05.glb", "name": "HORSE_02", "position": [4.12, 0.15, -6.11], "rotation": [0, -90, 0], "animationList" : ["Idle", "Eat"] },
+        ],
+
         "lights" : {
-            "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
-            },
+            "directional" : { "position" : [37.6, -40.8, -100], "color" : "#f9ebc3", "intensity" : 2.13 },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : "#aec7ad",
+                "intensity" :  0.528
             }
         },
         
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 0.381,
+                "radius" : 0.034,
+                "threshold" : 0.275
             }
         },
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottomColor": null,
+            "topColor": 0x0077ff, 
+            "bottomColor": 0xffffff
         },
 
         "enviroments" : [
@@ -1406,8 +1411,8 @@ export const scenarios_data = [
                 "id" : "Camp",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": 0.18, "y": 0.97, "z": -7.56 },
-                    "target": { "x": -1.02, "y": 0.77, "z": -7.75 },
+                    "position": { "x": 0.45, "y": 1.77, "z": -15.77 },
+                    "target": { "x": -9.64, "y": -0.94, "z": -17.81 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
