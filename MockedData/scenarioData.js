@@ -878,22 +878,22 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [-16.4, -6.4, -13.2],
+                        "position" : [-158.8, -94.8, 200],
                         "color" : '#dbd276',
-                        "intensity" : 5.82
+                        "intensity" : 6.19
                     },
 
                     "ambient" : {
-                        "color" : '#827673',
-                        "intensity" : 1.968
+                        "color" : '#c3ccb3',
+                        "intensity" : 1.23
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : 0.75,
-                        "radius" : 1.116,
-                        "threshold" : 0.422
+                        "strength" : 1.305,
+                        "radius" : 0.698,
+                        "threshold" : 0.594
                     }
                 },
 
@@ -1096,22 +1096,22 @@ export const scenarios_data = [
 
                 "lights" : {
                     "directional" : {
-                        "position" : [],
-                        "color" : null,
-                        "intensity" : null
+                        "position" : [18, 3.2, -16.4],
+                        "color" : "#ffd27f",
+                        "intensity" : 4
                     },
 
                     "ambient" : {
-                        "color" : null,
-                        "intensity" : null
+                        "color" : "#ff9966",
+                        "intensity" : 0.42
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 1.599,
+                        "radius" : 0.918,
+                        "threshold" : 0.877
                     }
                 },
 
@@ -1222,15 +1222,15 @@ export const scenarios_data = [
 
                     "ambient" : {
                         "color" : '#e65f33',
-                        "intensity" : '#e65f33'
+                        "intensity" : 1.23
                     }
                 },
                 
                 "post_processing" : {
                     "bloom" : {
-                        "strength" : null,
-                        "radius" : null,
-                        "threshold" : null
+                        "strength" : 0.42,
+                        "radius" : 0.698,
+                        "threshold" : 0.594
                     }
                 },
 
@@ -1304,36 +1304,46 @@ export const scenarios_data = [
         "id" : "Query",
         "modelPath": "Models/Query/Query.glb", 
         "camera": {
-            "position": { "x": -13.11, "y": 6.28, "z": -19.58 },
-            "target": { "x": 0.73, "y": -1.62, "z": -2.03 },
+            "position": { "x": -30.58, "y": 14.97, "z": -41.28 },
+            "target": { "x": 2.88, "y": -2.62, "z": -4.47 },
             "up": { "x": 0, "y": 1, "z": 0 }
         },
 
+        "npcs": [
+            { "modelPath": "Models/Characters/Miner_01/Miner_01_01.glb", "name": "MINER", "position": [12.09, -0.23, -9.02], "rotation": [0, -100, 0], "animationList" : ["Idle"] },
+            { "modelPath": "Models/Characters/Miner_01/Miner_01_02.glb", "name": "NPC_01", "position": [18.14, -0.23, -11.41], "rotation": [0, 0, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Miner_02/Miner_02_01.glb", "name": "NPC_02", "position": [18.80, -0.23, -8.88], "rotation": [0, 180, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Miner_02/Miner_02_02.glb", "name": "NPC_03", "position": [20.31, 0.14, -11.56], "rotation": [0, -30, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02"] },
+            { "modelPath": "Models/Characters/Miner_01/Miner_01_03.glb", "name": "NPC_04", "position": [-19.57, -0.20, -29.46], "rotation": [0, 210, 0], "animationList" : ["Lean_shoulder"] },
+
+        ],
+
+
         "lights" : {
             "directional" : {
-                "position" : [],
-                "color" : null,
-                "intensity" : null
+                "position" : [-100, 30, -164],
+                "color" : '#ffd27f',
+                "intensity" : 5.08
             },
 
             "ambient" : {
-                "color" : null,
-                "intensity" : null
+                "color" : "#ce8b69",
+                "intensity" : 0.861
             }
         },
         
         "post_processing" : {
             "bloom" : {
-                "strength" : null,
-                "radius" : null,
-                "threshold" : null
+                "strength" : 0.162,
+                "radius" : 1.508,
+                "threshold" : 0.385
             }
         },
 
         "sky" : {
             "clouds" : false,
-            "topColor": null,
-            "bottomColor": null,
+            "topColor": 0x0077ff,
+            "bottomColor": 0xffffff,
         },
 
         "enviroments" : [
@@ -1341,8 +1351,8 @@ export const scenarios_data = [
                 "id" : "Mine",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": 4.52, "y": 0.56, "z": -4.46 },
-                    "target": { "x": 7.04, "y": 0.01, "z": -4.29 },
+                    "position": { "x": 9.00, "y": 1.03, "z": -9.86 },
+                    "target": { "x": 9.66, "y": 0.96, "z": -9.65 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,
@@ -1353,8 +1363,8 @@ export const scenarios_data = [
                 "id" : "Station",
                 "modelPath": null, 
                 "previewCamera" : {
-                    "position": { "x": -12.67, "y": 0.86, "z": -18.13 },
-                    "target": { "x": 0.56, "y": -2.40, "z": -2.21 },
+                    "position": { "x": -23.18, "y": 1.15, "z": -32.81 },
+                    "target": { "x": 0.13, "y": -2.93, "z": -2.09 },
                     "up": { "x": 0, "y": 1, "z": 0 }
                 },
                 "camera": null,

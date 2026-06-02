@@ -48,8 +48,8 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 sceneManager.subscribe((scenarioData) => {
   console.log('scenarioData received:', scenarioData);
   cameraManager.loadScenario(scenarioData);
-  // lights.updateLights(scenarioData);
-  // postFX.updateAttributes(scenarioData);
+  lights.updateLights(scenarioData);
+  postFX.updateAttributes(scenarioData);
   sky.updateSky(scenarioData);
   raycaster.clearMeshes();
   raycaster.clearHighlithNames();
