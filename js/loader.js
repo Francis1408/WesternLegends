@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import { NPC } from './Npc';
+import { NPC } from './Npc.js';
 import { degrees } from 'three/tsl';
 
 export function loadModel(scene, scenarioData) {
