@@ -30,7 +30,9 @@
         <div class="frame">
           <div class="canvas_tabs">
             <button class="tabs_button active" data-target="scenario" id="town_tab">Town</button>
+            <button class="tabs_button" data-target="switch" id="map_tab">Switch</button>
             <button class="tabs_button" data-target="map" id="map_tab">Map</button>
+
           </div>
 
           <div class="canvas_wrap active" id="scenario">
@@ -41,15 +43,28 @@
             <canvas class="canvas" id="scenario_canvas" ></canvas>
           </div>
 
-          <div class="canvas_wrap " id="map"> 
+          <div class="canvas_wrap " id="switch"> 
             <div class="map_panel">
-              <div class="map_display">
                 <button class="hud_button map_button" id="backward"><i class="fa-solid fa-forward fa-rotate-180" style="color: rgb(80, 30, 30);"></i></button>
                 <input type="text" id="area_display" readonly>
                 <button class="hud_button map_button" id="forward"><i class="fa-solid fa-forward" style="color: rgb(80, 30, 30);"></i></button>
-                <button class="hud_button map_button" id="submit">CONFIRM</button>
+                <button class="hud_button map_button" id="submit">CONFIRM</button>  
+            </div>
+          </div>
+
+          <div class="canvas_wrap " id="map"> 
+            <div class="map_panel">
+              <div class="map_display">
+                <img src="img/Map.png" alt="Map">
+                <div class="pin" style="left: 43.5%; top: 50%;" data-spot="Valentine"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 78%; top: 64%;" data-spot="Wellington"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 56%; top: 70%;" data-spot="Query"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 26.5%; top: 76%;" data-spot="Terminus"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 18.5%; top: 54%;" data-spot="Redrock"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 23.5%; top: 27%;" data-spot="Armadillo"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 36%; top: 34%;" data-spot="Comanche_Tribe"><img src="img/pin.png" ></div>
+                <div class="pin" style="left: 61.5%; top: 38.5%;" data-spot="Thief_Camp"><img src="img/pin.png" ></div>
               </div>
-              <h1>MAPA</h1>
             </div>
           </div>
             

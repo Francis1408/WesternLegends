@@ -57,7 +57,7 @@ main {
   flex-direction: column;
   padding: 1em;
   margin-bottom: 4px;
-  min-width: 40vh;
+  min-width: 35vh;
   box-shadow: 3px 3px 0 #2a1a06;
 }
 
@@ -81,19 +81,29 @@ main {
 }
 
 .map_panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.map_display {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
+.map_display {
+  position: relative;   
+  line-height: 0;       
+  display: inline-block;
+}
+
+.map_display > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 
 /*---------- TABS ---------------*/
 
@@ -201,4 +211,20 @@ input {
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.1s;
   font-size: 14px;
+}
+
+/*--------------  MAP PINS -------------------*/
+.pin {
+  position: absolute;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: calc(30px * var(--map-scale));
+  height: calc(30px * var(--map-scale));
+}
+
+.pin img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  
+  display: block;
 }

@@ -4,10 +4,19 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
 
     // ------------ RESIZE ----------------
     window.addEventListener('resize', () => {
+
+        // Canvas
         const w = container.clientWidth;
         const h = container.clientHeight;
         postFX.resize(w, h);
         cameraManager.resize(w, h);
+
+
+        // Map scale
+        const map = document.querySelector('.map_display');
+        const scale = map.offsetWidth / 1200;
+        document.documentElement.style.setProperty('--map-scale', scale);
+
     });
 
     // ------------ UI BUTTONS ----------------
