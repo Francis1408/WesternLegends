@@ -5,6 +5,7 @@ export const scenarios_data = [
     {   
         "id" : "Valentine",
         "modelPath": "Models/Valentine/Valentine.glb", 
+        "image": "img/drawings/Valentine_drawing.png",
         "camera": { "position": { "x": -24.48, "y": 7.80, "z": 68.90 }, "target": { "x": -22.05, "y": -0.50, "z": 90.74 }, "up": { "x": 0, "y": 1, "z": 0 } },
         // Blender (X, Z, -Y)
         // Three.js (X, Y, Z)
@@ -353,6 +354,7 @@ export const scenarios_data = [
     {   
         "id" : "Armadillo",
         "modelPath": "Models/Armadillo/Armadillo.glb", 
+        "image": "img/drawings/Armadillo_drawing.png",
         "camera": {
             "position": { "x": -26.35, "y": 4.77, "z": -5.97 },
             "target": { "x": 11.43, "y": -13.35, "z": -17.52 },
@@ -533,6 +535,7 @@ export const scenarios_data = [
     {
         "id" : "Redrock",
         "modelPath": "Models/Redrock/Redrock.glb", 
+        "image": "img/drawings/Redrock_drawing.png",
         "camera": { "position": { "x": 0.30, "y": 1.13, "z": -12.36}, "target": { "x": 0.20, "y": 0.00, "z": -16.17 }, "up": { "x": 0, "y": 1, "z": 0 } },
 
         "npcs": [
@@ -777,6 +780,7 @@ export const scenarios_data = [
    {   
         "id" : "Wellington",
         "modelPath": "Models/Wellington/Wellington.glb", 
+        "image": "img/drawings/Wellington_drawing.png",
         "camera": {
             "position": { "x": 21.23, "y": 2.31, "z": 2.81 },
             "target": { "x": 4.32, "y": -9.00, "z": -14.64 },
@@ -1044,6 +1048,7 @@ export const scenarios_data = [
     {   
         "id" : "Terminus",
         "modelPath": "Models/Terminus/Terminus.glb", 
+        "image": "img/drawings/Terminus_drawing.png",
         "camera": {
             "position": { "x": 27.52, "y": -12.19, "z": -77.84 },
             "target": { "x": 24.15, "y": -24.43, "z": -21.19 },
@@ -1278,6 +1283,7 @@ export const scenarios_data = [
     {   
         "id" : "Comanche_Tribe",
         "modelPath": "Models/Comanche_tribe/Comanche_tribe.glb", 
+        "image": "img/drawings/Comanche_tribe_drawing.png",
         "camera": {
             "position": { "x": 8.44, "y": 12.67, "z": 28.69 },
             "target": { "x": -2.48, "y": -6.27, "z": -8.26 },
@@ -1331,6 +1337,7 @@ export const scenarios_data = [
     {
         "id" : "Query",
         "modelPath": "Models/Query/Query.glb",
+        "image": "img/drawings/Query_drawing.png",
         "camera": {
             "position": { "x": -30.58, "y": 14.97, "z": -41.28 },
             "target": { "x": 2.88, "y": -2.62, "z": -4.47 },
@@ -1408,6 +1415,7 @@ export const scenarios_data = [
     {
         "id" : "Thief_Camp",
         "modelPath": "Models/Thief_camp/Thief_camp.glb", 
+        "image": "img/drawings/Thief_camp_drawing.png",
         "camera": {
             "position": { "x": 28.77, "y": 24.00, "z": -29.06},
             "target": { "x": 8.15, "y": -3.04, "z": 2.05 },

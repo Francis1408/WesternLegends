@@ -86,7 +86,7 @@ setMapHud(scenarios_data, (scenario) => {
 })
 setupTabs(sceneManager);
 
-lights.setupLightsGUI(postFX.bloomPass);
+// lights.setupLightsGUI(postFX.bloomPass);
 
 // Rendering loop
 renderer.setAnimationLoop(() => {

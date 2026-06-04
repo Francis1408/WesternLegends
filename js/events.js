@@ -1,5 +1,7 @@
 /* FRONT-END EVENTS */
 
+import { container } from "./scene";
+
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX) {
 
     // ------------ RESIZE ----------------
@@ -94,24 +96,42 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
 // ------------ TAB BUTTONS ----------------
 export function setupTabs(sceneManager) {
 
-    const tabs    = document.querySelectorAll('.tabs_button');
-    const panels  = document.querySelectorAll('.canvas_wrap');
-    const town_tab = document.querySelector('#town_tab');
+    // Assign the tabs for each container 
+    const containersList = ['canvas', 'sidemenu'];
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.dataset.target;
+    containersList.forEach((container) => {
 
-            tabs.forEach(t   => t.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
+        const tabs    = document.querySelectorAll(`.tabs_button.${container}`);
+        const panels  = document.querySelectorAll(`${container}_wrap`);
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
 
-            tab.classList.add('active');
-            document.getElementById(`${target}`).classList.add('active');
+                const target = tab.dataset.target;
 
-            // Re-trigger resize so Three.js recalculates canvas dimensions
-            window.dispatchEvent(new Event('resize'));
-        }) 
+                // Get current frame only
+                const frame = tab.closest('.frame');
+                
+                // Tabs/panels only inside this frame
+                const localTabs = frame.querySelectorAll(`.tabs_button.${container}`);
+                const localPanels = frame.querySelectorAll(`.${container}_wrap`);
+
+                // Remove active
+                localTabs.forEach(t => t.classList.remove('active'));
+                localPanels.forEach(p => p.classList.remove('active'));
+
+                // Add active
+                tab.classList.add('active');
+                frame.querySelector(`#${target}`).classList.add('active');
+
+                // Resize for Three.js
+                window.dispatchEvent(new Event('resize'));
+            }) 
+        })
     })
+    
+    
+    const town_tab = document.querySelector('#town_tab');
 
     sceneManager.subscribe((scenarioData) => {
 
@@ -183,7 +203,11 @@ export function setMapHud(scenarios, onConfirm) {
 
             baloonEl.style.left = `${e.pageX}px`;
             baloonEl.style.top = `${e.pageY}px`;
-        })
+        });
+
+        pin.addEventListener('click', (e) => {
+
+        });
     })
 
 }

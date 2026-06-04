@@ -27,11 +27,12 @@
 
     <main>
       <div class="linha">
+
         <div class="frame">
           <div class="canvas_tabs">
-            <button class="tabs_button active" data-target="scenario" id="town_tab">Town</button>
-            <button class="tabs_button" data-target="switch" id="map_tab">Switch</button>
-            <button class="tabs_button" data-target="map" id="map_tab">Map</button>
+            <button class="tabs_button canvas active" data-target="scenario" id="town_tab">Town</button>
+            <button class="tabs_button canvas" data-target="switch" id="switch_tab">Switch</button>
+            <button class="tabs_button canvas" data-target="map" id="map_tab">Map</button>
 
           </div>
 
@@ -43,7 +44,7 @@
             <canvas class="canvas" id="scenario_canvas" ></canvas>
           </div>
 
-          <div class="canvas_wrap " id="switch"> 
+          <div class="canvas_wrap" id="switch"> 
             <div class="map_panel">
                 <button class="hud_button map_button" id="backward"><i class="fa-solid fa-forward fa-rotate-180" style="color: rgb(80, 30, 30);"></i></button>
                 <input type="text" id="area_display" readonly>
@@ -52,7 +53,7 @@
             </div>
           </div>
 
-          <div class="canvas_wrap " id="map"> 
+          <div class="canvas_wrap" id="map"> 
             <div class="map_panel">
               <div class="map_display">
                 <img src="img/Map.png" alt="Map">
@@ -69,10 +70,31 @@
           </div>  
         </div>
         
+
         <div id="baloon"></div>
 
+
         <section class="controles">
-            <h1>INVENTARIO</h1>
+          <div class="frame">
+            <div class="sidemenu_tabs">
+              <button class="tabs_button sidemenu" data-target="overview" id="overview_tab">Overview</button>
+              <button class="tabs_button sidemenu active" data-target="inventory" id="inventory_tab">Inventory</button>
+            </div>
+
+            <div class="sidemenu_wrap " id="overview">
+              <div class="overview">
+                  <h1>OVERVIEW</h1>
+              </div>
+            </div>
+
+            <div class="sidemenu_wrap active" id="inventory">
+              <div class="inventory">
+                  <h1>INVENTARIO</h1>
+              </div>
+            </div>
+
+
+          </div>
         </section>
       </div>
     </main>
