@@ -42,6 +42,7 @@ export const scenarios_data = [
             {
                 "id" : "Saloon",
                 "modelPath": "Models/Valentine/Saloon.glb", 
+                "icon": "img/icons/saloon.png",
                 "previewCamera" : {
                     "position": { "x": -24.17, "y": 3.40, "z": 104.99 },
                     "target": { "x": -26.92, "y": 3.50, "z": 108.85 },
@@ -80,6 +81,7 @@ export const scenarios_data = [
                 "enviroments" : [
                     {
                         "id": "Bar",
+                        "icon": "img/icons/bar.png",
                         "enviroments" : [],
                         "previewCamera": {
                             "position": { "x": 2.69, "y": 0.71, "z": -1.06 },
@@ -90,6 +92,7 @@ export const scenarios_data = [
 
                     {
                         "id": "Black_jack",
+                        "icon" : "img/icons/pokercards.png",
                         "enviroments" : [],
                         "previewCamera": {
                             "position": { "x": 1.16, "y": 0.73, "z": 1.72 },
@@ -104,6 +107,7 @@ export const scenarios_data = [
             {
                 "id" : "Stable",
                 "modelPath": "Models/Valentine/Stable.glb", 
+                "icon" : "img/icons/horseshoe.png",
                 "previewCamera": {
                     "position": { "x": -21.50, "y": 2.49, "z": 87.45 },
                     "target": { "x": -11.62, "y": 1.95, "z": 86.82 },
@@ -153,6 +157,7 @@ export const scenarios_data = [
             {
                 "id" : "Bank",
                 "modelPath": "Models/Valentine/Bank.glb", 
+                "icon" : "img/icons/bank.png",
                 "previewCamera": {
                     "position": { "x": -24.83, "y": 2.56, "z": 101.55 },
                     "target": { "x": -30.44, "y": 2.99, "z": 102.48 },
@@ -200,6 +205,7 @@ export const scenarios_data = [
             {
                 "id" : "Hotel",
                 "modelPath": "Models/Valentine/Hotel.glb", 
+                "icon" : "img/icons/bed.png",
                 "previewCamera": {
                     "position": { "x": -25.07, "y": 3.20, "z": 82.85 },
                     "target": { "x": -30.73, "y": 3.18, "z": 83.58 },
@@ -247,6 +253,7 @@ export const scenarios_data = [
             {
                 "id" : "Jail",
                 "modelPath": "Models/Valentine/Jail.glb", 
+                "icon" : "img/icons/sheriff.png",
                 "previewCamera": {
                     "position": { "x": -16.51, "y": 2.73, "z": 115.77 },
                     "target": { "x": -15.50, "y": 2.71, "z": 115.61 },
@@ -294,6 +301,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "modelPath": "Models/Valentine/Trading_post.glb", 
+                "icon" : "img/icons/cash_register.png",
                 "previewCamera" : {
                     "position": { "x": -18.04, "y": 2.76, "z": 103.78 },
                     "target": { "x": -7.63, "y": 2.78, "z": 102.08 },
@@ -384,6 +392,7 @@ export const scenarios_data = [
             {
                 "id" : "Saloon",
                 "modelPath": "Models/Armadillo/Saloon.glb", 
+                "icon" : "img/icons/saloon.png",
                 "previewCamera" : {
                     "position": { "x": -17.75, "y": -1.37, "z": -12.86 },
                     "target": { "x": -17.36, "y": -3.62, "z": -31.08 },
@@ -415,12 +424,14 @@ export const scenarios_data = [
                 "enviroments" : [
                     {
                         "id": "Bar",
+                        "icon" : "img/icons/bar.png",
                         "enviroments" : [],
                         "previewCamera": { "position": { "x": 0.48, "y": 1.91, "z": -1.61 }, "target": { "x": 0.47, "y": 1.76, "z": -2.18 }, "up": { "x": 0, "y": 1, "z": 0 } } 
                     }, 
 
                     {
                         "id": "Black_jack",
+                        "icon" : "img/icons/pokercards.png",
                         "enviroments" : [],
                         "previewCamera": { "position": { "x": -0.70, "y": 1.97, "z": 2.72 }, "target": { "x": -0.79, "y": 0.66, "z": 0.52 }, "up": { "x": 0, "y": 1, "z": 0 } }
                     },
@@ -429,6 +440,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Gun_shop",
+                "icon" : "img/icons/revolver.png",
                 "modelPath": "Models/Armadillo/Gun_shop.glb", 
                 "previewCamera" : { "position": { "x": 0.72, "y": -0.68, "z": -14.27 }, "target": { "x": 18.89, "y": -2.32, "z": -14.00 }, "up": { "x": 0, "y": 1, "z": 0 }},
                 "camera": { "position": { "x": 0.36, "y": 1.80, "z": -1.08 }, "target": { "x": 10.18, "y": -3.57, "z": 12.26 }, "up": { "x": 0, "y": 1, "z": 0 } },
@@ -469,6 +481,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "modelPath": "Models/Armadillo/Trading_post.glb", 
+                "icon" : "img/icons/cash_register.png",
                 "previewCamera" : {
                     "position": { "x": 0.86, "y": -1.15, "z": -5.95 },
                     "target": { "x": 0.54, "y": -0.77, "z": 5.26 },
@@ -549,6 +562,7 @@ export const scenarios_data = [
             {
                 "id" : "Stable",
                 "modelPath": null, 
+                "icon" : "img/icons/horseshoe.png",
                 "previewCamera" : {
                     "position": { "x": 1.76, "y": -1.39, "z": -23.75 },
                     "target": { "x": 4.64, "y": -1.86, "z": -23.75 },
@@ -560,6 +574,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Trading_post",
+                "icon" : "img/icons/cash_register.png",
                 "modelPath": "Models/Redrock/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 0.01, "y": -0.76, "z": -38.76 },
@@ -609,6 +624,7 @@ export const scenarios_data = [
             {
                 "id" : "Jail",
                 "modelPath": "Models/Redrock/Jail.glb", 
+                "icon" : "img/icons/sheriff.png",
                 "previewCamera" : {
                     "position": { "x": 2.04, "y": -0.99, "z": -35.65 },
                     "target": { "x": 6.53, "y": -1.24, "z": -35.65 },
@@ -657,6 +673,7 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "modelPath": "Models/Redrock/Gun_shop.glb", 
+                "icon" : "img/icons/revolver.png",
                 "previewCamera" : {
                     "position": { "x": -1.60, "y": -1.14, "z": -27.28 },
                     "target": { "x": -6.09, "y": -1.06, "z": -27.26 },
@@ -706,6 +723,7 @@ export const scenarios_data = [
             {
                 "id" : "Bank",
                 "modelPath": "Models/Redrock/Bank.glb", 
+                "icon" : "img/icons/bank.png",
                 "previewCamera" : {
                     "position": { "x": 0.80, "y": -0.35, "z": -46.22 },
                     "target": { "x": 9.64, "y": 0.04, "z": -46.22 },
@@ -812,6 +830,7 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "modelPath": "Models/Wellington/Gun_shop.glb", 
+                "icon" : "img/icons/revolver.png",
                 "previewCamera" : {
                     "position": { "x": 9.96, "y": -4.24, "z": -35.90 },
                     "target": { "x": 4.22, "y": -3.77, "z": -35.98 },
@@ -861,6 +880,7 @@ export const scenarios_data = [
             {
                 "id" : "Bank",
                 "modelPath": "Models/Wellington/Bank.glb", 
+                "icon" : "img/icons/bank.png",
                 "previewCamera" : {
                     "position": { "x": 6.34, "y": -3.27, "z": -12.23 },
                     "target": { "x": 1.07, "y": -3.26, "z": -17.37 },
@@ -909,6 +929,7 @@ export const scenarios_data = [
             {
                 "id" : "Hotel",
                 "modelPath": "Models/Wellington/Hotel.glb", 
+                "icon" : "img/icons/bed.png",
                 "previewCamera" : {
                     "position": { "x": 6.69, "y": -3.17, "z": -4.07 },
                     "target": { "x": -3.40, "y": -3.75, "z": 2.46 },
@@ -957,6 +978,7 @@ export const scenarios_data = [
             {
                 "id" : "Station",
                 "modelPath": null, 
+                "icon" : "img/icons/station.png",
                 "previewCamera" : {
                     "position": { "x": 11.57, "y": -3.46, "z": -34.41 },
                     "target": { "x": 11.50, "y": -3.46, "z": -43.26 },
@@ -969,6 +991,7 @@ export const scenarios_data = [
             {
                 "id" : "Jail",
                 "modelPath": "Models/Wellington/Jail.glb", 
+                "icon" : "img/icons/sheriff.png",
                 "previewCamera" : {
                     "position": { "x": -16.25, "y": -3.38, "z": -9.03 },
                     "target": { "x": -16.16, "y": -3.66, "z": -18.44 },
@@ -1067,6 +1090,7 @@ export const scenarios_data = [
             {
                 "id" : "Station",
                 "modelPath": null, 
+                "icon" : "img/icons/station.png",
                 "previewCamera" : {
                     "position": { "x": 27.73, "y": -15.74, "z": -42.49 },
                     "target": { "x": 27.79, "y": -16.41, "z": -35.05 },
@@ -1079,6 +1103,7 @@ export const scenarios_data = [
             {
                 "id" : "Hotel",
                 "modelPath": "Models/Terminus/Hotel.glb", 
+                "icon" : "img/icons/bed.png",
                 "previewCamera" : {
                     "position": { "x": 30.23, "y": -15.27, "z": -40.05 },
                     "target": { "x": 59.18, "y": -16.03, "z": -46.32 },
@@ -1127,6 +1152,7 @@ export const scenarios_data = [
             {
                 "id" : "Saloon",
                 "modelPath": "Models/Terminus/Saloon.glb", 
+                "icon": "img/icons/saloon.png",
                 "previewCamera" : {
                     "position": { "x": 25.03, "y": -16.87, "z": -52.55 },
                     "target": { "x": -7.97, "y": -21.68, "z": -51.52 },
@@ -1197,6 +1223,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Trading_post",
+                "icon" : "img/icons/cash_register.png",
                 "modelPath": "Models/Terminus/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 27.65, "y": -16.73, "z": -53.05 },
@@ -1286,6 +1313,7 @@ export const scenarios_data = [
         "enviroments" : [
             {
                 "id" : "Tribe",
+                "icon" : "img/icons/tribe.png",
                 "modelPath": null, 
                 "previewCamera" : {
                     "position": { "x": -9.89, "y": 3.22, "z": -12.89 },
@@ -1302,7 +1330,7 @@ export const scenarios_data = [
     // ------------------------ QUERY -------------------------------
     {
         "id" : "Query",
-        "modelPath": "Models/Query/Query.glb", 
+        "modelPath": "Models/Query/Query.glb",
         "camera": {
             "position": { "x": -30.58, "y": 14.97, "z": -41.28 },
             "target": { "x": 2.88, "y": -2.62, "z": -4.47 },
@@ -1349,6 +1377,7 @@ export const scenarios_data = [
         "enviroments" : [
             {
                 "id" : "Mine",
+                "icon" : "img/icons/mine.png",
                 "modelPath": null, 
                 "previewCamera" : {
                     "position": { "x": 9.00, "y": 1.03, "z": -9.86 },
@@ -1361,6 +1390,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Station",
+                "icon" : "img/icons/station.png",
                 "modelPath": null, 
                 "previewCamera" : {
                     "position": { "x": -23.18, "y": 1.15, "z": -32.81 },
@@ -1419,6 +1449,7 @@ export const scenarios_data = [
         "enviroments" : [
             {
                 "id" : "Camp",
+                "icon" : "img/icons/bandit.png",
                 "modelPath": null, 
                 "previewCamera" : {
                     "position": { "x": 0.45, "y": 1.77, "z": -15.77 },

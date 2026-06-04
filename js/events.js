@@ -88,6 +88,7 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         }
     })
 
+
 }
 
 // ------------ TAB BUTTONS ----------------
@@ -148,4 +149,41 @@ export function setMapHud(scenarios, onConfirm) {
     submit.addEventListener('click', () => {
         onConfirm(scenarios[index]);
     });
+
+
+    // Baloon info
+    const baloonEl = document.querySelector('#baloon');
+    const pinsEl = document.querySelectorAll('.pin');
+
+    pinsEl.forEach(pin => {
+        pin.addEventListener('mouseover', (e) => {
+
+            let triggeredEl = e.currentTarget;
+            let scenarioId = triggeredEl.dataset.spot;
+
+            // Find the scenario id
+            const scenario_data = scenarios.find(item => item.id === scenarioId)
+            console.log(scenario_data)
+
+            // // Build content
+            const title = `<h2>${scenario_data.id}</h2>`
+            const body = scenario_data.enviroments.map(item => `<img src=${item.icon}>`).join('');
+
+            // Append content
+            baloonEl.innerHTML = title + body;
+
+
+        });
+
+        pin.addEventListener('mouseout', () =>{
+            baloonEl.innerHTML = '';
+        });
+
+        pin.addEventListener('mousemove', (e) => {
+
+            baloonEl.style.left = `${e.pageX}px`;
+            baloonEl.style.top = `${e.pageY}px`;
+        })
+    })
+
 }
