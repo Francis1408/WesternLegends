@@ -207,6 +207,23 @@ export function setMapHud(scenarios, onConfirm) {
 
         pin.addEventListener('click', (e) => {
 
+            const overviewEl = document.querySelector('.overview');
+            // Clear current content
+            overviewEl.innerHTML = "";
+
+            let triggeredEl = e.currentTarget;
+            let scenarioId = triggeredEl.dataset.spot;
+
+            // Find the scenario id
+            const scenario_data = scenarios.find(item => item.id === scenarioId)
+            const region_name =  "("+ scenario_data.id + ")"
+            const title = `<h1>${region_name}</h1>`
+            const image = `<img src=${scenario_data.image}>`
+
+            overviewEl.innerHTML = title + image;
+
+
+
         });
     })
 
