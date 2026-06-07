@@ -3,6 +3,11 @@
   src: url('./fonts/RioGrande.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'TypeWriter';
+  src: url('./fonts/Mom�t___.ttf') format('truetype');
+}
+
 :root {
   --frame-color:rgb(152, 103, 38);
   --background-color-one: #ffe4c4;
@@ -132,6 +137,8 @@ main {
   padding: 5%;
   
   background-color: var(--background-color-one);
+  border: 10px double var(--frame-color)
+
 
 }
 
@@ -162,7 +169,7 @@ main {
   max-width: 100%;
   display: block;
 
-  outline: 8px solid var(--golden-frame);       
+  outline: 8px groove var(--golden-frame);       
   box-shadow: 0 0 0 8px #000;     
   
   background-image: url(../img/paper_texture.webp);
@@ -170,6 +177,21 @@ main {
   background-repeat: no-repeat;
   background-position: center;
 
+}
+/*---------- TEXT DIVIDER---------------*/
+.divider {
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  display: flex;
+  align-items: center;
+
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 3px;
+  background-color: red;
+  margin: 5px;
 }
 
 

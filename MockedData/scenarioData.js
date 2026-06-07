@@ -7,6 +7,7 @@ export const scenarios_data = [
         "modelPath": "Models/Valentine/Valentine.glb", 
         "image": "img/drawings/Valentine_drawing.png",
         "camera": { "position": { "x": -24.48, "y": 7.80, "z": 68.90 }, "target": { "x": -22.05, "y": -0.50, "z": 90.74 }, "up": { "x": 0, "y": 1, "z": 0 } },
+        "description": "Charming town in the middle of the hilly terrain of the Greenlands. Considered the main spot for travellers aroud the Far Lands, offering a wide range of services.",
         // Blender (X, Z, -Y)
         // Three.js (X, Y, Z)
         "npcs": [
