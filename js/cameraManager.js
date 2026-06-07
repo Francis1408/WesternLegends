@@ -145,51 +145,6 @@ export class CameraManager {
         }
 
 
-        /* TRIED TO MAKE AN ANIMATION - FAILED MISERABLY 
-
-        // Find taget camera info
-        const entry = this.availableCameras.find(e => e.id === targetCameraId);
-        if (!entry) return;
-
-        // Kill any ongoing transition
-        if (this.#activeTween) this.#activeTween.kill();
-
-        const fromPos    = this.#activeCamera.position.clone();
-        const fromTarget = this.#activeControls.target.clone();
-        const proxy      = { t: 0 };
-
-        this.#activeControls.enableDamping = false;
-
-        // gsap = lib to make transitions
-        this.#activeTween = gsap.to(proxy, {
-            t:1,
-            duration: 1.8,
-            ease: 'power2.inOut',
-            onUpdate: () => {
-                this.#activeCamera.position.lerpVectors(fromPos, entry.camera.position, proxy.t);
-                this.#activeControls.target.lerpVectors(fromTarget, entry.camera.target, proxy.t);
-                this.#activeControls.update();
-            },
-            onComplete: () => {
-
-                this.#activeCamera.position.copy(entry.camera.position);
-                this.#activeControls.target.copy(entry.camera.target);
-
-                // Copy dest cam values to the active camera
-                this.#activeCamera   = entry.camera;
-                this.#activeControls = entry.controls;
-                this.#activeCameraId = entry.id;
-
-                this.#activeControls.enableDamping = true;
-                this.#activeControls.update();
-
-                this.#notify();
-                this.#activeTween = null;
-            }
-        })
-        
-        */
-
     }
 
 

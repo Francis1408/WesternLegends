@@ -2,7 +2,7 @@
 
 import { container } from "./scene";
 
-export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX) {
+export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 
     // ------------ RESIZE ----------------
     window.addEventListener('resize', () => {
@@ -28,7 +28,7 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
     });
 
     cameraManager.subscribe((cam, id) => {
-        console.log(id)
+
         if (id === 'defaultCamera') {
             returnButton.classList.add('occult');
         }
@@ -47,32 +47,31 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         cameraButton.dataset.active = !isEnabled;
     })
 
-    const enterButton = document.querySelector('#enter_button');
-    enterButton.addEventListener('click', () => {
 
-        const currentScenario = sceneManager.current;
-        const env = currentScenario.enviroments.find(e => e.id === sceneManager.focusedId);
-
-        if (env && sceneManager.hasModel(env)) {
-            console.log(env)
-            sceneManager.load(env).then(meshes => {
-                raycaster.loadMeshes(meshes);
-        });
-    }
-        
-    });
-    
     cameraManager.subscribe((cam, id) => {
         const currentScenario = sceneManager.current;
         const env = currentScenario.enviroments.find(e => e.id === id);
 
         if (env && sceneManager.hasModel(env) && id != 'defaultCamera') {
-            enterButton.classList.remove('occult');
+            console.log(env)
+            overviewBuilder(env, sceneManager, {
+                onConfirm : onConfirm,
+                onEnter: (env) => sceneManager.load(env).then(meshes => raycaster.loadMeshes(meshes)),
+                onReturn: () => cameraManager.switchCamera('defaultCamera'),
+                isPreview:  true
+            }); 
+        }
+
+        else if (id === 'defaultCamera') {
+            overviewBuilder(currentScenario, sceneManager, { onConfirm });
         }
 
         else {
-            enterButton.classList.add('occult');
+            overviewBuilder(env, sceneManager, { onConfirm });
         }
+
+        setOverviewFocus()
+
     })
 
     const leaveButton = document.querySelector('#leave_button');
@@ -88,6 +87,8 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         else {
             leaveButton.classList.add('occult');
         }
+
+        overviewBuilder(scenarioData, sceneManager, { onConfirm });
     })
 
 
@@ -141,54 +142,112 @@ export function setupTabs(sceneManager) {
 
 }
 
+
 // ------------ OVERVIEW BUILDER -------------
 
-export function overviewBuilder(scenarioData, sceneManager, onConfirm) {
+export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter, onReturn, isPreview = false } = {}) {
 
     const overviewEl = document.querySelector('.overview');
 
-    // Checks if it is the final env in the three
-    if (!scenarioData.enviroments) {
-        overviewEl.innerHTML = `<h1>FINAL</h1>`
+    console.log(scenarioData)
+
+
+    if (!isPreview) {
+
+        // Checks if it is the final env in the three
+        if (!scenarioData.enviroments || scenarioData.enviroments.length === 0) {
+            overviewEl.innerHTML = `<h1>FINAL</h1>`
+        }
+    
+        else {
+    
+            // Title
+            const region_name =  "("+ scenarioData.id + ")"
+            const title = `<h1>${region_name}</h1>`
+        
+            // Image
+            const image = scenarioData.image ? `<img src=${scenarioData.image}>` : '';
+        
+            // Description
+            const description = scenarioData.description ? `<p class="description">${scenarioData.description}</p>` : '';
+        
+            // Divider
+            const divider = `<div class="divider">()</div>`;
+    
+            const overviewMainPart = title + image + description + divider;
+    
+            // Iterates through the enviroments and fetches their infos
+            const ownInfo = scenarioData.info 
+                ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
+                : '';
+
+            const envInfos = scenarioData.enviroments.map(item => 
+                `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`
+            ).join('') ?? '';
+
+            const infosList = ownInfo + envInfos;
+    
+            // Buttons
+            const isCurrentLocation = scenarioData.id === sceneManager.mainCurrentScenario;
+            const travelButton = `<button class="travel_btn" ${isCurrentLocation ? 'disabled' : ''}>
+                ${isCurrentLocation ? 'You are here' : 'Travel'}
+            </button>`;
+        
+    
+            overviewEl.innerHTML = overviewMainPart + infosList + travelButton;
+    
+            if (!isCurrentLocation) {
+                overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
+                    onConfirm(scenarioData).then(() => {
+                        overviewBuilder(scenarioData, sceneManager, { onConfirm });
+                    });
+                });
+            }
+        }
     }
 
     else {
 
+        // Builds overview
+        
         // Title
-        const region_name =  "("+ scenarioData.id + ")"
-        const title = `<h1>${region_name}</h1>`
-    
-        // Image
-        const image = scenarioData.image ? `<img src=${scenarioData.image}>` : '';
-    
+        const building_name =  "("+ scenarioData.id + ")"
+        const title = `<h1>${building_name}</h1>`
+
         // Description
         const description = scenarioData.description ? `<p class="description">${scenarioData.description}</p>` : '';
-    
+
         // Divider
         const divider = `<div class="divider">()</div>`;
 
-        const overviewMainPart = title + image + description + divider;
+        // Itens preview
+        const itensPreview = `<p>ITENS PREVIEW</p>`
 
-        // Iterates through the enviroments and fetches their infos
-        let infosList = scenarioData.info ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` : '';
-        
-        infosList = scenarioData.enviroments.map(item => `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`).join('')
+        // Icons info
+        const ownInfo = scenarioData.info 
+                ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
+                : '';
 
-        // Travel button
-        const isCurrentLocation = scenarioData.id === sceneManager.mainCurrentScenario;
-        const travelButton = `<button class="travel_btn" ${isCurrentLocation ? 'disabled' : ''}>
-            ${isCurrentLocation ? 'You are here' : 'Travel'}
-        </button>`;
+        const envInfos = scenarioData.enviroments.map(item => 
+            `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`
+        ).join('') ?? '';
 
-        overviewEl.innerHTML = overviewMainPart + infosList + travelButton;
+        const infosList = ownInfo + envInfos;
 
-        if (!isCurrentLocation) {
-            overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
-                onConfirm(scenarioData).then(() => {
-                    overviewBuilder(scenarioData, sceneManager, onConfirm);
-                });
+        // Buttons
+        const buttons = `<button id="enter_btn" class="travel_btn">Enter</button> 
+                         <button id="return_btn" class="travel_btn">Return</button>`;
+
+        overviewEl.innerHTML = title + description + divider + itensPreview + divider + infosList + buttons
+
+        overviewEl.querySelector('#enter_btn').addEventListener('click', () => {
+            onEnter(scenarioData);
             });
-        }
+
+            overviewEl.querySelector('#return_btn').addEventListener('click', () => {
+                onReturn();
+            });
+
     }
 }
 
@@ -224,7 +283,6 @@ export function setMapHud(scenarios, sceneManager, onConfirm) {
 
             // Find the scenario id
             const scenario_data = scenarios.find(item => item.id === scenarioId)
-            console.log(scenario_data)
 
             // // Build content
             const title = `<h2>${scenario_data.id}</h2>`
@@ -257,7 +315,7 @@ export function setMapHud(scenarios, sceneManager, onConfirm) {
 
             // Find the scenario id
             const scenario_data = scenarios.find(item => item.id === scenarioId)
-            overviewBuilder(scenario_data, sceneManager, onConfirm);
+            overviewBuilder(scenario_data, sceneManager, { onConfirm } );
             setOverviewFocus()
 
         });

@@ -26,7 +26,6 @@ export function loadModel(scene, scenarioData) {
             // Progress loader
             (progress) => {
                 const pct = (progress.loaded / progress.total * 100).toFixed(1)
-                console.log(`Loading model: ${pct}%`)
             },
             reject
         )     
@@ -96,7 +95,6 @@ export function loadNPCs(scene, npcsData) {
                 // Progress loader
                 (progress) => {
                     const pct = (progress.loaded / progress.total * 100).toFixed(1)
-                    console.log(`Loading ${npcData.name}: ${pct}%`);
                 },
                 reject
             )     
