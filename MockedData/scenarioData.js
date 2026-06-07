@@ -43,6 +43,7 @@ export const scenarios_data = [
         "enviroments" : [
             {
                 "id" : "Saloon",
+                "info": "Every cowboy deserves to cool off sometimes.",
                 "modelPath": "Models/Valentine/Saloon.glb", 
                 "icon": "img/icons/saloon.png",
                 "previewCamera" : {
@@ -83,6 +84,7 @@ export const scenarios_data = [
                 "enviroments" : [
                     {
                         "id": "Bar",
+                        "info": "Offers a wide range of drinks to boost character status.",
                         "icon": "img/icons/bar.png",
                         "enviroments" : [],
                         "previewCamera": {
@@ -94,6 +96,7 @@ export const scenarios_data = [
 
                     {
                         "id": "Black_jack",
+                        "info": "Test your luck to win (or lose) some bucks.",
                         "icon" : "img/icons/pokercards.png",
                         "enviroments" : [],
                         "previewCamera": {
@@ -109,6 +112,8 @@ export const scenarios_data = [
             {
                 "id" : "Stable",
                 "modelPath": "Models/Valentine/Stable.glb", 
+                "description": '"My rifle my pony and me"',
+                "info": "Buy new horses for a faster ride.",
                 "icon" : "img/icons/horseshoe.png",
                 "previewCamera": {
                     "position": { "x": -21.50, "y": 2.49, "z": 87.45 },
@@ -158,6 +163,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Bank",
+                "info": "Sell and store your valuables safely.",
                 "modelPath": "Models/Valentine/Bank.glb", 
                 "icon" : "img/icons/bank.png",
                 "previewCamera": {
@@ -206,6 +212,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Hotel",
+                "info": "Restore and increase your energy bar (Always for a price).",
                 "modelPath": "Models/Valentine/Hotel.glb", 
                 "icon" : "img/icons/bed.png",
                 "previewCamera": {
@@ -254,6 +261,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Jail",
+                "info": "Get some wanted contracts.",
                 "modelPath": "Models/Valentine/Jail.glb", 
                 "icon" : "img/icons/sheriff.png",
                 "previewCamera": {
@@ -303,6 +311,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "modelPath": "Models/Valentine/Trading_post.glb", 
+                "info": "Buy valuable goodies that always come in handy.",
                 "icon" : "img/icons/cash_register.png",
                 "previewCamera" : {
                     "position": { "x": -18.04, "y": 2.76, "z": 103.78 },
@@ -354,6 +363,7 @@ export const scenarios_data = [
 // ------------------------ ARMADILLO -------------------------------
     {   
         "id" : "Armadillo",
+        "description": "Is",
         "modelPath": "Models/Armadillo/Armadillo.glb", 
         "image": "img/drawings/Armadillo_drawing.png",
         "camera": {
@@ -394,6 +404,7 @@ export const scenarios_data = [
         "enviroments" : [
             {
                 "id" : "Saloon",
+                "info": "Every cowboy deserves to cool off sometimes.",
                 "modelPath": "Models/Armadillo/Saloon.glb", 
                 "icon" : "img/icons/saloon.png",
                 "previewCamera" : {
@@ -427,6 +438,7 @@ export const scenarios_data = [
                 "enviroments" : [
                     {
                         "id": "Bar",
+                        "info": "Offers a wide range of drinks to boost character status.",
                         "icon" : "img/icons/bar.png",
                         "enviroments" : [],
                         "previewCamera": { "position": { "x": 0.48, "y": 1.91, "z": -1.61 }, "target": { "x": 0.47, "y": 1.76, "z": -2.18 }, "up": { "x": 0, "y": 1, "z": 0 } } 
@@ -434,6 +446,7 @@ export const scenarios_data = [
 
                     {
                         "id": "Black_jack",
+                        "info": "Test your luck to win (or lose) some bucks.",
                         "icon" : "img/icons/pokercards.png",
                         "enviroments" : [],
                         "previewCamera": { "position": { "x": -0.70, "y": 1.97, "z": 2.72 }, "target": { "x": -0.79, "y": 0.66, "z": 0.52 }, "up": { "x": 0, "y": 1, "z": 0 } }
@@ -444,6 +457,8 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "icon" : "img/icons/revolver.png",
+                "description": "Gun rhymes with fun!",
+                "info": "Buy, repair and upgrade weapons",
                 "modelPath": "Models/Armadillo/Gun_shop.glb", 
                 "previewCamera" : { "position": { "x": 0.72, "y": -0.68, "z": -14.27 }, "target": { "x": 18.89, "y": -2.32, "z": -14.00 }, "up": { "x": 0, "y": 1, "z": 0 }},
                 "camera": { "position": { "x": 0.36, "y": 1.80, "z": -1.08 }, "target": { "x": 10.18, "y": -3.57, "z": 12.26 }, "up": { "x": 0, "y": 1, "z": 0 } },
@@ -484,6 +499,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "modelPath": "Models/Armadillo/Trading_post.glb", 
+                "info": "Buy valuable goodies that always come in handy.",
                 "icon" : "img/icons/cash_register.png",
                 "previewCamera" : {
                     "position": { "x": 0.86, "y": -1.15, "z": -5.95 },
@@ -535,6 +551,7 @@ export const scenarios_data = [
     // ----------------------- REDROCK -------------------------------
     {
         "id" : "Redrock",
+        "description": "The quiet and rusty Redrock carries its legacy with the red sands from the region. Symbol of endurance, the town is considered an oasis from many travellers who face the tough conditions from the Dryrock Desert.", 
         "modelPath": "Models/Redrock/Redrock.glb", 
         "image": "img/drawings/Redrock_drawing.png",
         "camera": { "position": { "x": 0.30, "y": 1.13, "z": -12.36}, "target": { "x": 0.20, "y": 0.00, "z": -16.17 }, "up": { "x": 0, "y": 1, "z": 0 } },
@@ -566,6 +583,8 @@ export const scenarios_data = [
             {
                 "id" : "Stable",
                 "modelPath": null, 
+                "description": '"My rifle my pony and me"',
+                "info": "Buy new horses for a faster ride.",
                 "icon" : "img/icons/horseshoe.png",
                 "previewCamera" : {
                     "position": { "x": 1.76, "y": -1.39, "z": -23.75 },
@@ -579,6 +598,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "icon" : "img/icons/cash_register.png",
+                "info": "Buy valuable goodies that always come in handy.",
                 "modelPath": "Models/Redrock/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 0.01, "y": -0.76, "z": -38.76 },
@@ -627,6 +647,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Jail",
+                "info": "Get some wanted contracts.",
                 "modelPath": "Models/Redrock/Jail.glb", 
                 "icon" : "img/icons/sheriff.png",
                 "previewCamera" : {
@@ -678,6 +699,8 @@ export const scenarios_data = [
                 "id" : "Gun_shop",
                 "modelPath": "Models/Redrock/Gun_shop.glb", 
                 "icon" : "img/icons/revolver.png",
+                "description": "Gun rhymes with fun!",
+                "info": "Buy, repair and upgrade weapons",
                 "previewCamera" : {
                     "position": { "x": -1.60, "y": -1.14, "z": -27.28 },
                     "target": { "x": -6.09, "y": -1.06, "z": -27.26 },
@@ -727,6 +750,7 @@ export const scenarios_data = [
             {
                 "id" : "Bank",
                 "modelPath": "Models/Redrock/Bank.glb", 
+                "info": "Sell and store your valuables safely.",
                 "icon" : "img/icons/bank.png",
                 "previewCamera" : {
                     "position": { "x": 0.80, "y": -0.35, "z": -46.22 },
@@ -780,6 +804,7 @@ export const scenarios_data = [
 
    {   
         "id" : "Wellington",
+        "description": "The great city of Wellington is the cornerstone of the economy from the Far Lands, where all wealthy burocrats, laywers and doctors meet. Offers a wide range of luxury services.",
         "modelPath": "Models/Wellington/Wellington.glb", 
         "image": "img/drawings/Wellington_drawing.png",
         "camera": {
@@ -836,6 +861,8 @@ export const scenarios_data = [
                 "id" : "Gun_shop",
                 "modelPath": "Models/Wellington/Gun_shop.glb", 
                 "icon" : "img/icons/revolver.png",
+                "description": "Gun rhymes with fun!",
+                "info": "Buy, repair and upgrade weapons",
                 "previewCamera" : {
                     "position": { "x": 9.96, "y": -4.24, "z": -35.90 },
                     "target": { "x": 4.22, "y": -3.77, "z": -35.98 },
@@ -885,6 +912,7 @@ export const scenarios_data = [
             {
                 "id" : "Bank",
                 "modelPath": "Models/Wellington/Bank.glb", 
+                "info": "Sell and store your valuables safely.",
                 "icon" : "img/icons/bank.png",
                 "previewCamera" : {
                     "position": { "x": 6.34, "y": -3.27, "z": -12.23 },
@@ -933,6 +961,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Hotel",
+                "info": "Restore and increase your energy bar (Always for a price).",
                 "modelPath": "Models/Wellington/Hotel.glb", 
                 "icon" : "img/icons/bed.png",
                 "previewCamera" : {
@@ -995,6 +1024,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Jail",
+                "info": "Get some wanted contracts.",
                 "modelPath": "Models/Wellington/Jail.glb", 
                 "icon" : "img/icons/sheriff.png",
                 "previewCamera" : {
@@ -1048,6 +1078,7 @@ export const scenarios_data = [
 
     {   
         "id" : "Terminus",
+        "description": "End of the line from the great Far Lands rails.",
         "modelPath": "Models/Terminus/Terminus.glb", 
         "image": "img/drawings/Terminus_drawing.png",
         "camera": {
@@ -1108,6 +1139,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Hotel",
+                "info": "Restore and increase your energy bar (Always for a price).",
                 "modelPath": "Models/Terminus/Hotel.glb", 
                 "icon" : "img/icons/bed.png",
                 "previewCamera" : {
@@ -1157,6 +1189,7 @@ export const scenarios_data = [
 
             {
                 "id" : "Saloon",
+                "info": "Every cowboy deserves to cool off sometimes.",
                 "modelPath": "Models/Terminus/Saloon.glb", 
                 "icon": "img/icons/saloon.png",
                 "previewCamera" : {
@@ -1206,6 +1239,7 @@ export const scenarios_data = [
                 "enviroments" : [
                     {
                         "id": "Bar",
+                        "info": "Offers a wide range of drinks to boost character status.",
                         "enviroments" : [],
                         "previewCamera": {
                             "position": { "x": -2.09, "y": 0.98, "z": 0.34 },
@@ -1216,6 +1250,7 @@ export const scenarios_data = [
 
                     {
                         "id": "Black_jack",
+                        "description": "Test your luck to win (or lose) some bucks.",
                         "enviroments" : [],
                         "previewCamera": {
                             "position": { "x": -0.27, "y": 0.92, "z": -0.09 },
@@ -1230,6 +1265,7 @@ export const scenarios_data = [
             {
                 "id" : "Trading_post",
                 "icon" : "img/icons/cash_register.png",
+                "info": "Buy valuable goodies that always come in handy.",
                 "modelPath": "Models/Terminus/Trading_post.glb", 
                 "previewCamera" : {
                     "position": { "x": 27.65, "y": -16.73, "z": -53.05 },
@@ -1284,6 +1320,7 @@ export const scenarios_data = [
     {   
         "id" : "Comanche_Tribe",
         "modelPath": "Models/Comanche_tribe/Comanche_tribe.glb", 
+        "description": "A lively Comanche camp rests along the riverbanks, where woven tipis and cooking fires line the water’s edge. Hunters, traders, and travelers can make exchanges with its members.",
         "image": "img/drawings/Comanche_tribe_drawing.png",
         "camera": {
             "position": { "x": 8.44, "y": 12.67, "z": 28.69 },
@@ -1334,9 +1371,10 @@ export const scenarios_data = [
         ]
     },
 
-    // ------------------------ QUERY -------------------------------
+    // ------------------------ QUARRY -------------------------------
     {
-        "id" : "Query",
+        "id" : "Quarry",
+        "description": "Query",
         "modelPath": "Models/Query/Query.glb",
         "image": "img/drawings/Query_drawing.png",
         "camera": {
@@ -1415,6 +1453,7 @@ export const scenarios_data = [
      // ----------------------- THIEF CAMP -------------------------------
     {
         "id" : "Thief_Camp",
+        "description": "Query",
         "modelPath": "Models/Thief_camp/Thief_camp.glb", 
         "image": "img/drawings/Thief_camp_drawing.png",
         "camera": {

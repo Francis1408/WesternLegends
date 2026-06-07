@@ -141,6 +141,44 @@ export function setupTabs(sceneManager) {
 
 }
 
+// ------------ OVERVIEW BUILDER -------------
+function overviewBuilder(scenarioData) {
+
+    const overviewEl = document.querySelector('.overview');
+
+    // Checks if it is the final env in the three
+    if (!scenarioData.enviroments) {
+        overviewEl.innerHTML = `<h1>FINAL</h1>`
+    }
+
+    else {
+
+        // Title
+        const region_name =  "("+ scenarioData.id + ")"
+        const title = `<h1>${region_name}</h1>`
+    
+        // Image
+        const image = scenarioData.image ? `<img src=${scenarioData.image}>` : '';
+    
+        // Description
+        const description = scenarioData.description ? `<p class="description">${scenarioData.description}</p>` : '';
+    
+        // Divider
+        const divider = `<div class="divider">()</div>`;
+
+        const overviewMainPart = title + image + description + divider;
+
+        // Iterates through the enviroments and fetches their infos
+        let infosList = scenarioData.info ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` : '';
+        
+        infosList = scenarioData.enviroments.map(item => `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`).join('')
+
+        overviewEl.innerHTML = overviewMainPart + infosList;
+    }
+    
+
+}
+
 
 
 // ------------ MAP HUD ----------------
@@ -216,11 +254,12 @@ export function setMapHud(scenarios, onConfirm) {
 
             // Find the scenario id
             const scenario_data = scenarios.find(item => item.id === scenarioId)
-            const region_name =  "("+ scenario_data.id + ")"
-            const title = `<h1>${region_name}</h1>`
-            const image = `<img src=${scenario_data.image}>`
+            overviewBuilder(scenario_data)
+            // const region_name =  "("+ scenario_data.id + ")"
+            // const title = `<h1>${region_name}</h1>`
+            // const image = `<img src=${scenario_data.image}>`
 
-            overviewEl.innerHTML = title + image;
+            // overviewEl.innerHTML = title + image;
 
 
 

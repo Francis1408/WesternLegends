@@ -8,6 +8,12 @@
   src: url('./fonts/Mom�t___.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Bronco';
+  src: url('./fonts/BroncoPersonalUse.ttf') format('truetype');
+}
+
+
 :root {
   --frame-color:rgb(152, 103, 38);
   --background-color-one: #ffe4c4;
@@ -180,7 +186,9 @@ main {
 }
 /*---------- TEXT DIVIDER---------------*/
 .divider {
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-family: 'RioGrande';
+  color: var(--golden-frame);
+  font-size: clamp(2rem, 2.5vw, 1rem);
   display: flex;
   align-items: center;
 
@@ -190,10 +198,38 @@ main {
   flex: 1;
   content: '';
   padding: 3px;
-  background-color: red;
+  background-color: var(--golden-frame);
   margin: 5px;
 }
 
+/*---------- TEXT DESCRIPTION---------------*/
+.description {
+  font-family: 'TypeWriter'; 
+  text-align: center;
+}
+
+.info_list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.info_list img {
+  width: 10%;     
+  height: 10%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.info_list p {
+  font-family: 'Bronco';
+ font-size: clamp(1.0rem, 1.5vw, 1rem);
+}
+
+.info_list p {
+  margin: 0;
+}
 
 
 /*---------- TABS ---------------*/
