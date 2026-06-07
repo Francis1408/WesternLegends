@@ -142,7 +142,8 @@ export function setupTabs(sceneManager) {
 }
 
 // ------------ OVERVIEW BUILDER -------------
-function overviewBuilder(scenarioData) {
+
+export function overviewBuilder(scenarioData, sceneManager, onConfirm) {
 
     const overviewEl = document.querySelector('.overview');
 
@@ -173,42 +174,44 @@ function overviewBuilder(scenarioData) {
         
         infosList = scenarioData.enviroments.map(item => `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`).join('')
 
-        overviewEl.innerHTML = overviewMainPart + infosList;
-    }
-    
+        // Travel button
+        const isCurrentLocation = scenarioData.id === sceneManager.mainCurrentScenario;
+        const travelButton = `<button class="travel_btn" ${isCurrentLocation ? 'disabled' : ''}>
+            ${isCurrentLocation ? 'You are here' : 'Travel'}
+        </button>`;
 
+        overviewEl.innerHTML = overviewMainPart + infosList + travelButton;
+
+        if (!isCurrentLocation) {
+            overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
+                onConfirm(scenarioData).then(() => {
+                    overviewBuilder(scenarioData, sceneManager, onConfirm);
+                });
+            });
+        }
+    }
 }
 
+function setOverviewFocus() {
 
+    const localTabs = document.querySelectorAll('.tabs_button.sidemenu');
+    const localPanels = document.querySelectorAll('.sidemenu_wrap');
+    
+    // Remove active
+    localTabs.forEach(t => t.classList.remove('active'));
+    localPanels.forEach(p => p.classList.remove('active'));
+    
+    const overviewTab = document.querySelector('#overview_tab');
+    const overviewPanel = document.querySelector('#overview')
+    overviewTab.classList.add('active');
+    overviewPanel.classList.add('active');
+
+    window.dispatchEvent(new Event('resize'));
+}
 
 // ------------ MAP HUD ----------------
-export function setMapHud(scenarios, onConfirm) {
-    let index = 0;
-    const input = document.querySelector("#area_display");
-    const backward = document.querySelector('#backward');
-    const forward  = document.querySelector('#forward');
-    const submit   = document.querySelector('#submit');
-
-     console.log(input, backward, forward);
-
-    input.value = scenarios[index].id;
-
-     backward.addEventListener('click', () => {
-        index = (index - 1 + scenarios.length) % scenarios.length;
-        input.value = scenarios[index].id;
-    });
-
-    forward.addEventListener('click', () => {
-        index = (index + 1) % scenarios.length;
-        let scenario_name = scenarios[index].id
-        input.value = String(scenario_name).replace("_", " ");
-    });
-
-    submit.addEventListener('click', () => {
-        onConfirm(scenarios[index]);
-    });
-
-
+export function setMapHud(scenarios, sceneManager, onConfirm) {
+    
     // Baloon info
     const baloonEl = document.querySelector('#baloon');
     const pinsEl = document.querySelectorAll('.pin');
@@ -254,14 +257,8 @@ export function setMapHud(scenarios, onConfirm) {
 
             // Find the scenario id
             const scenario_data = scenarios.find(item => item.id === scenarioId)
-            overviewBuilder(scenario_data)
-            // const region_name =  "("+ scenario_data.id + ")"
-            // const title = `<h1>${region_name}</h1>`
-            // const image = `<img src=${scenario_data.image}>`
-
-            // overviewEl.innerHTML = title + image;
-
-
+            overviewBuilder(scenario_data, sceneManager, onConfirm);
+            setOverviewFocus()
 
         });
     })

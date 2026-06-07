@@ -4,7 +4,7 @@ import { PostProcessing } from './PostProcessing.js'
 import { Raycaster } from './Raycaster.js';
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
-import { setupEvents, setupTabs, setMapHud } from './events.js';
+import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js';
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
 
@@ -39,6 +39,11 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
   raycaster.loadMeshes(meshes);
 })
 
+const onConfirm = (scenario) => {
+    return sceneManager.reset(scenario).then(meshes => {
+        raycaster.loadMeshes(meshes);
+    });
+};
 
 // // // GUI
 // const gui = setupGUI(cameraManager.camera, cameraManager.controls);
@@ -46,7 +51,6 @@ sceneManager.load(scenarios_data[0]).then(meshes => {
 
 // Subscribers
 sceneManager.subscribe((scenarioData) => {
-  console.log('scenarioData received:', scenarioData);
   cameraManager.loadScenario(scenarioData);
   lights.updateLights(scenarioData);
   postFX.updateAttributes(scenarioData);
@@ -54,6 +58,8 @@ sceneManager.subscribe((scenarioData) => {
   raycaster.clearMeshes();
   raycaster.clearHighlithNames();
   raycaster.loadHighlightNames(scenarioData);
+  overviewBuilder(scenarioData, sceneManager, onConfirm);
+  
 })
 
 raycaster.onMeshClick((meshName) => {
@@ -77,13 +83,8 @@ cameraManager.subscribe((cam, id) => {
 // })
 
 // Setup
-// setupLights(scene);
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX);
-setMapHud(scenarios_data, (scenario) => {
-  sceneManager.reset(scenario).then(meshes => {
-    raycaster.loadMeshes(meshes);
-  });
-})
+setMapHud(scenarios_data, sceneManager, onConfirm);
 setupTabs(sceneManager);
 
 // lights.setupLightsGUI(postFX.bloomPass);

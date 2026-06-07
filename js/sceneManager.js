@@ -6,6 +6,7 @@ import { scene } from './scene.js';
 export class SceneManager {
 
     #currentModel = null;
+    #mainCurrentScenario = null; // Saves the current scenario id
     #subscribers = [];
     #stack = []; // History of loaded scenarios
     #focusedId  = null;
@@ -45,7 +46,9 @@ export class SceneManager {
 
         const meshes = await this.#loadModel(scenarioData);
         // Add to the stack
+         if (this.#stack.length <= 1) this.updateRootId(scenarioData);
         this.#stack.push(scenarioData)
+
         // Notify subscribers with the new enviroment list
         this.#notify(scenarioData);
 
@@ -59,6 +62,7 @@ export class SceneManager {
         this.clearStack()
         // Add to the stack
         this.#stack.push(scenarioData)
+        this.updateRootId(scenarioData)
         // Notify subscribers with the new enviroment list
         this.#notify(scenarioData);
 
@@ -72,10 +76,16 @@ export class SceneManager {
         this.#stack.pop();
         const parent = this.#stack[this.#stack.length - 1];
 
-        const meshes = await this.#loadModel(parent); // ← load without pushing
+        const meshes = await this.#loadModel(parent); 
         this.#notify(parent);
 
         return meshes ?? [];
+    }
+
+    // Update the root id (referent to the main scenario)
+    updateRootId(scenarioData) {
+
+        this.#mainCurrentScenario = scenarioData.id;
     }
 
     updateAnimations() {
@@ -95,6 +105,10 @@ export class SceneManager {
     get npcs() {
         return this.#npcs;
     }
+
+    get mainCurrentScenario() {
+        return this.#mainCurrentScenario;
+    }   
 
     // CHeck if stack has more than one scene
     hasParent() {
