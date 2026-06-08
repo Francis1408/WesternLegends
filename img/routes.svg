@@ -1,46 +1,85 @@
 <svg viewBox="0 0 508 285.75" xmlns="http://www.w3.org/2000/svg">
   <g transform="translate(-0.39003521, 0.42114207)">
 
+    <!-- redrock ↔ terminus -->
     <path id="route-redrock-terminus"
       d="m 96.436301,154.61033 38.588329,61.1878"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-terminus-redrock"
+      d="M 135.02463,215.79813 L 96.436301,154.61033"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
-    <path id="route-ardamillo-comanche"
+    <!-- armadillo ↔ comanche_tribe -->
+    <path id="route-comanche_tribe-armadillo"
       d="M 181.45989,94.471034 C 155.03467,111.09434 139.11025,90.600244 120.69411,78.91369"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-armadillo-comanche_tribe"
+      d="M 120.69411,78.91369 C 139.11025,90.600244 155.03467,111.09434 181.45989,94.471034"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
-    <path id="route-valentine-thiefcamp"
+    <!-- valentine ↔ thief_camp -->
+    <path id="route-valentine-thief_camp"
       d="m 222.72305,142.99382 c 46.56526,15.6852 83.41283,15.13721 91.28838,-33.80789"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
-
-    <path id="route-valentine-comanche"
-      d="M 222.44227,141.77166 C 229.50684,87.429646 203.22292,96.990339 183.14538,94.658301"
+    <path id="route-thief_camp-valentine"
+      d="M 314.01143,109.18593 C 305.74858,157.99382 269.2883,158.67902 222.72305,142.99382"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
+    <!-- valentine ↔ comanche_tribe -->
+    <path id="route-valentine-comanche_tribe"
+      d="M 222.44227,141.77166 C 229.50684,87.429646 203.22292,96.990339 183.14538,94.658301"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-comanche_tribe-valentine"
+      d="M 183.14538,94.658301 C 203.22292,96.990339 229.50684,87.429646 222.44227,141.77166"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- valentine ↔ farm -->
     <path id="route-valentine-farm"
       d="m 206.92738,173.4404 c 2.50378,-16.49591 15.77332,-15.37383 14.88957,-30.92615"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-farm-valentine"
+      d="M 221.81695,142.51425 C 220.93320,157.06657 208.43116,172.94449 206.92738,173.4404"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
+    <!-- valentine ↔ wellington -->
     <path id="route-valentine-wellington"
       d="M 397.17255,182.44535 C 260.50172,139.08865 225.06258,133.93562 223.04258,141.39458"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
-
-    <path id="route-thiefcamp-wellington"
-      d="M 395.27372,182.27123 313.04709,109.66179"
+    <path id="route-wellington-valentine"
+      d="M 223.04258,141.39458 C 225.06258,133.93562 260.50172,139.08865 397.17255,182.44535"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
+    <!-- thief_camp ↔ wellington -->
+    <path id="route-thief_camp-wellington"
+      d="M 395.27372,182.27123 313.04709,109.66179"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-wellington-thief_camp"
+      d="M 313.04709,109.66179 395.27372,182.27123"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- wellington ↔ quarry -->
     <path id="route-wellington-quarry"
       d="m 287.39216,198.20857 c 37.83841,3.55594 73.92973,-3.199 109.2073,-14.75646"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-quarry-wellington"
+      d="M 396.59946,183.45211 C 361.32189,194.76457 325.23057,201.76451 287.39216,198.20857"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
+    <!-- terminus ↔ farm (route 1) -->
     <path id="route-terminus-farm"
       d="m 137.52557,216.01163 c 41.24584,-5.17263 31.84506,-31.38728 66.21394,-41.92383"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
-
-    <path id="route-terminus-farm"
-      d="m 136.40344,216.85956 c 47.62373,-16.00052 97.74637,-17.57896 148.14721,-17.55174"
+    <path id="route-farm-terminus"
+      d="M 203.73951,174.0878 C 169.37063,184.62435 178.77141,210.8390 137.52557,216.01163"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
+    <!-- terminus ↔ quarry -->
+    <path id="route-terminus-quarry"
+      d="m 136.40344,216.85956 c 47.62373,-16.00052 97.74637,-17.57896 148.14721,-17.55174"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
+    <path id="route-quarry-terminus"
+      d="M 284.55065,199.30782 C 234.14981,199.28060 184.02717,200.85904 136.40344,216.85956"
+      fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
   </g>
 </svg>

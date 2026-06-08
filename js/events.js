@@ -1,6 +1,7 @@
 /* FRONT-END EVENTS */
 
 import { container } from "./scene";
+import { travelRoute } from "./route";
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 
@@ -198,9 +199,11 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
     
             if (!isCurrentLocation) {
                 overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
-                    onConfirm(scenarioData).then(() => {
-                        overviewBuilder(scenarioData, sceneManager, { onConfirm });
-                    });
+                    travelRoute(sceneManager.mainCurrentScenario, scenarioData.id, 10000, () => {
+                        onConfirm(scenarioData).then(() => {
+                            overviewBuilder(scenarioData, sceneManager, { onConfirm });
+                        });
+                    })
                 });
             }
         }
@@ -225,8 +228,8 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
 
         // Icons info
         const ownInfo = scenarioData.info 
-                ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
-                : '';
+            ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
+            : '';
 
         const envInfos = scenarioData.enviroments.map(item => 
             `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`

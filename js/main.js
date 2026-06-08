@@ -7,7 +7,7 @@ import { CameraManager } from './cameraManager.js'
 import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js';
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
-import { loadRoutes } from './path.js';
+import { loadRoutes } from './route.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
 
@@ -51,8 +51,6 @@ const onConfirm = (scenario) => {
 // // // GUI
 // const gui = setupGUI(cameraManager.camera, cameraManager.controls);
 
-const img = document.querySelector('.map_display img');
-console.log(img.naturalWidth, img.naturalHeight); 
 
 // Subscribers
 sceneManager.subscribe((scenarioData) => {
