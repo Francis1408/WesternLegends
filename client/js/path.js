@@ -9,6 +9,13 @@ function movePlayer(svgPoint) {
   player.style.top  = (svgPoint.y / VB_H * 100) + '%';
 }
 
+export function calculateTrip(origin, destination) {
+
+    const { distance, partial_distances, path } = dijkstra(origin, destination);
+
+    
+}
+
 export function travelRoute(origin, destination, duration = 4000, onComplete = null) {
 
 

@@ -7,7 +7,7 @@ import { CameraManager } from './cameraManager.js'
 import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js';
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
-import { loadRoutes } from './route.js';
+import { loadRoutes } from './path.js';
 
 import {scenarios_data} from '../MockedData/scenarioData.js'
 
@@ -99,6 +99,20 @@ renderer.setAnimationLoop(() => {
   postFX.render();
   // cameraManager.controls.update();
 })
+
+async function testBackend() {
+  try {
+    const response = await fetch('http://localhost:3000/api/test');
+
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+testBackend();
 
 
 

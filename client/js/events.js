@@ -1,7 +1,7 @@
 /* FRONT-END EVENTS */
 
-import { container } from "./scene";
-import { travelRoute, dijkstra } from "./route";
+import { container } from "./scene.js";
+import { travelRoute, dijkstra } from "./path.js";
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 

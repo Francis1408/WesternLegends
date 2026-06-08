@@ -437,3 +437,148 @@ input {
 .map_svg path {
   visibility: hidden;
 }
+
+
+
+/*-------------- NOTIFICATION WINDOW -------------------*/
+
+.notification_overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+
+  z-index: 9999;
+
+  animation: fadeOverlay 0.2s ease;
+}
+
+.notification_window {
+  width: min(500px, 90vw);
+  max-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background-color-one);
+
+  border: 8px double var(--frame-color);
+  box-shadow:
+    0 0 0 4px #2a1a06,
+    8px 8px 0 #2a1a06;
+
+  overflow: hidden;
+
+  animation: popup 0.2s ease;
+}
+
+/* HEADER */
+
+.notification_header {
+  background: var(--frame-color);
+  color: white;
+
+  padding: 1rem;
+
+  border-bottom: 4px solid goldenrod;
+}
+
+.notification_header h1 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+/* CONTENT */
+
+.notification_content {
+  padding: 1.5rem;
+
+  overflow-y: auto;
+
+  font-family: 'Bronco';
+  font-size: 2rem;
+  line-height: 1.5;
+
+  color: #2a1a06;
+}
+
+/* BUTTON AREA */
+
+.notification_buttons {
+  display: flex;
+  gap: 1rem;
+
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding: 1rem;
+
+  border-top: 4px solid var(--frame-color);
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.03),
+      rgba(0,0,0,0.08)
+    );
+}
+
+.notification_buttons button {
+  background-color: var(--frame-color);
+  color: white;
+
+  border: 3px solid goldenrod;
+  border-radius: 8px;
+
+  box-shadow: 3px 3px 0 #2a1a06;
+
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.notification_buttons button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #2a1a06;
+}
+
+.notification_buttons button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 #2a1a06;
+}
+
+/* HIDDEN */
+
+.hidden {
+  display: none;
+}
+
+/* ANIMATIONS */
+
+@keyframes popup {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
