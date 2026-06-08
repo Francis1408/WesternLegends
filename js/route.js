@@ -1,38 +1,4 @@
-// const path   = document.getElementById('route-redrock-terminus');
-// const player = document.getElementById('player');
-
-// const len      = path.getTotalLength();
-// const duration = 4000; // ms — adjust for travel speed
-
-// // Set up the dash trick — path starts invisible
-// path.style.strokeDasharray  = len;
-// path.style.strokeDashoffset = len;
-
-// // Place player at start
-// const start_point = path.getPointAtLength(0);
-// player.setAttribute('cx', start_point.x);
-// player.setAttribute('cy', start_point.y);
-
-// // Animate
-// let startTime = null;
-
-// function animate(timestamp) {
-//   if (!startTime) startTime = timestamp;
-
-//   const progress = Math.min((timestamp - startTime) / duration, 1); // 0 → 1
-
-//   // Draw the trail
-//   path.style.strokeDashoffset = len * (1 - progress);
-
-//   // Move the player
-//   const point = path.getPointAtLength(progress * len);
-//   player.setAttribute('cx', point.x);
-//   player.setAttribute('cy', point.y);
-
-//   if (progress < 1) requestAnimationFrame(animate);
-// }
-
-// requestAnimationFrame(animate);
+import { distances } from "../MockedData/distances"; 
 
 const VB_W = 508;
 const VB_H = 285.75;
@@ -104,3 +70,80 @@ export async function loadRoutes() {
 
 }
 
+// Calculate the shortest path to a spot
+export function dijkstra(start, end, graph=distances) {
+
+    const distances = {};
+    const visited = new Set();
+    const previous = {};
+
+    // Initialize distances
+    for (const vertex in graph) {
+        distances[vertex] = Infinity;
+        previous[vertex] = null;
+    }
+
+    distances[start] = 0;
+
+    while (true) {
+        let closestVertex = null;
+        let shortestDistance = Infinity;
+
+        // Find unvisited vertex with smallest distance
+        for (const vertex in distances) {
+            if (
+                !visited.has(vertex) &&
+                distances[vertex] < shortestDistance
+            ) {
+                shortestDistance = distances[vertex];
+                closestVertex = vertex;
+            }
+        }
+
+        // No reachable vertex left
+        if (closestVertex === null) {
+            break;
+        }
+
+        // Reached destination
+        if (closestVertex === end) {
+            break;
+        }
+
+        visited.add(closestVertex);
+
+        // Update neighbors
+        for (const neighbor in graph[closestVertex]) {
+            const weight = graph[closestVertex][neighbor];
+            const newDistance = distances[closestVertex] + weight;
+
+            if (newDistance < distances[neighbor]) {
+                distances[neighbor] = newDistance;
+                previous[neighbor] = closestVertex;
+            }
+        }
+    }
+
+    // Reconstruct path
+    const path = [];
+    let current = end;
+    let partial_distances = []
+
+    while (current !== null) {
+        path.unshift(current);
+        const prev = previous[current];
+
+        if (prev !== null) {
+            partial_distances.unshift(graph[prev][current]);
+        }
+        
+        current = prev;
+    }
+
+    return {
+        distance: distances[end],
+        partial_distances: partial_distances,
+        path,
+    };
+}
+   

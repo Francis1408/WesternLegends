@@ -1,7 +1,7 @@
 /* FRONT-END EVENTS */
 
 import { container } from "./scene";
-import { travelRoute } from "./route";
+import { travelRoute, dijkstra } from "./route";
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 
@@ -199,11 +199,15 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
     
             if (!isCurrentLocation) {
                 overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
-                    travelRoute(sceneManager.mainCurrentScenario, scenarioData.id, 10000, () => {
-                        onConfirm(scenarioData).then(() => {
+                    console.log(dijkstra(sceneManager.mainCurrentScenario, scenarioData.id))
+                    onConfirm(scenarioData).then(() => {
                             overviewBuilder(scenarioData, sceneManager, { onConfirm });
                         });
-                    })
+                    // travelRoute(sceneManager.mainCurrentScenario, scenarioData.id, 10000, () => {
+                    //     onConfirm(scenarioData).then(() => {
+                    //         overviewBuilder(scenarioData, sceneManager, { onConfirm });
+                    //     });
+                    // })
                 });
             }
         }
