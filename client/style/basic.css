@@ -1,4 +1,9 @@
-@font-face {
+/* ═══════════════════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════════════════ */
+
+
+   @font-face {
   font-family: 'RioGrande';
   src: url('./fonts/RioGrande.ttf') format('truetype');
 }
@@ -39,4 +44,136 @@
       rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px,
       transparent 1px, transparent 6px
     );
+}
+
+/* WANTED POSTER */
+
+.avatar-card {
+  position: relative;
+  cursor: pointer;
+  width: 130px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 2px solid rgba(184,134,11,.25);
+  transition: border-color .15s, transform .1s, box-shadow .15s;
+  background: #f5e9cc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  box-shadow: 3px 3px 0 #1a0900, inset 0 0 30px rgba(0,0,0,.12);
+}
+
+.poster-header {
+  width: 100%;
+  background: #8b1a00;
+  padding: .28rem .4rem .22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  border-bottom: 2px solid #5a1000;
+}
+
+.wanted-label {
+  font-family: 'Rye', serif;
+  font-size: .55rem;
+  color: rgba(245,220,160,.7);
+  letter-spacing: .18em;
+  line-height: 1;
+}
+
+.wanted-title {
+  font-family: 'Rye', serif;
+  font-size: 1.05rem;
+  color: #f5dca0;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+
+.poster-img-wrap {
+  width: 100%;
+  padding: .45rem .45rem .35rem;
+  display: flex;
+  justify-content: center;
+  background: #f0e0b0;
+}
+
+.avatar-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border: 1.5px solid rgba(120,70,10,.35);
+  filter: sepia(.45) brightness(.88) contrast(1.08);
+  transition: filter .15s;
+  background: rgba(90,50,10,.3);
+}
+
+.poster-footer {
+  width: 100%;
+  background: #8b1a00;
+  border-top: 2px solid #5a1000;
+  padding: .25rem .4rem .3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.dead-alive {
+  font-family: 'Rye', serif;
+  font-size: .45rem;
+  color: rgba(245,220,160,.65);
+  letter-spacing: .14em;
+  line-height: 1;
+}
+
+.name-label {
+  font-family: 'Rye', serif;
+  font-size: .75rem;
+  color: #f5dca0;
+  letter-spacing: .08em;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+
+/* Aged paper lines */
+.avatar-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 3px,
+    rgba(0,0,0,.02) 3px, rgba(0,0,0,.02) 4px
+  );
+  z-index: 2;
+}
+
+.avatar-card:hover {
+  border-color: rgba(184,134,11,.6);
+  transform: translateY(-2px);
+  box-shadow: 4px 5px 0 #1a0900;
+}
+.avatar-card:hover img { filter: sepia(.2) brightness(.95) contrast(1.1); }
+
+.avatar-card:has(input:checked) {
+  border-color: rgba(200,160,50,.9);
+  box-shadow: 3px 3px 0 #1a0900, 0 0 0 1px rgba(184,134,11,.5), inset 0 0 16px rgba(184,134,11,.1);
+}
+.avatar-card:has(input:checked) img { filter: sepia(.1) brightness(1) contrast(1.12); }
+
+.avatar-card:has(input:checked)::after {
+  content: '✦';
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  font-size: .65rem;
+  color: #f5dca0;
+  text-shadow: 0 0 4px rgba(200,160,50,.9);
+  z-index: 3;
 }

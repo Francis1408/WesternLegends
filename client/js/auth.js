@@ -11,7 +11,7 @@ const loginForm    = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
  
 
-// ── Tab switching ──────────────────────────────────────────────────────────
+// ----- Tab switching -------------------------------------
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     tabBtns.forEach(b => b.classList.remove('active'));
@@ -43,10 +43,12 @@ export function getPlayer() {
   const raw = localStorage.getItem('wg_player');
   return raw ? JSON.parse(raw) : null;
 }
+
 function saveSession(token, user) {
   localStorage.setItem('wg_token',  token);
   localStorage.setItem('wg_player', JSON.stringify(user));
 }
+
 export function clearSession() {
   localStorage.removeItem('wg_token');
   localStorage.removeItem('wg_player');
@@ -123,7 +125,13 @@ if (loginForm && registerForm) {
       
       saveSession(data.token, data.user);
       showMsg(`Welcome back, ${data.user.username}! 🌵`, false);
-      window.location.href = '/index.html';
+
+      // Checks if player was created
+      if (data.hasPlayer) {
+        window.location.href = '/index.html';
+      } else {
+        window.location.href = '/character.html';
+      }
       
       setTimeout(() => hideAuth(), 900);
       

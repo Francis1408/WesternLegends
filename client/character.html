@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Your Legend — Western Legends</title>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@v0.184.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.184.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./style/basic.css">
+  <link rel="stylesheet" href="./style/layout.css">
+  <link rel="stylesheet" href="./style/character.css">
+</head>
+<body>
+
+  <header>
+    <h1>⚙ Create Your Legend</h1>
+  </header>
+
+  <main>
+    <div class="linha">
+      
+
+      <!-- ── LEFT: Form panel ─────────────────────────────── -->
+      <div class="frame" id="char-form-panel">
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+
+        <div class="char-form-inner">
+
+          <!-- Name -->
+          <div class="char-section">
+            <h2 class="char-section-title">Your Name</h2>
+            <div class="field">
+              <input
+                type="text"
+                id="char-name"
+                maxlength="32"
+                placeholder="What do they call you, stranger?"
+                autocomplete="off"
+              />
+              <span class="char-name-counter">0 / 32</span>
+            </div>
+          </div>
+
+          <div class="char-divider"></div>
+
+          <!-- Avatar picker -->
+          <div class="char-section">
+            <h2 class="char-section-title">Choose Your Legend</h2>
+            <div class="avatar-grid" id="avatar-grid">
+
+              <!-- Charancters will go here -->
+
+            </div>
+          </div>
+
+          <div class="char-divider"></div>
+
+          <!-- Color picker -->
+          <div class="char-section">
+            <h2 class="char-section-title">Colour</h2>
+            <p class="char-section-sub">Tints your character's outfit.</p>
+            <div class="color-grid" id="color-grid">
+
+              <label class="color-swatch" title="Frontier Tan">
+                <input type="radio" name="tint" value="#c9a96e" checked />
+                <span style="background:#c9a96e"></span>
+              </label>
+              <label class="color-swatch" title="Dusty Red">
+                <input type="radio" name="tint" value="#9b3a2a" />
+                <span style="background:#9b3a2a"></span>
+              </label>
+              <label class="color-swatch" title="Midnight Black">
+                <input type="radio" name="tint" value="#1e1510" />
+                <span style="background:#1e1510"></span>
+              </label>
+              <label class="color-swatch" title="Sage Green">
+                <input type="radio" name="tint" value="#5a7a4a" />
+                <span style="background:#5a7a4a"></span>
+              </label>
+              <label class="color-swatch" title="Desert Sand">
+                <input type="radio" name="tint" value="#d9c49a" />
+                <span style="background:#d9c49a"></span>
+              </label>
+              <label class="color-swatch" title="Iron Blue">
+                <input type="radio" name="tint" value="#3a5068" />
+                <span style="background:#3a5068"></span>
+              </label>
+              <label class="color-swatch" title="Bourbon">
+                <input type="radio" name="tint" value="#7a3d10" />
+                <span style="background:#7a3d10"></span>
+              </label>
+              <label class="color-swatch" title="Ghost White">
+                <input type="radio" name="tint" value="#e8e0d0" />
+                <span style="background:#e8e0d0"></span>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="char-divider"></div>
+
+          <!-- Submit -->
+          <div class="char-section char-submit-row">
+            <div id="char-msg" class="char-msg"></div>
+            <button class="auth-btn" id="char-submit">
+              Ride Into the Frontier
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── RIGHT: 3D Preview ────────────────────────────── -->
+      <div class="frame" id="char-preview-panel">
+        <span class="corner corner-tl"></span>
+        <span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span>
+        <span class="corner corner-br"></span>
+
+        <div class="preview-label">Preview</div>
+        <div class="preview-viewport">
+          <canvas id="char-canvas"></canvas>
+          <div class="preview-name-badge" id="preview-name">— name your outlaw —</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script type="module" src="./js/characterCreation.js"></script>
+</body>
+</html>

@@ -103,3 +103,48 @@ export function loadNPCs(scene, npcsData) {
 
     return Promise.all(npcsData.map(loadSingle));
 }
+
+export function loadAvatar(scena, modelPath) {
+
+    const loader = new GLTFLoader()
+
+    return new Promise((resolve, reject) => {
+
+            loader.load(
+                // Loads the model from path
+                modelPath,
+                (gltf) => {
+                    const model = gltf.scene;
+
+                    // Centre model at origin
+                    const box    = new THREE.Box3().setFromObject(model);
+                    const centre = box.getCenter(new THREE.Vector3());
+                    model.position.sub(centre);
+                    model.position.y += (box.max.y - box.min.y) / 2;
+                
+
+                    // Apply angle convertion at run time
+                    model.scale.set(1, 1, 1)
+                    scene.add(model)
+
+                    // Set animation mixer 
+                    const mixer = new THREE.AnimationMixer(model);
+                    const animations = {};
+                    const idle = gltf.animations.find(a => a.name == 'Idle') || gltf.animations[0];
+                    // Play animation
+                    mixer.clipAction(idle).play();
+                    
+                    resolve(true);
+                    
+                },
+                // Progress loader
+                (progress) => {
+                    const pct = (progress.loaded / progress.total * 100).toFixed(1)
+                },
+                reject
+            )     
+        })
+
+        return Promise.all(true);
+    }
+
