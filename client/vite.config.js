@@ -1,7 +1,13 @@
-/**
- * @type {import('vite').UserConfig}
- */
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-export default {
-    base: process.env.NODE_ENV === 'production' ? '/WesternLegends/' : ''
-}
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        auth: resolve(__dirname, 'auth.html'),
+      }
+    }
+  }
+});

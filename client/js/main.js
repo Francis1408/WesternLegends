@@ -8,8 +8,8 @@ import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js'
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
-
 import {scenarios_data} from '../MockedData/scenarioData.js'
+import { getToken } from './auth.js';
 
 /*
 MODULES DYNAMIC
@@ -24,9 +24,12 @@ Raycaster: Algorithm that returns the meshes name which the mouse pointer is on
 
 Envents: HUD events
 
-
 */ 
 // Load routes
+
+if (!getToken()) window.location.href = '/auth.html';
+
+
 loadRoutes()
 
 // Core modules

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@v0.184.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.184.0/examples/jsm/",
+        "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.20/+esm",
+        "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.webgpu.js"
+      }
+    }
+    </script>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Western Legends</title>
+    <link rel="stylesheet" href="./style/basic.css">
+    <link rel="stylesheet" href="./style/layout.css">
+  </head>
+  <body>
+    <main>
+        <div id="auth-overlay" class="auth-overlay">
+            <div class="auth-card">
+                <!-- Brand -->
+                <div class="auth-brand">
+                <div class="auth-star">✦</div>
+                <h1 class="auth-title">Dryrock Frontier</h1>
+                <p class="auth-sub">The West doesn't wait for the uninvited.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login-panel">Sign In</button>
+                <button class="auth-tab"        data-tab="register-panel">Register</button>
+                </div>
+
+                <!-- Message bar -->
+                <div id="auth-msg" class="auth-msg"></div>
+
+                <!-- Login panel -->
+                <div id="login-panel" class="auth-panel active">
+                <form id="login-form" autocomplete="off">
+                    <div class="field">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="your@email.com" required />
+                    </div>
+                    <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="••••••••" required />
+                    </div>
+                    <button type="submit" class="auth-btn">Ride In</button>
+                </form>
+                </div>
+
+                <!-- Register panel -->
+                <div id="register-panel" class="auth-panel">
+                <form id="register-form" autocomplete="off">
+                    <div class="field">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Outlaw name" required />
+                    </div>
+                    <div class="field">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="your@email.com" required />
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Min. 6 characters" required />
+                    </div>
+                    <button type="submit" class="auth-btn">Claim Your Spot</button>
+                </form>
+                </div>
+
+            </div>
+        </div>
+    </main> 
+
+    <script type="module" src="./js/auth.js"></script>
+
+  </body>
+</html>
