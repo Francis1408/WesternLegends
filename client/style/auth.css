@@ -1,0 +1,178 @@
+@import url(basic.css);
+
+/* Overlay fills the screen above the Three.js canvas */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(180,80,20,.35) 0%, transparent 65%),
+    rgba(10, 6, 2, 0.88);
+
+  backdrop-filter: blur(3px);
+  transition: opacity .5s ease, visibility .5s ease;
+  opacity: 1;
+  visibility: visible;
+}
+.auth-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Card */
+.auth-card {
+  width: min(420px, 92vw);
+  padding: 2.5rem 2.8rem 2.8rem;
+  background: #12090200;
+
+  border: 1px solid rgba(200, 140, 60, 0.30);
+  border-top-color: rgba(200, 140, 60, 0.55);
+  border-radius: 2px;
+
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.6),
+    0 32px 80px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(200,140,60,.12);
+
+  background: linear-gradient(160deg, #1c1006 0%, #0e0804 100%);
+
+  animation: cardIn .5s cubic-bezier(.22,.8,.38,1) both;
+}
+@keyframes cardIn {
+  from { transform: translateY(18px) scale(.97); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+/* Brand */
+.auth-brand { text-align: center; margin-bottom: 1.8rem; }
+
+.auth-star {
+  font-size: 1.1rem;
+  color: #c8813c;
+  letter-spacing: .5em;
+  margin-bottom: .5rem;
+  animation: spin 18s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.auth-title {
+  font-family: 'Rye', serif;
+  font-size: 2rem;
+  color: #e8c07a;
+  letter-spacing: .04em;
+  margin: 0 0 .35rem;
+  text-shadow: 0 2px 20px rgba(200,120,30,.4);
+}
+.auth-sub {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: .95rem;
+  color: rgba(200,160,90,.55);
+  margin: 0;
+}
+
+/* Tabs */
+.auth-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(200,140,60,.2);
+  margin-bottom: 1.4rem;
+}
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: .55rem 0 .6rem;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(200,160,90,.45);
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  margin-bottom: -1px;
+  letter-spacing: .05em;
+}
+.auth-tab.active,
+.auth-tab:hover {
+  color: #e8c07a;
+  border-bottom-color: #c8813c;
+}
+
+/* Message */
+.auth-msg {
+  min-height: 1.4rem;
+  font-family: 'Crimson Pro', serif;
+  font-size: .9rem;
+  text-align: center;
+  margin-bottom: .9rem;
+  transition: opacity .2s;
+}
+.auth-msg.error   { color: #d96c4a; }
+.auth-msg.success { color: #7ec98a; }
+
+/* Panels */
+.auth-panel { display: none; }
+.auth-panel.active { display: block; }
+
+/* Fields */
+.field { margin-bottom: 1.1rem; }
+
+.field label {
+  display: block;
+  font-family: 'Crimson Pro', serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(200,160,90,.6);
+  margin-bottom: .35rem;
+}
+
+.field input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(200,140,60,.22);
+  border-radius: 2px;
+  padding: .65rem .85rem;
+  color: #e8d8b8;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.field input::placeholder { color: rgba(200,160,90,.25); }
+.field input:focus {
+  border-color: rgba(200,140,60,.55);
+  background: rgba(255,255,255,.07);
+}
+
+/* Submit button */
+.auth-btn {
+  width: 100%;
+  margin-top: .5rem;
+  padding: .75rem;
+  background: linear-gradient(135deg, #a0581e 0%, #c8813c 100%);
+  border: none;
+  border-radius: 2px;
+  color: #fdf0d8;
+  font-family: 'Rye', serif;
+  font-size: .95rem;
+  letter-spacing: .07em;
+  cursor: pointer;
+  transition: filter .2s, transform .1s;
+  box-shadow: 0 4px 18px rgba(180,90,20,.35);
+}
+.auth-btn:hover  { filter: brightness(1.12); }
+.auth-btn:active { transform: scale(.98); }
+.auth-btn:disabled {
+  filter: brightness(.6);
+  cursor: not-allowed;
+}

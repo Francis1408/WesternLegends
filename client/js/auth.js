@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = 'http://localhost:3000/api';
  
 // ── DOM ────────────────────────────────────────────────────────────────────
 const overlay   = document.getElementById('auth-overlay');
@@ -10,8 +10,6 @@ const msgBox    = document.getElementById('auth-msg');
 const loginForm    = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
  
-
-
 
 // ── Tab switching ──────────────────────────────────────────────────────────
 tabBtns.forEach(btn => {

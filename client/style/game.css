@@ -1,53 +1,64 @@
-@font-face {
-  font-family: 'RioGrande';
-  src: url('./fonts/RioGrande.ttf') format('truetype');
-}
 
-@font-face {
-  font-family: 'TypeWriter';
-  src: url('./fonts/Mom�t___.ttf') format('truetype');
-}
+@import url(basic.css);
 
-@font-face {
-  font-family: 'Bronco';
-  src: url('./fonts/BroncoPersonalUse.ttf') format('truetype');
-}
+/*---------- MAIN COMPONENTS ---------------*/
 
-
-:root {
-  --frame-color:rgb(152, 103, 38);
-  --background-color-one: #ffe4c4;
-  --golden-frame: goldenrod;
-}
-
-
+/* ═══════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════ */
+ 
 html, body {
   height: 100dvh;
   margin: 0;
   overflow: hidden;
 }
-
+ 
 body {
-    display: flex;
-    flex-direction: column;
-}
+  display: flex;
+  flex-direction: column;
 
+  background-color: #d6bc8a;
+  background-image:
+    /* main stripes — soft painted edges */
+    repeating-linear-gradient(
+      90deg,
+      rgba(160,100,30,.0)   0px,
+      rgba(160,100,30,.0)   2px,
+      rgba(140,85,20,.18)   2px,
+      rgba(155,95,25,.22)   6px,
+      rgba(148,90,22,.20)   10px,
+      rgba(140,85,20,.17)   16px,
+      rgba(160,100,30,.0)   20px,
+      rgba(160,100,30,.0)   30px,
+      /* thinner secondary stripe */
+      rgba(140,85,20,.08)   30px,
+      rgba(148,90,22,.13)   34px,
+      rgba(140,85,20,.08)   38px,
+      rgba(160,100,30,.0)   42px,
+      rgba(160,100,30,.0)   60px
+    ),
+    /* faint vertical sheen for paper feel */
+    repeating-linear-gradient(
+      92deg,
+      rgba(255,255,255,.0)  0px,
+      rgba(255,255,255,.06) 8px,
+      rgba(255,255,255,.0)  60px
+    ),
+    /* base tone */
+    linear-gradient(160deg, #dfc690 0%, #d6bc8a 45%, #cdb07e 100%);
+
+}
+ 
 header {
   flex: 0 0 5vh;
   display: flex;
   padding: 0.25em 0.5em;
-  border-bottom: 1px solid rgba(0,0,0,.15);
 }
-
+ 
 footer {
-    flex: 0 0 5vh;
+  flex: 0 0 5vh;
 }
-
-h1, h2 {
-  font-family: "Rye", serif;
-  margin: 0 0.35em;
-}
-
+ 
 main {
   padding: 4em 1em 1em 1em;
   display: flex;
@@ -56,33 +67,113 @@ main {
   overflow: hidden;
   flex-direction: column;
 }
-
+ 
 .linha {
   display: flex;
   gap: 1em;
   flex: 1 1 0;
   min-height: 0;
 }
+ 
+/* ═══════════════════════════════════════════════════
+   WOOD SURFACE 
+   ═══════════════════════════════════════════════════ */
+ 
+   
+header, footer,
+section,
+.frame, .controles, .tabs_button, button {
+  background-color: var(--wood-mid);
+  background-image:
+    var(--wood-grain),
+    linear-gradient(175deg,
+      var(--wood-light) 0%,
+      var(--wood-mid)   30%,
+      #4a2608           55%,
+      #5e3515           75%,
+      #6b3c18           100%
+    );
+  border: 1px solid var(--gold-border);
+  color: #f0deb4;
+  position: relative;
 
-.frame {
-    flex: 1 1 0;
-    min-height: 0;
-    display: flex;
-    position: relative;
-    padding: 50px 20px 20px 20px;
-    background-color: var(--frame-color);
-    box-shadow: 3px 3px 0 #2a1a06;    
+  box-shadow:
+      inset 0 0 0 2px rgba(184,134,11,.18),
+      inset 0 1px 0 rgba(255,220,100,.12),
+      3px 3px 0 #1a0900;
 }
 
-
+ 
+/* Darker strip for header/footer */
+header, footer {
+  background-image:
+    var(--wood-grain),
+    linear-gradient(180deg, #4e2a0a 0%, #3d1f06 60%, #2e1604 100%);
+  color: var(--gold-text);
+}
+ 
+/* Double golden inset frame on panels */
+section::before,  .frame::before,  .controles::before,
+section::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(184,134,11,.35);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 0;
+}
+ 
+section::before, .frame::before, .controles::before { inset: 3px; }
+section::after                                        { inset: 5px; border-color: rgba(184,134,11,.15); border-radius: 1px; }
+ 
+/* ═══════════════════════════════════════════════════
+   FRAME & CONTROLES — layout specifics
+   ═══════════════════════════════════════════════════ */
+ 
+.frame {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  padding: 50px 20px 20px 20px;
+}
+ 
 .controles {
   display: flex;
   flex-direction: column;
   margin-bottom: 4px;
   min-width: 70vh;
   max-width: 70vh;
-  box-shadow: 3px 3px 0 #2a1a06;
 }
+ 
+/* ═══════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════ */
+ 
+h1, h2 {
+  font-family: "Rye", serif;
+  margin: 0 0.35em;
+  color: var(--gold-text);
+  text-shadow: 0 1px 8px rgba(0,0,0,.6);
+}
+ 
+/* ═══════════════════════════════════════════════════
+   CORNER ORNAMENTS  (add spans to your HTML)
+   ═══════════════════════════════════════════════════ */
+ 
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #d4a017;
+  border-style: solid;
+  opacity: .75;
+  pointer-events: none;
+  z-index: 1;
+}
+.corner-tl { top: 7px;    left: 7px;  border-width: 3px 0 0 3px; }
+.corner-tr { top: 7px;    right: 7px; border-width: 3px 3px 0 0; }
+.corner-bl { bottom: 7px; left: 7px;  border-width: 0 0 3px 3px; }
+.corner-br { bottom: 7px; right: 7px; border-width: 0 3px 3px 0; }
 
 /*---------- CANVAS WRAP ---------------*/
 
@@ -102,7 +193,6 @@ main {
   width: 100%;
   height: 100%;
 }
-
 
 .map_panel {
   width: 100%;
@@ -153,7 +243,9 @@ main {
   padding: 5%;
   
   background-color: var(--background-color-one);
-  border: 10px double var(--frame-color)
+  border: 10px double var(--gold-border);
+
+  box-shadow: 5px 5px black;
 
 
 }
@@ -168,6 +260,7 @@ main {
 
 .overview > h1 {
   font-family: 'RioGrande'; 
+  color: var(--ink);
   font-size: clamp(3rem, 3.5vw, 1.8rem);
   text-align: center;
   margin: 0 0 8px 0;
@@ -185,7 +278,7 @@ main {
   max-width: 100%;
   display: block;
 
-  outline: 8px groove var(--golden-frame);       
+  outline: 8px groove var(--gold-border);       
   box-shadow: 0 0 0 8px #000;     
   
   background-image: url(../img/paper_texture.webp);
@@ -202,7 +295,7 @@ main {
   width: auto;
   font-size: clamp(2rem, 3.5vw, 1.8rem);
   border-radius: 8px;
-  border: 4px double var(--golden-frame);
+  border: 4px double var(--gold-border);
   box-shadow: 3px 3px 0 #2a1a06;
   transition: transform 0.1s, box-shadow 0.2s;
   margin: 3% auto; 
@@ -220,7 +313,7 @@ main {
 /*---------- TEXT DIVIDER---------------*/
 .divider {
   font-family: 'RioGrande';
-  color: var(--golden-frame);
+  color: var(--gold-border);
   font-size: clamp(2rem, 2.5vw, 1rem);
   display: flex;
   align-items: center;
@@ -277,16 +370,14 @@ main {
 
 .tabs_button {
   font-family: "Rye", serif;
-  background-color: var(--frame-color);
-  color: white;
   text-align: center;
   z-index: 100;
   width: auto;
   min-width: 50px;
   /* font-size: auto; */
   border-radius: 8px;
-  border: 2px solid goldenrod;
   transition: transform 0.1s;
+  box-shadow: 0;
 }
 
 .tabs_button:hover,
@@ -315,7 +406,6 @@ button {
   border-radius: 8px;
   border: 4px solid var(--frame-color);
   box-shadow: 3px 3px 0 #2a1a06;
-  transition: transform 0.1s, box-shadow 0.2s;
 }
 
 .map_button {
@@ -414,6 +504,7 @@ input {
 #baloon h2{
   font-size: 20px;
   text-align: center;
+  color: var(--ink)
 }
 
 #baloon img {
@@ -437,8 +528,6 @@ input {
 .map_svg path {
   visibility: hidden;
 }
-
-
 
 /*-------------- NOTIFICATION WINDOW -------------------*/
 
@@ -581,185 +670,4 @@ input {
   to {
     opacity: 1;
   }
-}
-
-/*-----------------AUTH-------------------------*/
-
-@import url('https://fonts.googleapis.com/css2?family=Rye&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
-
-/* Overlay fills the screen above the Three.js canvas */
-.auth-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background:
-    radial-gradient(ellipse at 60% 40%, rgba(180,80,20,.35) 0%, transparent 65%),
-    rgba(10, 6, 2, 0.88);
-
-  backdrop-filter: blur(3px);
-  transition: opacity .5s ease, visibility .5s ease;
-  opacity: 1;
-  visibility: visible;
-}
-.auth-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Card */
-.auth-card {
-  width: min(420px, 92vw);
-  padding: 2.5rem 2.8rem 2.8rem;
-  background: #12090200;
-
-  border: 1px solid rgba(200, 140, 60, 0.30);
-  border-top-color: rgba(200, 140, 60, 0.55);
-  border-radius: 2px;
-
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,.6),
-    0 32px 80px rgba(0,0,0,.7),
-    inset 0 1px 0 rgba(200,140,60,.12);
-
-  background: linear-gradient(160deg, #1c1006 0%, #0e0804 100%);
-
-  animation: cardIn .5s cubic-bezier(.22,.8,.38,1) both;
-}
-@keyframes cardIn {
-  from { transform: translateY(18px) scale(.97); opacity: 0; }
-  to   { transform: none; opacity: 1; }
-}
-
-/* Brand */
-.auth-brand { text-align: center; margin-bottom: 1.8rem; }
-
-.auth-star {
-  font-size: 1.1rem;
-  color: #c8813c;
-  letter-spacing: .5em;
-  margin-bottom: .5rem;
-  animation: spin 18s linear infinite;
-  display: inline-block;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.auth-title {
-  font-family: 'Rye', serif;
-  font-size: 2rem;
-  color: #e8c07a;
-  letter-spacing: .04em;
-  margin: 0 0 .35rem;
-  text-shadow: 0 2px 20px rgba(200,120,30,.4);
-}
-.auth-sub {
-  font-family: 'Crimson Pro', serif;
-  font-style: italic;
-  font-size: .95rem;
-  color: rgba(200,160,90,.55);
-  margin: 0;
-}
-
-/* Tabs */
-.auth-tabs {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid rgba(200,140,60,.2);
-  margin-bottom: 1.4rem;
-}
-.auth-tab {
-  flex: 1;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: .55rem 0 .6rem;
-  font-family: 'Crimson Pro', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(200,160,90,.45);
-  cursor: pointer;
-  transition: color .2s, border-color .2s;
-  margin-bottom: -1px;
-  letter-spacing: .05em;
-}
-.auth-tab.active,
-.auth-tab:hover {
-  color: #e8c07a;
-  border-bottom-color: #c8813c;
-}
-
-/* Message */
-.auth-msg {
-  min-height: 1.4rem;
-  font-family: 'Crimson Pro', serif;
-  font-size: .9rem;
-  text-align: center;
-  margin-bottom: .9rem;
-  transition: opacity .2s;
-}
-.auth-msg.error   { color: #d96c4a; }
-.auth-msg.success { color: #7ec98a; }
-
-/* Panels */
-.auth-panel { display: none; }
-.auth-panel.active { display: block; }
-
-/* Fields */
-.field { margin-bottom: 1.1rem; }
-
-.field label {
-  display: block;
-  font-family: 'Crimson Pro', serif;
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(200,160,90,.6);
-  margin-bottom: .35rem;
-}
-
-.field input {
-  width: 100%;
-  box-sizing: border-box;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(200,140,60,.22);
-  border-radius: 2px;
-  padding: .65rem .85rem;
-  color: #e8d8b8;
-  font-family: 'Crimson Pro', serif;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color .2s, background .2s;
-}
-.field input::placeholder { color: rgba(200,160,90,.25); }
-.field input:focus {
-  border-color: rgba(200,140,60,.55);
-  background: rgba(255,255,255,.07);
-}
-
-/* Submit button */
-.auth-btn {
-  width: 100%;
-  margin-top: .5rem;
-  padding: .75rem;
-  background: linear-gradient(135deg, #a0581e 0%, #c8813c 100%);
-  border: none;
-  border-radius: 2px;
-  color: #fdf0d8;
-  font-family: 'Rye', serif;
-  font-size: .95rem;
-  letter-spacing: .07em;
-  cursor: pointer;
-  transition: filter .2s, transform .1s;
-  box-shadow: 0 4px 18px rgba(180,90,20,.35);
-}
-.auth-btn:hover  { filter: brightness(1.12); }
-.auth-btn:active { transform: scale(.98); }
-.auth-btn:disabled {
-  filter: brightness(.6);
-  cursor: not-allowed;
 }

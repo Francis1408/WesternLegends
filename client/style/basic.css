@@ -1,18 +1,42 @@
-body {
-  background-color:antiquewhite ;
+@font-face {
+  font-family: 'RioGrande';
+  src: url('./fonts/RioGrande.ttf') format('truetype');
 }
 
-header, footer {
-  background-color: rgb(152, 103, 38);
-  box-shadow: 0 2px 8px black;
-  color: white;
+@font-face {
+  font-family: 'TypeWriter';
+  src: url('./fonts/Mom�t___.ttf') format('truetype');
 }
 
-section {
-    background-color: rgb(152, 103, 38);
-    color: white;
+@font-face {
+  font-family: 'Bronco';
+  src: url('./fonts/BroncoPersonalUse.ttf') format('truetype');
 }
 
-h1 {
-  font-family: "Cedarville Cursive", cursive;
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+
+:root {
+  --frame-color:rgb(152, 103, 38);
+  --background-color-one: #ffe4c4;
+  --background-color-two:  #12090200;
+  --golden-frame: goldenrod;
+
+  --wood-dark:   #3d1f06;
+  --wood-mid:    #5c3210;
+  --wood-light:  #7a4520;
+  --gold-border: #b8860b;
+  --gold-text:   #e8c07a;
+  --ink: black;
+  --wood-grain:
+   repeating-linear-gradient(
+      92deg,
+      transparent 0px, transparent 18px,
+      rgba(0,0,0,.07) 18px, rgba(0,0,0,.07) 19px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px,
+      transparent 1px, transparent 6px
+    );
 }
