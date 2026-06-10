@@ -153,25 +153,6 @@ h1, h2 {
   text-shadow: 0 1px 8px rgba(0,0,0,.6);
 }
  
-/* ═══════════════════════════════════════════════════
-   CORNER ORNAMENTS  (add spans to your HTML)
-   ═══════════════════════════════════════════════════ */
- 
-.corner {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-color: #d4a017;
-  border-style: solid;
-  opacity: .75;
-  pointer-events: none;
-  z-index: 1;
-}
-.corner-tl { top: 7px;    left: 7px;  border-width: 3px 0 0 3px; }
-.corner-tr { top: 7px;    right: 7px; border-width: 3px 3px 0 0; }
-.corner-bl { bottom: 7px; left: 7px;  border-width: 0 0 3px 3px; }
-.corner-br { bottom: 7px; right: 7px; border-width: 0 3px 3px 0; }
-
 /*---------- CANVAS WRAP ---------------*/
 
 .canvas_wrap, .sidemenu_wrap {

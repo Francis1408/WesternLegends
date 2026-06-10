@@ -203,7 +203,7 @@ tintInputs.forEach(input => {
 nameInput.addEventListener('input', () => {
   const len = nameInput.value.length;
   nameCounter.textContent = `${len} / 32`;
-  previewBadge.textContent = nameInput.value.trim() || '— name your outlaw —';
+  previewBadge.textContent = nameInput.value.trim() || '— Name Your Legend —';
 });
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -224,7 +224,7 @@ submitBtn.addEventListener('click', async () => {
   const tint   = document.querySelector('input[name="tint"]:checked')?.value;
 
   if (!name)   return showMsg('Give yourself a name, stranger.');
-  if (!avatar) return showMsg('Pick your outlaw first.');
+  if (!avatar) return showMsg('Pick your legend first.');
 
   setLoading(true);
   showMsg('');

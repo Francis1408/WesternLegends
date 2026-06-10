@@ -26,22 +26,26 @@
 <body>
 
   <header>
-    <h1>⚙ Create Your Legend</h1>
+    <h1>Create Your Legend</h1>
+
+    <span class="corner corner-tl"></span> 
+    <span class="corner corner-tr"></span> 
+    <span class="corner corner-bl"></span> 
+    <span class="corner corner-br"></span> 
+
   </header>
 
   <main>
     <div class="linha">
-      
-
       <!-- ── LEFT: Form panel ─────────────────────────────── -->
       <div class="frame" id="char-form-panel">
-        <span class="corner corner-tl"></span>
-        <span class="corner corner-tr"></span>
-        <span class="corner corner-bl"></span>
-        <span class="corner corner-br"></span>
+
+        <span class="corner corner-tl"></span> 
+        <span class="corner corner-tr"></span> 
+        <span class="corner corner-bl"></span> 
+        <span class="corner corner-br"></span> 
 
         <div class="char-form-inner">
-
           <!-- Name -->
           <div class="char-section">
             <h2 class="char-section-title">Your Name</h2>
@@ -57,7 +61,7 @@
             </div>
           </div>
 
-          <div class="char-divider"></div>
+          <div class="divider">()</div>
 
           <!-- Avatar picker -->
           <div class="char-section">
@@ -69,12 +73,12 @@
             </div>
           </div>
 
-          <div class="char-divider"></div>
+          <div class="divider">()</div>
 
           <!-- Color picker -->
           <div class="char-section">
             <h2 class="char-section-title">Colour</h2>
-            <p class="char-section-sub">Tints your character's outfit.</p>
+            <p class="char-section-sub">Change your character colour.</p>
             <div class="color-grid" id="color-grid">
 
               <label class="color-swatch" title="Frontier Tan">
@@ -113,13 +117,13 @@
             </div>
           </div>
 
-          <div class="char-divider"></div>
+          <div class="divider">()</div>
 
           <!-- Submit -->
           <div class="char-section char-submit-row">
             <div id="char-msg" class="char-msg"></div>
             <button class="auth-btn" id="char-submit">
-              Ride Into the Frontier
+              Ride Into the Far Lands
             </button>
           </div>
 
@@ -128,22 +132,23 @@
 
       <!-- ── RIGHT: 3D Preview ────────────────────────────── -->
       <div class="frame" id="char-preview-panel">
-        <span class="corner corner-tl"></span>
-        <span class="corner corner-tr"></span>
-        <span class="corner corner-bl"></span>
-        <span class="corner corner-br"></span>
-
-        <div class="preview-label">Preview</div>
         <div class="preview-viewport">
           <canvas id="char-canvas"></canvas>
-          <div class="preview-name-badge" id="preview-name">— name your outlaw —</div>
+          <div class="preview-name-badge" id="preview-name">— Name Your Legend —</div>
         </div>
       </div>
 
     </div>
   </main>
+  
+  <footer>
+     <span class="corner corner-tl"></span>
+      <span class="corner corner-tr"></span>
+      <span class="corner corner-bl"></span>
+      <span class="corner corner-br"></span>
 
-  <footer></footer>
+    <h1>FOOTER</h1>
+  </footer>
 
   <script type="module" src="./js/characterCreation.js"></script>
 </body>

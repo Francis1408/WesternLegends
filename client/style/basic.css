@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════ */
 
 
-   @font-face {
+@font-face {
   font-family: 'RioGrande';
   src: url('./fonts/RioGrande.ttf') format('truetype');
 }
@@ -85,7 +85,7 @@
 
 .wanted-title {
   font-family: 'Rye', serif;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   color: #f5dca0;
   letter-spacing: .06em;
   line-height: 1;
@@ -132,7 +132,7 @@
 
 .name-label {
   font-family: 'Rye', serif;
-  font-size: .75rem;
+  font-size: 1rem;
   color: #f5dca0;
   letter-spacing: .08em;
   line-height: 1.1;
@@ -177,3 +177,45 @@
   text-shadow: 0 0 4px rgba(200,160,50,.9);
   z-index: 3;
 }
+
+/* ═══════════════════════════════════════════════════
+   CORNER ORNAMENTS  (add spans to your HTML)
+   ═══════════════════════════════════════════════════ */
+ 
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #d4a017;
+  border-style: solid;
+  opacity: .75;
+  pointer-events: none;
+  z-index: 1;
+}
+.corner-tl { top: 7px;    left: 7px;  border-width: 3px 0 0 3px; }
+.corner-tr { top: 7px;    right: 7px; border-width: 3px 3px 0 0; }
+.corner-bl { bottom: 7px; left: 7px;  border-width: 0 0 3px 3px; }
+.corner-br { bottom: 7px; right: 7px; border-width: 0 3px 3px 0; }
+
+
+/* ═══════════════════════════════════════════════════
+  TEXT DIVIDER
+═══════════════════════════════════════════════════ */
+
+.divider {
+  font-family: 'RioGrande';
+  color: var(--gold-border);
+  font-size: clamp(2rem, 2.5vw, 1rem);
+  display: flex;
+  align-items: center;
+
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 3px;
+  background-color: var(--golden-frame);
+  margin: 5px;
+}
+
