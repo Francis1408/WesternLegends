@@ -12,17 +12,32 @@ if (!token) window.location.href = '/auth.html';
 
 // ── Avatar model map ───────────────────────────────────────────────────────
 const AVATAR_MODELS = {
-  cowboy:  '../Models/Characters/Cowboy/Cowboy_03.glb',
-  cowgirl: '../Models/Characters/Cowgirl/Cowgirl_02.glb',
+  cowboy:  '../Models/Characters/Mexican_02/Mexican_02_03.glb',
+  cowgirl: '../Models/Characters/Bandit_man/Bandit_man_02.glb',
   badguy:  '../Models/Characters/Badguy/Badguy_01.glb',
   woman:   '../Models/Characters/Woman/Woman_02.glb',
 };
 
 const AVATAR_LIST = [
-  { value: 'bandit',  img: 'img/drawings/characters/Badguy_drawing.png', name: 'Drifter'  },
-  { value: 'outlaw',  img: 'img/drawings/characters/Outlaw_drawing.png',  name: 'Outlaw'   },
-  { value: 'ranger',  img: 'img/drawings/characters/Ranger_drawing.png',  name: 'Ranger'   },
+  { value: 'badguy',  img: 'img/drawings/characters/Badguy_drawing.png', name: 'Badguy'  },
+  { value: 'bandit',  img: 'img/drawings/characters/Bandit_drawing.png',  name: 'Bandit'   },
+  { value: 'cowboy',  img: 'img/drawings/characters/Cowboy_drawing.png',  name: 'Cowboy'   },
+  { value: 'cowgirl',  img: 'img/drawings/characters/Cowgirl_drawing.png',  name: 'Cowgirl'  },
+  { value: 'gunman',  img: 'img/drawings/characters/Gunman_drawing.png',  name: 'Gunman'  },
+  { value: 'mexican',  img: 'img/drawings/characters/Mexican_drawing.png',  name: 'Mexican'  },
 ]
+
+const AVATAR_L = [
+  { value: 1, colors: ['#0d0d0d', '#7a8a45', '#3c627d']},
+  { value: 2, colors: ['#0d0d0d','#8f3b35', '#7a8a45']},
+  { value: 3, colors: ['#7a8a45', '#78562f', '#8f3b35']},
+  { value: 4, colors: ['#8f3b35', '#78562f', '#3c627d']},
+  { value: 5, colors: ['#8f3b35', '#cc7614', '#ffffff']},
+  { value: 7, colors: ['#78562f', '#616b40', '#cc7614']}
+]
+
+
+
 
 // ── DOM refs ───────────────────────────────────────────────────────────────
 const nameInput     = document.getElementById('char-name');

@@ -58,7 +58,7 @@ export const scenarios_data = [
                 },
 
                 "npcs": [
-                    { "modelPath": "Models/Characters/Thug_man/Thug_man_01.glb", "name": "NPC_01", "position": [-0.45, -0.84, -0.50], "rotation": [0, 30, 0], "animationList" : ["Dealing"] },
+                    { "modelPath": "Models/Characters/Thug_man_01/Thug_man_01_01.glb", "name": "NPC_01", "position": [-0.45, -0.84, -0.50], "rotation": [0, 30, 0], "animationList" : ["Dealing"] },
                     { "modelPath": "Models/Characters/Business_man/Business_man_01.glb", "name": "BARMAN", "position": [3.34, -0.84, -2.77], "rotation": [0, -15, 0], "animationList" : ["Idle"] },
                     { "modelPath": "Models/Characters/Working_girl/Working_girl_02.glb", "name": "NPC_02", "position": [-0.53, 2.07, -2.69], "rotation": [0, 30, 0], "animationList" : ["Talk_f_01", "Talk_01", "Talk_02", "Talk_03"] },
                     { "modelPath": "Models/Characters/Working_girl/Working_girl_03.glb", "name": "NPC_03", "position": [0.52, 2.07, -2.43], "rotation": [0, 200, 0], "animationList" : ["Talk_f_01", "Talk_01", "Talk_02", "Talk_03"] },
@@ -66,7 +66,7 @@ export const scenarios_data = [
                     { "modelPath": "Models/Characters/Sheriff/Sheriff_01.glb", "name": "NPC_05", "position": [1.39, -0.82, 2.03], "rotation": [0, 30, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
                     { "modelPath": "Models/Characters/Gunman/Gunman_01.glb", "name": "NPC_06", "position": [2.05, -0.82, 4.04], "rotation": [0, -180, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
                     { "modelPath": "Models/Characters/Bandit_man/Bandit_man_01.glb", "name": "NPC_06", "position": [3.40, -0.82, 1.21], "rotation": [0, -200, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
-                    { "modelPath": "Models/Characters/Thug_man/Thug_man_02.glb", "name": "NPC_06", "position": [4.77, -0.82, 0.78], "rotation": [0, -100, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
+                    { "modelPath": "Models/Characters/Thug_man_01/Thug_man_01_02.glb", "name": "NPC_06", "position": [4.77, -0.82, 0.78], "rotation": [0, -100, 0], "animationList" : ["Sit_idle", "Sit_talking", "Sit_talking_02", "Sit_victory"] },
                     { "modelPath": "Models/Characters/Badguy/Badguy_02.glb", "name": "NPC_06", "position": [6.56, -0.84, 1.58], "rotation": [0, -100, 0], "animationList" : ["Lean_shoulder"] },
                 ],
 
@@ -1206,7 +1206,7 @@ export const scenarios_data = [
                 "npcs": [
                     { "modelPath": "Models/Characters/Thug_man_02/Thug_man_02_02.glb", "name": "BARMAN", "position": [-6.78, -0.02, 1.26], "rotation": [0, 90, 0], "animationList" : ["Idle"] },
                     { "modelPath": "Models/Characters/Badguy/Badguy_03.glb", "name": "NPC_01", "position": [-2.06, 0.14, 1.15], "rotation": [0, -90, 0], "animationList" : ["Sit_idle", "Sit_talking"] },
-                    { "modelPath": "Models/Characters/Thug_man/Thug_man_03.glb", "name": "NPC_02", "position": [-3.20, -0.02, -0.80], "rotation": [0, 130, 0], "animationList" : ["Dealing"] },
+                    { "modelPath": "Models/Characters/Thug_man_01/Thug_man_01_03.glb", "name": "NPC_02", "position": [-3.20, -0.02, -0.80], "rotation": [0, 130, 0], "animationList" : ["Dealing"] },
                 ],
 
                 "lights" : {
@@ -1331,9 +1331,9 @@ export const scenarios_data = [
         "npcs": [
             { "modelPath": "Models/Characters/Native_chief/Native_chief_01.glb", "name": "CHIEF", "position": [-7.04, 1.07, -15.26], "rotation": [0, -30, 0], "animationList" : ["Idle"] },
             { "modelPath": "Models/Characters/Native_girl/Native_girl_01.glb", "name": "NPC_01", "position": [-7.16, 1.07, -4.57], "rotation": [0, -30, 0], "animationList" : ["Dealing"] },
-            { "modelPath": "Models/Characters/Native_man/Native_man_01.glb", "name": "NPC_02", "position": [-2.48, 1.76, -0.56], "rotation": [0, 90, 0], "animationList" : ["Sit_talking"] },
-            { "modelPath": "Models/Characters/Native_man_02/Native_man_02.glb", "name": "NPC_03", "position": [5.0, -1.36, 4.99], "rotation": [0, 90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
-            { "modelPath": "Models/Characters/Native_man/Native_man_01.glb", "name": "NPC_04", "position": [6.16, -1.14, 4.86], "rotation": [0, -90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Native_man_01/Native_man_01_01.glb", "name": "NPC_02", "position": [-2.48, 1.76, -0.56], "rotation": [0, 90, 0], "animationList" : ["Sit_talking"] },
+            { "modelPath": "Models/Characters/Native_man_02/Native_man_02_01.glb", "name": "NPC_03", "position": [5.0, -1.36, 4.99], "rotation": [0, 90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
+            { "modelPath": "Models/Characters/Native_man_01/Native_man_01_01.glb", "name": "NPC_04", "position": [6.16, -1.14, 4.86], "rotation": [0, -90, 0], "animationList" : ["Talk_01", "Talk_02", "Talk_03", "Talk_04"] },
             // Animals
             { "modelPath": "Models/Horse/Horse_03.glb", "name": "HORSE_01", "position": [3.97, -1.54, 18.48], "rotation": [0, -100, 0], "animationList" : ["Idle", "Eat"] },
             { "modelPath": "Models/Horse/Horse_04.glb", "name": "HORSE_02", "position": [38.64, -5.68, -5.74], "rotation": [0, 100, 0], "animationList" : ["Idle", "Eat"] },
