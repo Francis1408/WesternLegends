@@ -104,47 +104,33 @@ export function loadNPCs(scene, npcsData) {
     return Promise.all(npcsData.map(loadSingle));
 }
 
-export function loadAvatar(scena, modelPath) {
+export async function loadAvatar(scene, modelPath) {
+  const loader = new GLTFLoader();
 
-    const loader = new GLTFLoader()
+  return new Promise((resolve, reject) => {
+    loader.load(
+      modelPath,
+      (gltf) => {
+        const model = gltf.scene;
 
-    return new Promise((resolve, reject) => {
+        const box    = new THREE.Box3().setFromObject(model);
+        const centre = box.getCenter(new THREE.Vector3());
+        model.position.sub(centre);
+        model.position.y += (box.max.y - box.min.y) / 2;
 
-            loader.load(
-                // Loads the model from path
-                modelPath,
-                (gltf) => {
-                    const model = gltf.scene;
+        model.scale.set(1, 1, 1);
+        scene.add(model);
 
-                    // Centre model at origin
-                    const box    = new THREE.Box3().setFromObject(model);
-                    const centre = box.getCenter(new THREE.Vector3());
-                    model.position.sub(centre);
-                    model.position.y += (box.max.y - box.min.y) / 2;
-                
+        const mixer = new THREE.AnimationMixer(model);
+        const idle  = gltf.animations.find(a => a.name === 'Idle') || gltf.animations[0];
+        if (idle) mixer.clipAction(idle).play();
 
-                    // Apply angle convertion at run time
-                    model.scale.set(1, 1, 1)
-                    scene.add(model)
-
-                    // Set animation mixer 
-                    const mixer = new THREE.AnimationMixer(model);
-                    const animations = {};
-                    const idle = gltf.animations.find(a => a.name == 'Idle') || gltf.animations[0];
-                    // Play animation
-                    mixer.clipAction(idle).play();
-                    
-                    resolve(true);
-                    
-                },
-                // Progress loader
-                (progress) => {
-                    const pct = (progress.loaded / progress.total * 100).toFixed(1)
-                },
-                reject
-            )     
-        })
-
-        return Promise.all(true);
-    }
-
+        resolve({ model, mixer });  
+      },
+      (progress) => {
+        const pct = (progress.loaded / progress.total * 100).toFixed(1);
+      },
+      reject
+    );
+  });
+}

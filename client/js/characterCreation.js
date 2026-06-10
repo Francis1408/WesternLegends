@@ -4,11 +4,12 @@ import { OrbitControls }   from 'three/addons/controls/OrbitControls.js';
 import { getToken, clearSession } from './auth.js';
 import { loadAvatar } from './loader.js';
 import { getCharacterData } from './utils.js';
+import { color } from 'three/tsl';
 
 const API_URL = 'http://localhost:3000/api';
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
-  models:   { base: "../Models/characters/",       ext: ".glb" }
+  models:   { base: "/Models/characters/",       ext: ".glb" }
 };
 
 // ── Guard: must be logged in ───────────────────────────────────────────────
@@ -16,33 +17,15 @@ const token = getToken();
 if (!token) window.location.href = '/auth.html';
 
 // ── Avatar model map ───────────────────────────────────────────────────────
-const AVATAR_MODELS = {
-  cowboy:  '../Models/Characters/Mexican_02/Mexican_02_03.glb',
-  cowgirl: '../Models/Characters/Bandit_man/Bandit_man_02.glb',
-  badguy:  '../Models/Characters/Badguy/Badguy_01.glb',
-  woman:   '../Models/Characters/Woman/Woman_02.glb',
-};
-
-// const AVATAR_LIST = [
-//   { value: 'badguy',  img: 'img/drawings/characters/Badguy_drawing.png', name: 'Badguy'  },
-//   { value: 'bandit',  img: 'img/drawings/characters/Bandit_drawing.png',  name: 'Bandit'   },
-//   { value: 'cowboy',  img: 'img/drawings/characters/Cowboy_drawing.png',  name: 'Cowboy'   },
-//   { value: 'cowgirl',  img: 'img/drawings/characters/Cowgirl_drawing.png',  name: 'Cowgirl'  },
-//   { value: 'gunman',  img: 'img/drawings/characters/Gunman_drawing.png',  name: 'Gunman'  },
-//   { value: 'mexican',  img: 'img/drawings/characters/Mexican_drawing.png',  name: 'Mexican'  },
-// ]
 
 const AVATAR_LIST = [
-  { value: 1, colors: ['#0d0d0d', '#7a8a45', '#3c627d']},
-  { value: 2, colors: ['#0d0d0d','#8f3b35', '#7a8a45']},
-  { value: 3, colors: ['#7a8a45', '#78562f', '#8f3b35']},
-  { value: 4, colors: ['#8f3b35', '#78562f', '#3c627d']},
-  { value: 5, colors: ['#8f3b35', '#cc7614', '#ffffff']},
-  { value: 7, colors: ['#78562f', '#616b40', '#cc7614']}
+  { value: 1, colors: ['#0d0d0d', '#7a8a45', '#3c627d'], selectedColor: 1},
+  { value: 2, colors: ['#0d0d0d','#8f3b35', '#7a8a45'],  selectedColor: 1},
+  { value: 3, colors: ['#7a8a45', '#78562f', '#8f3b35'], selectedColor: 1},
+  { value: 4, colors: ['#8f3b35', '#78562f', '#3c627d'], selectedColor: 1},
+  { value: 5, colors: ['#8f3b35', '#cc7614', '#ffffff'], selectedColor: 1},
+  { value: 7, colors: ['#78562f', '#616b40', '#cc7614'], selectedColor: 1}
 ]
-
-
-
 
 // ── DOM refs ───────────────────────────────────────────────────────────────
 const nameInput     = document.getElementById('char-name');
@@ -54,6 +37,7 @@ const msgBox        = document.getElementById('char-msg');
 const previewBadge  = document.getElementById('preview-name');
 const canvas        = document.getElementById('char-canvas');
 const grid          = document.querySelector('.avatar-grid')
+const colorGrid     = document.querySelector('.color-grid')
 
 // ── Avatar poster creation ───────────────────────────────────────────────────────
 
@@ -150,54 +134,6 @@ const loader     = new GLTFLoader();
 
 let currentTint  = new THREE.Color('#c9a96e');
 
-function loadModel(avatarKey) {
-  // Remove previous
-  if (currentModel) {
-    scene.remove(currentModel);
-    currentModel = null;
-    mixer = null;
-  }
-
-  const path = AVATAR_MODELS[avatarKey];
-  if (!path) return;
-
-  loader.load(path, (gltf) => {
-    const model = gltf.scene;
-
-    // Centre model at origin
-    const box    = new THREE.Box3().setFromObject(model);
-    const centre = box.getCenter(new THREE.Vector3());
-    model.position.sub(centre);
-    model.position.y += (box.max.y - box.min.y) / 2;
-
-    // Apply tint to all meshes
-    applyTint(model, currentTint);
-
-    scene.add(model);
-    currentModel = model;
-
-    // Play first idle animation if available
-    if (gltf.animations.length) {
-      mixer = new THREE.AnimationMixer(model);
-      const idle = gltf.animations.find(a =>
-        /idle/i.test(a.name)
-      ) || gltf.animations[0];
-      mixer.clipAction(idle).play();
-    }
-  });
-}
-
-function applyTint(model, color) {
-  model.traverse(child => {
-    if (child.isMesh && child.material) {
-      const mats = Array.isArray(child.material) ? child.material : [child.material];
-      mats.forEach(mat => {
-        mat.color.set(color);
-      });
-    }
-  });
-}
-
 // ── Render loop ────────────────────────────────────────────────────────────
 renderer.setAnimationLoop(() => {
   const delta = clock.getDelta();
@@ -206,24 +142,42 @@ renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
 });
 
-// ── Initial load ───────────────────────────────────────────────────────────
-loadModel('cowboy');
+grid.addEventListener('change', async (e) => {
 
-// ── Avatar radio change ────────────────────────────────────────────────────
-avatarInputs.forEach(input => {
-  input.addEventListener('change', () => {
-    if (input.checked) loadModel(input.value);
-  });
+  const input = e.target.closest('input[name="avatar"]');
+  if (!input) return;
+
+  const avatar   = AVATAR_LIST.find(obj => obj.value === Number(input.value));
+  const charData = await getCharacterData(PATHS, avatar.value, avatar.selectedColor);
+
+  renderColorButtons(avatar.colors, avatar.selectedColor);
+  await loadAvatar(scene, charData.modelUrl);
+
 });
 
-// ── Tint radio change ──────────────────────────────────────────────────────
-tintInputs.forEach(input => {
-  input.addEventListener('change', () => {
-    if (input.checked) {
-      currentTint = new THREE.Color(input.value);
-      if (currentModel) applyTint(currentModel, currentTint);
-    }
+function renderColorButtons(colorsSet, selectedValue) {
+  colorGrid.innerHTML = ''; 
+
+  colorsSet.forEach((color, index) => {
+    const checked = index + 1 === selectedValue ? 'checked' : '';
+
+    colorGrid.insertAdjacentHTML('beforeend', `
+      <label class="color-swatch">
+        <input type="radio" name="tint" value="${color}" ${checked} />
+        <span style="background:${color}"></span>
+      </label>
+    `);
   });
+}
+
+
+// ── Tint radio change ──────────────────────────────────────────────────────
+colorGrid.addEventListener('change', (e) => {
+  const input = e.target.closest('input[name="tint"]');
+  if (!input) return;
+
+  currentTint = new THREE.Color(input.value);
+  if (currentModel) applyTint(currentModel, currentTint);
 });
 
 // ── Name input ─────────────────────────────────────────────────────────────

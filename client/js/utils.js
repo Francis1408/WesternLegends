@@ -12,7 +12,7 @@ export async function getCharacterData(paths, id, type=1) {
     const paddedType = String(type).padStart(2, '0');
     const modelUrl = `${paths.models.base}${char.baseModelPath}/${char.baseModelPath}_${paddedType}${paths.models.ext}`
 
-    console.log(drawingUrl)
+    console.log(modelUrl)
 
     return {
         name: char.name,
