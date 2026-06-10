@@ -3,8 +3,13 @@ import { GLTFLoader }      from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls }   from 'three/addons/controls/OrbitControls.js';
 import { getToken, clearSession } from './auth.js';
 import { loadAvatar } from './loader.js';
+import { getCharacterData } from './utils.js';
 
 const API_URL = 'http://localhost:3000/api';
+const PATHS = {
+  drawings: { base: "/img/drawings/characters/", ext: ".png" },
+  models:   { base: "../Models/characters/",       ext: ".glb" }
+};
 
 // ── Guard: must be logged in ───────────────────────────────────────────────
 const token = getToken();
@@ -18,16 +23,16 @@ const AVATAR_MODELS = {
   woman:   '../Models/Characters/Woman/Woman_02.glb',
 };
 
-const AVATAR_LIST = [
-  { value: 'badguy',  img: 'img/drawings/characters/Badguy_drawing.png', name: 'Badguy'  },
-  { value: 'bandit',  img: 'img/drawings/characters/Bandit_drawing.png',  name: 'Bandit'   },
-  { value: 'cowboy',  img: 'img/drawings/characters/Cowboy_drawing.png',  name: 'Cowboy'   },
-  { value: 'cowgirl',  img: 'img/drawings/characters/Cowgirl_drawing.png',  name: 'Cowgirl'  },
-  { value: 'gunman',  img: 'img/drawings/characters/Gunman_drawing.png',  name: 'Gunman'  },
-  { value: 'mexican',  img: 'img/drawings/characters/Mexican_drawing.png',  name: 'Mexican'  },
-]
+// const AVATAR_LIST = [
+//   { value: 'badguy',  img: 'img/drawings/characters/Badguy_drawing.png', name: 'Badguy'  },
+//   { value: 'bandit',  img: 'img/drawings/characters/Bandit_drawing.png',  name: 'Bandit'   },
+//   { value: 'cowboy',  img: 'img/drawings/characters/Cowboy_drawing.png',  name: 'Cowboy'   },
+//   { value: 'cowgirl',  img: 'img/drawings/characters/Cowgirl_drawing.png',  name: 'Cowgirl'  },
+//   { value: 'gunman',  img: 'img/drawings/characters/Gunman_drawing.png',  name: 'Gunman'  },
+//   { value: 'mexican',  img: 'img/drawings/characters/Mexican_drawing.png',  name: 'Mexican'  },
+// ]
 
-const AVATAR_L = [
+const AVATAR_LIST = [
   { value: 1, colors: ['#0d0d0d', '#7a8a45', '#3c627d']},
   { value: 2, colors: ['#0d0d0d','#8f3b35', '#7a8a45']},
   { value: 3, colors: ['#7a8a45', '#78562f', '#8f3b35']},
@@ -52,9 +57,14 @@ const grid          = document.querySelector('.avatar-grid')
 
 // ── Avatar poster creation ───────────────────────────────────────────────────────
 
-function createAvatarPoster(value, imgPath, name) {
+async function createAvatarPoster(value, colorSet) {
   const label = document.createElement('label');
   label.className = 'avatar-card';
+
+  // Get the character data
+  const charData = await getCharacterData(PATHS, value)
+
+  if (!charData) return null;
 
   label.innerHTML = `
     <input type="radio" name="avatar" value="${value}" />
@@ -64,11 +74,11 @@ function createAvatarPoster(value, imgPath, name) {
       <span class="wanted-label">DEAD OR ALIVE</span>
     </div>
     <div class="poster-img-wrap">
-      <img src="${imgPath}" alt="${name}" draggable="false" />
+      <img src="${charData.drawingUrl}" alt="${charData.name}" draggable="false" />
     </div>
     <div class="poster-footer">
       <span class="dead-alive">— — —</span>
-      <span class="name-label">${name}</span>
+      <span class="name-label">${charData.name}</span>
     </div>
   `;
 
@@ -76,9 +86,11 @@ function createAvatarPoster(value, imgPath, name) {
 }
 
 // Create avatars
-AVATAR_LIST.forEach(({value, img, name}) => {
-  grid.appendChild(createAvatarPoster(value, img, name));
-})
+const cards = await Promise.all(
+  AVATAR_LIST.map(({ value, colorSet }) => createAvatarPoster(value, colorSet))
+);
+
+cards.filter(Boolean).forEach(card => grid.appendChild(card));
 
 
 // ── Three.js setup ─────────────────────────────────────────────────────────

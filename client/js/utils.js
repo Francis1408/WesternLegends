@@ -1,16 +1,18 @@
-import { chacracters_data } from "../MockedData/characters";
+import { characters_data } from "../MockedData/characters";
 
 // Pick characters data based on id and return the correct models
-export function getCharacterData(paths, id, type) {
+export async function getCharacterData(paths, id, type=1) {
 
     const char = characters_data.find(c => c.id === id);
     if (!char) return null;
 
     // Build the relative paths
-    const drawingUrl = paths.drawings + char.baseDrawing + paths.drawings.ext;
+    const drawingUrl = paths.drawings.base + char.baseDrawing + paths.drawings.ext;
 
     const paddedType = String(type).padStart(2, '0');
-    const modelUrl = `${paths.models}${char.baseModelPath}/${char.baseModelPath}_${paddedType}${paths.models.ext}`
+    const modelUrl = `${paths.models.base}${char.baseModelPath}/${char.baseModelPath}_${paddedType}${paths.models.ext}`
+
+    console.log(drawingUrl)
 
     return {
         name: char.name,

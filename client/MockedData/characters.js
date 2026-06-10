@@ -1,52 +1,52 @@
-export const chacracters_data = [
+export const characters_data = [
 
     {
         "id": 1,
         "name": "Badguy",
         "baseModelPath": "Badguy",
-        "baseDrawing": "Badguy_drawing.png"
+        "baseDrawing": "Badguy_drawing"
     },
 
     {
         "id": 2,
         "name": "Bandit",
         "baseModelPath": "Bandit_man",
-        "baseDrawing": "Bandit_drawing.png"
+        "baseDrawing": "Bandit_drawing"
     },
 
     {
         "id": 3,
         "name": "Cowboy",
         "baseModelPath": "Cowboy",
-        "baseDrawing": "Cowboy_drawing.png"
+        "baseDrawing": "Cowboy_drawing"
     },
 
     {
         "id": 4,
         "name": "Cowgirl",
         "baseModelPath": "Cowgirl",
-        "baseDrawing": "Cowgirl_drawing.png"
+        "baseDrawing": "Cowgirl_drawing"
     },
 
     {
         "id": 5,
         "name": "Gunman",
         "baseModelPath": "Gunman",
-        "baseDrawing": "Gunman_drawing.png"
+        "baseDrawing": "Gunman_drawing"
     },
 
     {
         "id": 6,
         "name": "Mexican",
         "baseModelPath": "Mexican_01",
-        "baseDrawing": "Mexican_drawing.png"
+        "baseDrawing": "Mexican_drawing"
     },
 
     {
         "id": 7,
         "name": "Mexican",
         "baseModelPath": "Mexican_02",
-        "baseDrawing": "Mexican_drawing.png"
+        "baseDrawing": "Mexican_drawing"
     },
 
     {
