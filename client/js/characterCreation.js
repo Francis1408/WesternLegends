@@ -2,14 +2,15 @@ import * as THREE from 'three';
 import { GLTFLoader }      from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls }   from 'three/addons/controls/OrbitControls.js';
 import { getToken, clearSession } from './auth.js';
-import { loadAvatar } from './loader.js';
+import { loadAvatar, getMixer } from './loader.js';
 import { getCharacterData } from './utils.js';
 import { color } from 'three/tsl';
+import { Scene } from 'three/webgpu';
 
 const API_URL = 'http://localhost:3000/api';
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
-  models:   { base: "/Models/characters/",       ext: ".glb" }
+  models:   { base: "/Models/Characters/",       ext: ".glb" }
 };
 
 // ── Guard: must be logged in ───────────────────────────────────────────────
@@ -17,6 +18,8 @@ const token = getToken();
 if (!token) window.location.href = '/auth.html';
 
 // ── Avatar model map ───────────────────────────────────────────────────────
+
+let currentAvatar = 0; // Starting avatar
 
 const AVATAR_LIST = [
   { value: 1, colors: ['#0d0d0d', '#7a8a45', '#3c627d'], selectedColor: 1},
@@ -75,6 +78,23 @@ const cards = await Promise.all(
 );
 
 cards.filter(Boolean).forEach(card => grid.appendChild(card));
+
+// ── Colors buttons creation ───────────────────────────────────────────────────────
+
+function renderColorButtons(colorsSet, selectedValue) {
+  colorGrid.innerHTML = ''; 
+
+  colorsSet.forEach((color, index) => {
+    const checked = index + 1 === selectedValue ? 'checked' : '';
+
+    colorGrid.insertAdjacentHTML('beforeend', `
+      <label class="color-swatch">
+        <input type="radio" name="tint" value="${index + 1}" ${checked} />
+        <span style="background:${color}"></span>
+      </label>
+    `);
+  });
+}
 
 
 // ── Three.js setup ─────────────────────────────────────────────────────────
@@ -137,11 +157,14 @@ let currentTint  = new THREE.Color('#c9a96e');
 // ── Render loop ────────────────────────────────────────────────────────────
 renderer.setAnimationLoop(() => {
   const delta = clock.getDelta();
+  const mixer = getMixer();
   if (mixer) mixer.update(delta);
   controls.update();
   renderer.render(scene, camera);
 });
 
+
+// ── Events ────────────────────────────────────────────────────────────────
 grid.addEventListener('change', async (e) => {
 
   const input = e.target.closest('input[name="avatar"]');
@@ -153,38 +176,66 @@ grid.addEventListener('change', async (e) => {
   renderColorButtons(avatar.colors, avatar.selectedColor);
   await loadAvatar(scene, charData.modelUrl);
 
+  currentAvatar = input.value - 1;
+
 });
 
-function renderColorButtons(colorsSet, selectedValue) {
-  colorGrid.innerHTML = ''; 
 
-  colorsSet.forEach((color, index) => {
-    const checked = index + 1 === selectedValue ? 'checked' : '';
-
-    colorGrid.insertAdjacentHTML('beforeend', `
-      <label class="color-swatch">
-        <input type="radio" name="tint" value="${color}" ${checked} />
-        <span style="background:${color}"></span>
-      </label>
-    `);
-  });
-}
-
-
-// ── Tint radio change ──────────────────────────────────────────────────────
-colorGrid.addEventListener('change', (e) => {
+colorGrid.addEventListener('change', async (e) => {
   const input = e.target.closest('input[name="tint"]');
   if (!input) return;
 
-  currentTint = new THREE.Color(input.value);
-  if (currentModel) applyTint(currentModel, currentTint);
+  
+  const avatar =  AVATAR_LIST[currentAvatar]
+  avatar.selectedColor = Number(input.value) // Update the current color
+
+  const charData = await getCharacterData(PATHS, avatar.value, avatar.selectedColor);
+
+  await loadAvatar(scene, charData.modelUrl)
+
 });
 
-// ── Name input ─────────────────────────────────────────────────────────────
 nameInput.addEventListener('input', () => {
   const len = nameInput.value.length;
   nameCounter.textContent = `${len} / 32`;
   previewBadge.textContent = nameInput.value.trim() || '— Name Your Legend —';
+});
+
+
+
+submitBtn.addEventListener('click', async () => {
+  const name   = nameInput.value.trim();
+  const avatar = document.querySelector('input[name="avatar"]:checked')?.value;
+  const tint   = document.querySelector('input[name="tint"]:checked')?.value;
+  
+  if (!name)   return showMsg('Give yourself a name, stranger.');
+  if (!avatar) return showMsg('Pick your legend first.');
+  
+  setLoading(true);
+  showMsg('');
+  
+  try {
+    const res  = await fetch(`${API_URL}/players`, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ name, avatar, tint }),
+    });
+    
+    const data = await res.json();
+    
+    if (!res.ok) return showMsg(data.message || 'Something went wrong.');
+    
+    showMsg('Legend created! Riding in… ', false);
+    setTimeout(() => window.location.href = '/index.html', 1200);
+    
+  } catch {
+    showMsg('Cannot reach the server.');
+  } finally {
+    setLoading(false);
+  }
 });
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -195,41 +246,5 @@ function showMsg(text, isError = true) {
 
 function setLoading(loading) {
   submitBtn.disabled    = loading;
-  submitBtn.textContent = loading ? 'Saddling up…' : 'Ride Into the Frontier';
+  submitBtn.textContent = loading ? 'Saddling up…' : 'Ride Into the Far Lands';
 }
-
-// ── Submit ─────────────────────────────────────────────────────────────────
-submitBtn.addEventListener('click', async () => {
-  const name   = nameInput.value.trim();
-  const avatar = document.querySelector('input[name="avatar"]:checked')?.value;
-  const tint   = document.querySelector('input[name="tint"]:checked')?.value;
-
-  if (!name)   return showMsg('Give yourself a name, stranger.');
-  if (!avatar) return showMsg('Pick your legend first.');
-
-  setLoading(true);
-  showMsg('');
-
-  try {
-    const res  = await fetch(`${API_URL}/players`, {
-      method:  'POST',
-      headers: {
-        'Content-Type':  'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-      body: JSON.stringify({ name, avatar, tint }),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) return showMsg(data.message || 'Something went wrong.');
-
-    showMsg('Legend created! Riding in… 🤠', false);
-    setTimeout(() => window.location.href = '/index.html', 1200);
-
-  } catch {
-    showMsg('Cannot reach the server.');
-  } finally {
-    setLoading(false);
-  }
-});

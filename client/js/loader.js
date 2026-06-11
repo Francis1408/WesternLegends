@@ -104,8 +104,20 @@ export function loadNPCs(scene, npcsData) {
     return Promise.all(npcsData.map(loadSingle));
 }
 
+let currentModel = null;
+let currentMixer = null;
+
+export function getMixer() {return currentMixer}
+
 export async function loadAvatar(scene, modelPath) {
   const loader = new GLTFLoader();
+
+  // Remove previous model
+  if (currentModel) {
+    scene.remove(currentModel);
+    currentModel = null;
+    currentMixer = null;
+  }
 
   return new Promise((resolve, reject) => {
     loader.load(
@@ -122,10 +134,18 @@ export async function loadAvatar(scene, modelPath) {
         scene.add(model);
 
         const mixer = new THREE.AnimationMixer(model);
-        const idle  = gltf.animations.find(a => a.name === 'Idle') || gltf.animations[0];
-        if (idle) mixer.clipAction(idle).play();
 
-        resolve({ model, mixer });  
+        const idle = gltf.animations.find(a => a.name === 'Idle');
+        if (idle) {
+          mixer.clipAction(idle).play();
+        } else if (gltf.animations.length) {
+          mixer.clipAction(gltf.animations[0]).play();
+        }
+
+        currentModel = model;
+        currentMixer = mixer;
+
+        resolve({ model, mixer });
       },
       (progress) => {
         const pct = (progress.loaded / progress.total * 100).toFixed(1);
