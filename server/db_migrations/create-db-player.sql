@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `western_legends`.`players` (
     'mining',
     'searching',
     'riding'
-  ) NOT NULL,
+  ) NOT NULL DEFAULT 'idle',
 
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

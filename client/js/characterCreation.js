@@ -202,17 +202,18 @@ nameInput.addEventListener('input', () => {
 });
 
 
-
 submitBtn.addEventListener('click', async () => {
   const name   = nameInput.value.trim();
-  const avatar = document.querySelector('input[name="avatar"]:checked')?.value;
-  const tint   = document.querySelector('input[name="tint"]:checked')?.value;
-  
+  const avatar = Number(document.querySelector('input[name="avatar"]:checked')?.value);
+  const type  = Number(document.querySelector('input[name="tint"]:checked')?.value);
+
+    
   if (!name)   return showMsg('Give yourself a name, stranger.');
   if (!avatar) return showMsg('Pick your legend first.');
   
   setLoading(true);
   showMsg('');
+
   
   try {
     const res  = await fetch(`${API_URL}/players`, {
@@ -221,7 +222,7 @@ submitBtn.addEventListener('click', async () => {
         'Content-Type':  'application/json',
         'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({ name, avatar, tint }),
+      body: JSON.stringify({ name, avatar, type}),
     });
     
     const data = await res.json();

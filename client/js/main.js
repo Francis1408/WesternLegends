@@ -39,21 +39,24 @@ const res  = await fetch(`http://localhost:3000/api/players/me`, {
 if (!res.ok) {
   window.location.href = '/character.html';
 }
+
+const { player } = await res.json();
+console.log(player)
+const startScenario = scenarios_data.find(s => s.id === player.scenario) ?? scenarios_data[1];
 //──────────────────────────────────────────────────── 
 
-
-loadRoutes()
+loadRoutes();
 
 // Core modules
-const sceneManager = new SceneManager();
-const cameraManager = new CameraManager(scenarios_data[0]);
-const postFX = new PostProcessing(renderer, scene, cameraManager.camera);
-const raycaster = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
-const sky = new Sky(scene);
-const lights = new Lights(scene);
+const sceneManager     = new SceneManager();
+const cameraManager    = new CameraManager(startScenario);
+const postFX           = new PostProcessing(renderer, scene, cameraManager.camera);
+const raycaster        = new Raycaster(canvas, cameraManager.camera, postFX.outlinePass);
+const sky              = new Sky(scene);
+const lights           = new Lights(scene);
 
 // Initial load
-sceneManager.load(scenarios_data[0]).then(meshes => {
+sceneManager.load(startScenario).then(meshes => {
   raycaster.loadMeshes(meshes);
 })
 
