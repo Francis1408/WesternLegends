@@ -20,6 +20,10 @@ export const createPlayer = async (req, res) => {
       [req.user.id, name, avatar, type]
     );
 
+    // Create inventory
+    createInventory(req, res);
+
+
     const [[player]] = await pool.query(
       'SELECT * FROM players WHERE user_id = ?', [req.user.id]
     );
@@ -30,6 +34,23 @@ export const createPlayer = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+async function createInventory(conn, userId) {
+
+await conn.query(
+    `INSERT INTO inventory (user_id, case_id, horse_id, weapon_id) VALUES (?, 26, 27, 1)`,
+    [userId]
+  );
+
+  await conn.query(
+    `INSERT INTO inventory_items (user_id, item_id, quantity, level) VALUES
+      (?, 26, 1, 1),
+      (?, 27, 1, 1),
+      (?, 1,  1, 1)`,
+    [userId, userId, userId]
+  );
+  
+}
 
 export const getMe = async (req, res) => {
   const [[player]] = await pool.query(

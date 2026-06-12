@@ -1,5 +1,5 @@
 
-export const distances = {
+export const distances_data = {
 
     "Valentine": {
         "Comanche_Tribe": 600,

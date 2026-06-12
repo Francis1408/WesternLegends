@@ -10,7 +10,7 @@ import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
 import {scenarios_data} from '../MockedData/scenarioData.js'
 import { getToken, getPlayer } from './auth.js';
-import { getScenarioData } from './utils.js';
+import { initGameData, getScenarioData } from './gameData.js';
 
 /*
 MODULES DYNAMIC
@@ -27,6 +27,7 @@ Envents: HUD events
 
 */ 
 
+
 //────────────── AUTH PHASE ───────────────────────── 
 
 // Load routes
@@ -41,9 +42,11 @@ if (!res.ok) {
   window.location.href = '/character.html';
 }
 
+await initGameData();
+
 const { player } = await res.json();
 console.log(player)
-const startScenario = getScenarioData(player.scenario) ?? scenarios_data[1];
+const startScenario = getScenarioData(player.scenario) ?? _scenarios[0];
 //──────────────────────────────────────────────────── 
 
 loadRoutes();

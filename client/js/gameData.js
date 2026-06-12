@@ -1,10 +1,28 @@
-import { characters_data } from "../MockedData/characters";
-import { scenarios_data } from "../MockedData/scenarioData";
- 
-// Pick characters data based on id and return the correct models
+// client/js/gameData.js
+let _items     = [];
+let _scenarios = [];
+let _characters = []
+let _distances = [];
+
+export async function initGameData() {
+  const [items, scenarios, characters, distances] = await Promise.all([
+    fetch('/api/data/items').then(r => r.json()),
+    fetch('/api/data/scenarios').then(r => r.json()),
+    fetch('/api/data/characters').then(r => r.json()),
+    fetch('/api/data/distances').then(r => r.json())
+  ]);
+
+  _items     = items;
+  _scenarios = scenarios;
+  _characters = characters;
+  _distances = distances;
+}
+
+
+// ---------- Get data functions ----------------------------
 export async function getCharacterData(paths, id, type=1) {
 
-    const char = characters_data.find(c => c.id === id);
+    const char = _characters.find(c => c.id === id);
     if (!char) return null;
 
     // Build the relative paths
@@ -23,10 +41,15 @@ export async function getCharacterData(paths, id, type=1) {
 
 }
 
+
 export function getScenarioData(id) {
 
-  if (id >= scenarios_data.length) return null;
-  return scenarios_data[id];
+  return _scenarios.find(s => s.id === id) ?? null;
+}
+
+export function getItemData(id) {
+
+  return _items.find(i => i.id === id) ?? null;
 }
 
 
