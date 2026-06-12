@@ -3,9 +3,13 @@ import { GLTFLoader }      from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls }   from 'three/addons/controls/OrbitControls.js';
 import { getToken, clearSession } from './auth.js';
 import { loadAvatar, getMixer } from './loader.js';
-import { getCharacterData } from './gameData.js';
+import { initGameData, getCharacterData } from './gameData.js';
 import { color } from 'three/tsl';
 import { Scene } from 'three/webgpu';
+
+
+await initGameData();
+
 
 const API_URL = 'http://localhost:3000/api';
 const PATHS = {

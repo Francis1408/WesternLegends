@@ -19,6 +19,7 @@ CREATE TABLE inventory (
 -- Inventory items
 -- -----------------------------------------------------
 CREATE TABLE inventory_items (
+  `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT, -- Used fot weapons 
   `user_id`   INT NOT NULL,
   `item_id`   INT UNSIGNED NOT NULL,
   `quantity`  SMALLINT UNSIGNED NOT NULL DEFAULT 1,

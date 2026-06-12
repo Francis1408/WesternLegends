@@ -5,17 +5,29 @@ let _characters = []
 let _distances = [];
 
 export async function initGameData() {
-  const [items, scenarios, characters, distances] = await Promise.all([
-    fetch('/api/data/items').then(r => r.json()),
-    fetch('/api/data/scenarios').then(r => r.json()),
-    fetch('/api/data/characters').then(r => r.json()),
-    fetch('/api/data/distances').then(r => r.json())
-  ]);
+  try {
+    const [items, scenarios, characters, distances] = await Promise.all([
+      fetch('/api/data/items').then(r => { if (!r.ok) throw new Error(`items ${r.status}`); return r.json(); }),
+      fetch('/api/data/scenarios').then(r => { if (!r.ok) throw new Error(`scenarios ${r.status}`); return r.json(); }),
+      fetch('/api/data/characters').then(r => { if (!r.ok) throw new Error(`characters ${r.status}`); return r.json(); }),
+      fetch('/api/data/distances').then(r => { if (!r.ok) throw new Error(`distances ${r.status}`); return r.json(); })
+    ]);
 
-  _items     = items;
-  _scenarios = scenarios;
-  _characters = characters;
-  _distances = distances;
+    _items      = items;
+    _scenarios  = scenarios;
+    _characters = characters;
+    _distances  = distances;
+
+    console.log('Game data loaded:', {
+      items:      _items.length,
+      scenarios:  _scenarios.length,
+      characters: _characters.length,
+      distances:  _distances.length
+    });
+
+  } catch (err) {
+    console.error('initGameData failed:', err);
+  }
 }
 
 
@@ -50,6 +62,10 @@ export function getScenarioData(id) {
 export function getItemData(id) {
 
   return _items.find(i => i.id === id) ?? null;
+}
+
+export function getDistances() {
+  return _distances;
 }
 
 

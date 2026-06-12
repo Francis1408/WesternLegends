@@ -8,7 +8,6 @@ import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js'
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
-import {scenarios_data} from '../MockedData/scenarioData.js'
 import { getToken, getPlayer } from './auth.js';
 import { initGameData, getScenarioData } from './gameData.js';
 
@@ -27,8 +26,8 @@ Envents: HUD events
 
 */ 
 
-
 //────────────── AUTH PHASE ───────────────────────── 
+await initGameData();
 
 // Load routes
 const token = getToken();
@@ -42,7 +41,6 @@ if (!res.ok) {
   window.location.href = '/character.html';
 }
 
-await initGameData();
 
 const { player } = await res.json();
 console.log(player)
@@ -109,7 +107,7 @@ cameraManager.subscribe((cam, id) => {
 
 // Setup
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
-setMapHud(scenarios_data, sceneManager, onConfirm);
+setMapHud(_scenarios, sceneManager, onConfirm);
 setupTabs(sceneManager);
 
 // lights.setupLightsGUI(postFX.bloomPass);

@@ -1,4 +1,5 @@
 import pool from '../config/db.js';
+import { buildInventory } from '../game/inventory.js';
 
 export const createPlayer = async (req, res) => {
   try {
@@ -57,5 +58,17 @@ export const getMe = async (req, res) => {
     'SELECT * FROM players WHERE user_id = ?', [req.user.id]
   );
   if (!player) return res.status(404).json({ message: 'No player found.' });
-  res.json({ player });
+
+  // Get inventory
+  const [[inv]] = await pool.query(
+    'SELECT * FROM inventory WHERE user_id = ?', [req.user.id]
+  )
+
+  const [rows] = await pool.query(
+    'SELECT item_id, quantity, level FROM inventory_items WHERE user_id = ?', [req.user.id]
+  );
+
+  const inventory = buildInventory(inv, rows)
+
+  res.json({ player: {...player, inventory} });
 };

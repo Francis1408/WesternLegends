@@ -1,4 +1,5 @@
-import { distances } from "../MockedData/distances"; 
+import { getDistances } from "./gameData";
+
 
 const VB_W = 508;
 const VB_H = 285.75;
@@ -78,7 +79,9 @@ export async function loadRoutes() {
 }
 
 // Calculate the shortest path to a spot
-export function dijkstra(start, end, graph=distances) {
+export function dijkstra(start, end) {
+
+    const graph = getDistances()
 
     const distances = {};
     const visited = new Set();
