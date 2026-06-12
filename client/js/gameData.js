@@ -1,6 +1,6 @@
 // client/js/gameData.js
 let _items     = [];
-let _scenarios = [];
+export let _scenarios = [];
 let _characters = []
 let _distances = [];
 
@@ -54,9 +54,13 @@ export async function getCharacterData(paths, id, type=1) {
 }
 
 
-export function getScenarioData(id) {
+export function getScenarioDatabyId(id) {
 
-  return _scenarios.find(s => s.id === id) ?? null;
+  return _scenarios[id] ?? null;
+}
+
+export function getScenarioData() {
+  return _scenarios;
 }
 
 export function getItemData(id) {

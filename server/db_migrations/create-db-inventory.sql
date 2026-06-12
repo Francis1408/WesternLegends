@@ -2,32 +2,33 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 
---------------------------------------------------------
--- Inventory
---------------------------------------------------------
+
 CREATE TABLE inventory (
-  `user_id`      INT NOT NULL,
-  `case_id`      INT UNSIGNED NOT NULL DEFAULT 26,  
-  `horse_id`     INT UNSIGNED NOT NULL DEFAULT 27,  
-  `weapon_id`    INT UNSIGNED,                      
+  `user_id`            INT NOT NULL,
+  `case_id`            INT UNSIGNED NOT NULL DEFAULT 26,
+  `horse_id`           INT UNSIGNED NOT NULL DEFAULT 27,
+  `weapon_instance_id` INT UNSIGNED,   -- points to inventory_items.id
 
   PRIMARY KEY (`user_id`),
-  CONSTRAINT `fk_inv_player` FOREIGN KEY (`user_id`) REFERENCES `players`(`user_id`) ON DELETE CASCADE
+  CONSTRAINT `fk_inv_player` FOREIGN KEY (`user_id`) 
+    REFERENCES `players`(`user_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Inventory items
--- -----------------------------------------------------
+
 CREATE TABLE inventory_items (
-  `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT, -- Used fot weapons 
+  `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id`   INT NOT NULL,
   `item_id`   INT UNSIGNED NOT NULL,
   `quantity`  SMALLINT UNSIGNED NOT NULL DEFAULT 1,
   `level`     TINYINT UNSIGNED NOT NULL DEFAULT 1,
 
-  PRIMARY KEY (`user_id`, `item_id`),
-  CONSTRAINT `fk_ii_inv`  FOREIGN KEY (`user_id`) REFERENCES `inventory`(`user_id`) ON DELETE CASCADE
+  PRIMARY KEY (`id`),
+  INDEX `idx_user` (`user_id`),
+
+  CONSTRAINT `fk_ii_inv` FOREIGN KEY (`user_id`) 
+    REFERENCES `inventory`(`user_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

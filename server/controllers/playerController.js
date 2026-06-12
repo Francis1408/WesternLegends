@@ -22,7 +22,7 @@ export const createPlayer = async (req, res) => {
     );
 
     // Create inventory
-    createInventory(req, res);
+    createInventory(pool, req.user.id);
 
 
     const [[player]] = await pool.query(
@@ -38,20 +38,32 @@ export const createPlayer = async (req, res) => {
 
 async function createInventory(conn, userId) {
 
-await conn.query(
-    `INSERT INTO inventory (user_id, case_id, horse_id, weapon_id) VALUES (?, 26, 27, 1)`,
+  await conn.query(
+    `INSERT INTO inventory (user_id, case_id, horse_id) VALUES (?, 26, 27)`,
     [userId]
   );
 
   await conn.query(
     `INSERT INTO inventory_items (user_id, item_id, quantity, level) VALUES
-      (?, 26, 1, 1),
-      (?, 27, 1, 1),
-      (?, 1,  1, 1)`,
+    (?, 26, 1, 1),
+    (?, 27, 1, 1),
+    (?, 1,  1, 1)`,
     [userId, userId, userId]
   );
   
+  // Get the Old Pistol instance id and set it as equipped
+  const [[pistol]] = await conn.query(
+    `SELECT id FROM inventory_items WHERE user_id = ? AND item_id = 1`,
+    [userId]
+  );
+
+  await conn.query(
+    `UPDATE inventory SET weapon_instance_id = ? WHERE user_id = ?`,
+    [pistol.id, userId]
+  );
+  
 }
+
 
 export const getMe = async (req, res) => {
   const [[player]] = await pool.query(

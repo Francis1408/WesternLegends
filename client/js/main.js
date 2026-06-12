@@ -9,7 +9,7 @@ import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
 import { getToken, getPlayer } from './auth.js';
-import { initGameData, getScenarioData } from './gameData.js';
+import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js';
 
 /*
 MODULES DYNAMIC
@@ -44,7 +44,7 @@ if (!res.ok) {
 
 const { player } = await res.json();
 console.log(player)
-const startScenario = getScenarioData(player.scenario) ?? _scenarios[0];
+const startScenario = getScenarioDatabyId(player.scenario) ?? getScenarioDatabyId(0);
 //──────────────────────────────────────────────────── 
 
 loadRoutes();
@@ -107,7 +107,7 @@ cameraManager.subscribe((cam, id) => {
 
 // Setup
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
-setMapHud(_scenarios, sceneManager, onConfirm);
+setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
 
 // lights.setupLightsGUI(postFX.bloomPass);

@@ -2,6 +2,7 @@
 
 import { container } from "./scene.js";
 import { travelRoute, dijkstra } from "./path.js";
+import { getScenarioData } from "./gameData.js";
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 
@@ -54,7 +55,6 @@ export function setupEvents(container, cameraManager, sceneManager, raycaster, p
         const env = currentScenario.enviroments.find(e => e.id === id);
 
         if (env && sceneManager.hasModel(env) && id != 'defaultCamera') {
-            console.log(env)
             overviewBuilder(env, sceneManager, {
                 onConfirm : onConfirm,
                 onEnter: (env) => sceneManager.load(env).then(meshes => raycaster.loadMeshes(meshes)),
@@ -150,7 +150,7 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
 
     const overviewEl = document.querySelector('.overview');
 
-    console.log(scenarioData)
+    // console.log(scenarioData)
 
 
     if (!isPreview) {
@@ -276,7 +276,9 @@ function setOverviewFocus() {
 }
 
 // ------------ MAP HUD ----------------
-export function setMapHud(scenarios, sceneManager, onConfirm) {
+export function setMapHud(sceneManager, onConfirm) {
+
+    const scenarios = getScenarioData()
     
     // Baloon info
     const baloonEl = document.querySelector('#baloon');
