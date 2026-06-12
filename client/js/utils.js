@@ -1,5 +1,6 @@
 import { characters_data } from "../MockedData/characters";
-
+import { scenarios_data } from "../MockedData/scenarioData";
+ 
 // Pick characters data based on id and return the correct models
 export async function getCharacterData(paths, id, type=1) {
 
@@ -20,6 +21,12 @@ export async function getCharacterData(paths, id, type=1) {
         modelUrl:   (await pathExists(modelUrl))   ? modelUrl   : null,
     };
 
+}
+
+export function getScenarioData(id) {
+
+  if (id >= scenarios_data.length) return null;
+  return scenarios_data[id];
 }
 
 

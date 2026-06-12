@@ -22,6 +22,8 @@
   <body>
     <header>
       <h1>HEADER</h1>
+    
+
 
       <span class="corner corner-tl"></span> 
       <span class="corner corner-tr"></span> 
@@ -95,8 +97,79 @@
             </div>
 
             <div class="sidemenu_wrap active" id="inventory">
+
               <div class="inventory">
-                  <h1>INVENTARIO</h1>
+                <!-- Player header + reputation -->
+                <div class="inv-header">
+                  <div class="inv-avatar">
+                    <img src="" alt="player" id="inv-avatar-img" />
+                    <p class="inv-avatar-name" id="inv-avatar-name">— stranger —</p>
+                  </div>
+                  
+                  <div class="inv-rep-wrap">
+                    <div class="inv-rep-label">
+                      <span>VILLAIN</span>
+                      <span>HERO</span>
+                    </div>
+                    <div class="inv-rep-track">
+                      <div class="inv-rep-fill-pos" id="inv-rep-pos"></div>
+                      <div class="inv-rep-fill-neg" id="inv-rep-neg"></div>
+                      <div class="inv-rep-center"></div>
+                      <div class="inv-rep-arrow" id="inv-rep-arrow">▼</div>
+                    </div>
+                    <div class="inv-rep-value" id="inv-rep-value">0</div>
+                  </div>
+                </div>
+
+                <!-- Special slots -->
+                <div class="inv-special-slots">
+                  <div class="inv-special-slot">
+                    <div class="inv-slot-box" id="slot-gun">
+                      <img src="" alt="gun" />
+                    </div>
+                    <span class="inv-slot-label">GUN</span>
+                  </div>
+                  <div class="inv-special-slot">
+                    <div class="inv-slot-box" id="slot-horse">
+                      <img src="" alt="horse" />
+                    </div>
+                    <span class="inv-slot-label">HORSE</span>
+                  </div>
+                  <div class="inv-special-slot">
+                    <div class="inv-slot-box" id="slot-coat">
+                      <img src="" alt="coat" />
+                    </div>
+                    <span class="inv-slot-label">COAT</span>
+                  </div>
+                </div>
+
+                <div class="divider">✦</div>
+
+                <h2 class="inv-grid-title">INVENTORY</h2>
+                <div class="inv-grid" id="inv-grid">
+
+                  <div class='inv-grid-slot'>
+                    <img src="${item.icon}" alt="${item.name}" />
+                    <span class="inv-qty">3</span>
+                  </div>
+                  <div class='inv-grid-slot'>
+                    <img src="${item.icon}" alt="${item.name}" />
+                    <span class="inv-qty">3</span>
+                  </div>
+                  <div class='inv-grid-slot'>
+                    <img src="${item.icon}" alt="${item.name}" />
+                    <span class="inv-qty">3</span>
+                  </div>
+                  <div class='inv-grid-slot'>
+                    <img src="${item.icon}" alt="${item.name}" />
+                    <span class="inv-qty">3</span>
+                  </div>
+                  <div class='inv-grid-slot'>
+                    <img src="${item.icon}" alt="${item.name}" />
+                    <span class="inv-qty">3</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 

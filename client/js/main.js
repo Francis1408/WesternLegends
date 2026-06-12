@@ -10,6 +10,7 @@ import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
 import {scenarios_data} from '../MockedData/scenarioData.js'
 import { getToken, getPlayer } from './auth.js';
+import { getScenarioData } from './utils.js';
 
 /*
 MODULES DYNAMIC
@@ -42,7 +43,7 @@ if (!res.ok) {
 
 const { player } = await res.json();
 console.log(player)
-const startScenario = scenarios_data.find(s => s.id === player.scenario) ?? scenarios_data[1];
+const startScenario = getScenarioData(player.scenario) ?? scenarios_data[1];
 //──────────────────────────────────────────────────── 
 
 loadRoutes();
@@ -117,24 +118,5 @@ renderer.setAnimationLoop(() => {
   postFX.render();
   // cameraManager.controls.update();
 })
-
-async function testBackend() {
-  try {
-    const response = await fetch('http://localhost:3000/api/test');
-
-    const data = await response.json();
-
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-testBackend();
-
-
-
-
-
 
 
