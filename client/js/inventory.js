@@ -1,44 +1,55 @@
-import { getItemData } from "./utils";
+import { getCharacterData, getItemData } from "./gameData";
 
-export function calcInventorySlots(inv, rows) {
-  const caseOwned  = rows.find(r => r.item_id === inv.case_id);
-  const horseOwned = rows.find(r => r.item_id === inv.horse_id);
+const PATHS = {
+  drawings: { base: "/img/drawings/characters/", ext: ".png" },
+  models:   { base: "/Models/Characters/",       ext: ".glb" }
+};
 
-  const caseItem  = getItemData(inv.case_id);
-  const horseItem = getItemData(inv.horse_id);
 
-  const caseSlots  = caseItem?.slots?.[caseOwned?.level - 1] ?? 10;
-  const horseSlots = horseItem?.stats?.slots                  ?? 0;
+export function renderInventory(player) {
 
-  return caseSlots + horseSlots;
+
+    
+    const specialSlotsEl = document.querySelector(".inv-special-slots")
+    // const invSlotsEL = document.querySelector()
+
+    // Render avatar image
+    renderImage(player.avatar_id);
+    renderReputationBar(player.reputation)
+    
+
+
 }
 
-export function buildInventory(inv, rows) {
-  const totalSlots = calcInventorySlots(inv, rows);
+async function renderImage(player_id) {
 
-  // Special slot items are excluded from the bag
-  const specialIds = [inv.case_id, inv.horse_id, inv.weapon_id].filter(Boolean);
-  const bagRows    = rows.filter(r => !specialIds.includes(r.item_id));
-  const usedSlots  = bagRows.reduce((sum, r) => sum + r.quantity, 0);
+    const invAvatarImgEl = document.getElementById("inv-avatar-img");
 
-  const findOwned  = (id) => rows.find(r => r.item_id === id);
-  const weaponOwned = inv.weapon_id ? findOwned(inv.weapon_id) : null;
+    // set path
+    const charData = await getCharacterData(PATHS, player_id)
+    invAvatarImgEl.src = charData.drawingUrl;
 
-  return {
-    totalSlots,
-    usedSlots,
-    freeSlots: totalSlots - usedSlots,
-    specialSlots: {
-      case:   { ...getItemData(inv.case_id),  level: findOwned(inv.case_id)?.level  ?? 1 },
-      horse:  { ...getItemData(inv.horse_id), level: findOwned(inv.horse_id)?.level ?? 1 },
-      weapon: weaponOwned
-        ? { ...getItemData(inv.weapon_id), level: weaponOwned.level }
-        : null
-    },
-    items: bagRows.map(r => ({
-      ...getItemData(r.item_id),
-      quantity: r.quantity,
-      level:    r.level
-    }))
-  };
+}
+
+function renderReputationBar(reputation) {
+
+    const rep     = Math.max(-100, Math.min(100, reputation));
+    const pct     = Math.abs(rep) / 2;  
+    const arrow   = document.getElementById('inv-rep-arrow');
+    const posBar  = document.getElementById('inv-rep-pos');
+    const negBar  = document.getElementById('inv-rep-neg');
+
+    document.getElementById('inv-rep-value').textContent = rep > 0 ? `+${rep}` : `${rep}`;
+    arrow.style.left = `calc(50% + ${rep / 2}%)`;
+
+    if (rep >= 0) {
+        posBar.style.width = `${pct}%`;
+        negBar.style.width = '0';
+
+    } else {
+
+        negBar.style.width = `${pct}%`;
+        posBar.style.width = '0';
+    }
+
 }

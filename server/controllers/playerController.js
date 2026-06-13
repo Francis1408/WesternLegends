@@ -77,7 +77,7 @@ export const getMe = async (req, res) => {
   )
 
   const [rows] = await pool.query(
-    'SELECT item_id, quantity, level FROM inventory_items WHERE user_id = ?', [req.user.id]
+    'SELECT id, item_id, quantity, level FROM inventory_items WHERE user_id = ?', [req.user.id]
   );
 
   const inventory = buildInventory(inv, rows)

@@ -10,6 +10,7 @@ import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
 import { getToken, getPlayer } from './auth.js';
 import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js';
+import { renderInventory } from './inventory.js';
 
 /*
 MODULES DYNAMIC
@@ -106,6 +107,7 @@ cameraManager.subscribe((cam, id) => {
 // })
 
 // Setup
+renderInventory(player)
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
 setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
