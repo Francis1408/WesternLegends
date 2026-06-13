@@ -12,7 +12,7 @@ export function renderInventory(player) {
     // const invSlotsEL = document.querySelector()
 
     // Render avatar image
-    renderImage(player.avatar_id);
+    renderImage(player);
     renderReputationBar(player.reputation)
 
     // Special slots
@@ -25,13 +25,17 @@ export function renderInventory(player) {
 
 }
 
-async function renderImage(player_id) {
+async function renderImage(player) {
 
     const invAvatarImgEl = document.getElementById("inv-avatar-img");
+    const invAvatarNameEl = document.getElementById("inv-avatar-name")
 
     // set path
-    const charData = await getCharacterData(PATHS, player_id)
+    const charData = await getCharacterData(PATHS, player.avatar_id)
     invAvatarImgEl.src = charData.drawingUrl;
+
+    // Place name
+    invAvatarImgEl.innerText = player.name;
 
 }
 
@@ -43,7 +47,6 @@ function renderReputationBar(reputation) {
     const posBar  = document.getElementById('inv-rep-pos');
     const negBar  = document.getElementById('inv-rep-neg');
 
-    document.getElementById('inv-rep-value').textContent = rep > 0 ? `+${rep}` : `${rep}`;
     arrow.style.left = `calc(50% + ${rep / 2}%)`;
 
     if (rep >= 0) {
