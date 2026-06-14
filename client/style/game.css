@@ -249,7 +249,8 @@ h1, h2 {
 }
 
 .overview > p {
-  font-size: clamp(1.0rem, 1.5vw, 1rem);
+  font-family: 'Bronco';
+  font-size: clamp(2.0rem, 2.5vw, 1rem);
   line-height: 1.4;
 }
 
@@ -835,11 +836,11 @@ input {
   align-items: center;
   justify-content: center;
   position: relative;
-  cursor: pointer;
   transition: border-color .1s, transform .1s;
 }
 
-.inv-grid-slot:hover { border-color: rgba(184,134,11,.7); transform: translateY(-1px); }
+
+.inv-grid-slot .active:hover { border-color: rgba(184,134,11,.7); transform: translateY(-1px); cursor: pointer;}
 .inv-grid-slot img { width: 70%; height: 70%; object-fit: contain; }
 .inv-grid-slot.empty::after {
   content: '';

@@ -2,7 +2,9 @@
 
 import { container } from "./scene.js";
 import { travelRoute, dijkstra } from "./path.js";
-import { getScenarioData } from "./gameData.js";
+import { getScenarioData, getBuildingData, getItemData } from "./gameData.js";
+
+
 
 export function setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm) {
 
@@ -150,9 +152,6 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
 
     const overviewEl = document.querySelector('.overview');
 
-    // console.log(scenarioData)
-
-
     if (!isPreview) {
 
         // Checks if it is the final env in the three
@@ -182,9 +181,10 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
                 ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
                 : '';
 
-            const envInfos = scenarioData.enviroments.map(item => 
-                `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`
-            ).join('') ?? '';
+            const envInfos = scenarioData.enviroments.map(item =>  {
+                const building_data = getBuildingData(item.id);
+                return (building_data?.icon && building_data?.info) ? `<div class="info_list"><img src=${building_data.icon}><p>${building_data.info}</p></div>` : ''
+            }).join('') ?? '';
 
             const infosList = ownInfo + envInfos;
     
@@ -203,11 +203,6 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
                     onConfirm(scenarioData).then(() => {
                             overviewBuilder(scenarioData, sceneManager, { onConfirm });
                         });
-                    // travelRoute(sceneManager.mainCurrentScenario, scenarioData.id, 10000, () => {
-                    //     onConfirm(scenarioData).then(() => {
-                    //         overviewBuilder(scenarioData, sceneManager, { onConfirm });
-                    //     });
-                    // })
                 });
             }
         }
@@ -215,46 +210,75 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
 
     else {
 
+        const building_data = getBuildingData(scenarioData.id)
         // Builds overview
         
-        // Title
-        const building_name =  "("+ scenarioData.id + ")"
-        const title = `<h1>${building_name}</h1>`
+        if (building_data) {
 
-        // Description
-        const description = scenarioData.description ? `<p class="description">${scenarioData.description}</p>` : '';
+            // Title
+            const building_name =  "("+ building_data.title + ")"
+            const title = `<h1>${building_name}</h1>`
+    
+            // Description
+            const description = building_data.description ? `<p class="description">${building_data.description}</p>` : '';
+    
+            // Divider
+            const divider = `<div class="divider">()</div>`;
+    
+            // Items preview
+            let itemsPreview = ''
+            if (scenarioData.items) {
 
-        // Divider
-        const divider = `<div class="divider">()</div>`;
+                const slot = document.createElement('div');
+                slot.className = 'inv-grid'
 
-        // Itens preview
-        const itensPreview = `<p>ITENS PREVIEW</p>`
+                let itemsTitle = ''
+                if (['Gun_shop', 'Trading_post'].includes(scenarioData.id))   itemsTitle = `<p>Items to buy</p>`
+                else if (['Bank'].includes(scenarioData.id))                  itemsTitle = `<p>Items to sell</p>`
+                else if (['Stable'].includes(scenarioData.id))                itemsTitle = `<p>Horses to buy</p>`
 
-        // Icons info
-        const ownInfo = scenarioData.info 
-            ? `<div class="info_list"><img src=${scenarioData.icon}><p>${scenarioData.info}</p></div>` 
-            : '';
+                // Iterate through the items list and renders them on screen
+                slot.innerHTML = scenarioData.items.map(itemId => {
+                    const itemData = getItemData(itemId);
+                    return itemData ? `<div class="inv-grid-slot" data-itemId="${itemId}" ><img src="../img/${itemData.icon}"></div>` : ''
+                }).join('');
 
-        const envInfos = scenarioData.enviroments.map(item => 
-            `<div class="info_list"><img src=${item.icon}><p>${item.info}</p></div>`
-        ).join('') ?? '';
+                itemsPreview = itemsTitle + slot.outerHTML + divider
 
-        const infosList = ownInfo + envInfos;
 
-        // Buttons
-        const buttons = `<button id="enter_btn" class="travel_btn">Enter</button> 
-                         <button id="return_btn" class="travel_btn">Return</button>`;
+            }
 
-        overviewEl.innerHTML = title + description + divider + itensPreview + divider + infosList + buttons
+    
+            // Icons info
+            const ownInfo = building_data.info 
+                ? `<div class="info_list"><img src=${building_data.icon}><p>${building_data.info}</p></div>` 
+                : '';
+    
+            const envInfos = scenarioData.enviroments.map(item =>  {
+                const building_data = getBuildingData(item.id);
+                return (building_data?.icon && building_data?.info) ? `<div class="info_list"><img src=${building_data.icon}><p>${building_data.info}</p></div>` : ''
+            }).join('') ?? '';
+    
+            const infosList = ownInfo + envInfos;
+    
+            // Buttons
+            const buttons = `<button id="enter_btn" class="travel_btn">Enter</button> 
+                             <button id="return_btn" class="travel_btn">Return</button>`;
+    
+            overviewEl.innerHTML = title + description + infosList +  divider + itemsPreview + buttons
+            
+            // Update the items DOM
+            if(itemsPreview) setItemInfo();
 
-        overviewEl.querySelector('#enter_btn').addEventListener('click', () => {
-            onEnter(scenarioData);
+            overviewEl.querySelector('#enter_btn').addEventListener('click', () => {
+                onEnter(scenarioData);
             });
-
+    
             overviewEl.querySelector('#return_btn').addEventListener('click', () => {
                 onReturn();
             });
-
+    
+        }
     }
 }
 
@@ -287,6 +311,7 @@ export function setMapHud(sceneManager, onConfirm) {
     pinsEl.forEach(pin => {
         pin.addEventListener('mouseover', (e) => {
 
+
             let triggeredEl = e.currentTarget;
             let scenarioId = triggeredEl.dataset.spot;
 
@@ -295,11 +320,13 @@ export function setMapHud(sceneManager, onConfirm) {
 
             // // Build content
             const title = `<h2>${scenario_data.id}</h2>`
-            const body = scenario_data.enviroments.map(item => `<img src=${item.icon}>`).join('');
+            const body = scenario_data.enviroments.map(item => {
+                const building_data = getBuildingData(item.id);
+                return building_data?.icon ? `<img src="${building_data.icon}">` : '';
+            }).join('');
 
             // Append content
             baloonEl.innerHTML = title + body;
-
 
         });
 
@@ -330,4 +357,40 @@ export function setMapHud(sceneManager, onConfirm) {
         });
     })
 
+}
+
+// ------------ ITEMS ----------------
+export function setItemInfo() {
+    
+    const slotsEl = document.querySelectorAll('.inv-grid-slot');
+    const baloonEl = document.querySelector('#baloon');
+
+    slotsEl.forEach(slot => {
+        slot.addEventListener('mouseover', (e) => {
+
+            let triggeredEl = e.currentTarget;
+            let itemId = triggeredEl.getAttribute('data-itemid');
+
+            // Find the scenario id
+            const itemData = getItemData(Number(itemId))
+           
+            // Build content
+            const title = `<h2>${itemData.name}</h2>`
+
+            // Append content
+            baloonEl.innerHTML = title;
+
+        });
+
+        slot.addEventListener('mouseout', () =>{
+            baloonEl.innerHTML = '';
+        });
+
+        slot.addEventListener('mousemove', (e) => {
+
+            baloonEl.style.left = `${e.pageX}px`;
+            baloonEl.style.top = `${e.pageY}px`;
+        });
+
+    })
 }

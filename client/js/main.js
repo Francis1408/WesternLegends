@@ -4,7 +4,7 @@ import { PostProcessing } from './PostProcessing.js'
 import { Raycaster } from './Raycaster.js';
 import { setupGUI } from './gui.js' 
 import { CameraManager } from './cameraManager.js'
-import { setupEvents, setupTabs, setMapHud, overviewBuilder } from './events.js';
+import { setupEvents, setupTabs, setMapHud, overviewBuilder, setItemInfo } from './events.js';
 import { SceneManager } from './sceneManager.js';
 import { Sky } from './skyDome.js';
 import { loadRoutes } from './path.js';
@@ -111,6 +111,7 @@ renderInventory(player)
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
 setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
+setItemInfo();
 
 // lights.setupLightsGUI(postFX.bloomPass);
 

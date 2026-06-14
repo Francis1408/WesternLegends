@@ -75,9 +75,39 @@ export const buildings_data = [
     "info": "Test your luck to win (or lose) some bucks.",
     "icon" : "img/icons/pokercards.png",
     "description": '',
+  },
+
+  {
+    "id": "Camp",
+    "Title": "Camp",
+    "info" : "",
+    "icon" : "img/icons/bandit.png",
+    "description": '',
+  },
+
+  {
+    "id": "Station",
+    "Title": "Station",
+    "info" : "",
+    "icon" : "img/icons/station.png",
+    "description": '',
+  },
+
+  {
+    "id": "Mine",
+    "Title": "Mine",
+    "info" : "Prospect for valuable goods",
+    "icon" : "img/icons/mine.png",
+    "description": '',
+  },
+
+  {
+    "id": "Tribe",
+    "Title": "Tribe",
+    "info" : "",
+    "icon" : "img/icons/tribe.png",
+    "description": '',
   }
-
-
 
 
 ];

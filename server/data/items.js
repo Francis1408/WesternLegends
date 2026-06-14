@@ -115,7 +115,7 @@ export const items_data = [
   },
 
   {
-    "id": 6,
+    "id": 7,
     "name": "Huntsman Rifle",
     "type": "weapon",
     "description": "",
@@ -135,7 +135,7 @@ export const items_data = [
   //═══════════════════ TRINKETS ════════════════════════════════════ 
 
   {
-    "id": 7,
+    "id": 8,
     "name": "Diamond",
     "type": "trinket",
     "value": 2000,
@@ -146,7 +146,7 @@ export const items_data = [
   },
 
   {
-    "id": 8,
+    "id": 9,
     "name": "Gold Bar",
     "type": "trinket",
     "value": 1000,
@@ -157,18 +157,18 @@ export const items_data = [
   },
 
   {
-    "id": 9,
+    "id": 10,
     "name": "Gold Nugget",
     "type": "trinket",
     "value": 350,
     "max_stack": 10,
     "lose": true,
-    "icon": "items/trinkets/Gold_bar.png",
+    "icon": "items/trinkets/Gold_nugget.png",
     "rarity": 2,
   },
 
   {
-    "id": 10,
+    "id": 11,
     "name": "Pearl Necklace",
     "type": "trinket",
     "value": 1500,
@@ -179,7 +179,7 @@ export const items_data = [
   },
 
   {
-    "id": 11,
+    "id": 12,
     "name": "Ring",
     "type": "trinket",
     "value": 800,
@@ -192,7 +192,7 @@ export const items_data = [
   //═══════════════════ Consumables ════════════════════════════════════ 
 
    {
-    "id": 12,
+    "id": 13,
     "name": "Beer",
     "type": "consumable",
     "description": "Gives you a bit of strength for a short time",
@@ -200,7 +200,7 @@ export const items_data = [
     "max_stack": 1,
     "lose": true,
     "drawing": "drawings/items/consumables/Beer_drawing.png",
-    "icon": "items/consumable/Beer.png",
+    "icon": "items/consumables/Beer.png",
     "rarity": 1,
     "stats": {
       "strength": 5,
@@ -211,7 +211,7 @@ export const items_data = [
   },
 
   {
-    "id": 13,
+    "id": 14,
     "name": "Whisky",
     "type": "consumable",
     "description": "Grants you strength for a considerable amount of time",
@@ -219,7 +219,7 @@ export const items_data = [
     "max_stack": 1,
     "lose": true,
     "drawing": "drawings/items/consumables/Whisky_drawing.png",
-    "icon": "items/consumable/Whisky.png",
+    "icon": "items/consumables/Whisky.png",
     "rarity": 1,
     "stats": {
       "strength": 10,
@@ -230,7 +230,7 @@ export const items_data = [
   },
 
   {
-    "id": 14,
+    "id": 15,
     "name": "Moonshine",
     "type": "consumable",
     "description": "Makes you drunk and insane",
@@ -238,7 +238,7 @@ export const items_data = [
     "max_stack": 1,
     "lose": true,
     "drawing": "drawings/items/consumables/Moonshine_drawing.png",
-    "icon": "items/consumable/Moonshine.png",
+    "icon": "items/consumables/Moonshine.png",
     "rarity": 1,
     "stats": {
       "strength": 50,
@@ -249,7 +249,7 @@ export const items_data = [
   },
 
   {
-    "id": 15,
+    "id": 16,
     "name": "Bread",
     "type": "consumable",
     "description": "Restores a large amount of energy",
@@ -257,7 +257,7 @@ export const items_data = [
     "max_stack": 5,
     "lose": true,
     "drawing": "drawings/items/consumables/Bread_drawing.png",
-    "icon": "items/consumable/Bread.png",
+    "icon": "items/consumables/Bread.png",
     "rarity": 1,
     "stats": {
       "strength": 0,
@@ -268,7 +268,7 @@ export const items_data = [
   },
 
   {
-    "id": 16,
+    "id": 17,
     "name": "Carrot",
     "type": "consumable",
     "description": "Restores some energy",
@@ -276,7 +276,7 @@ export const items_data = [
     "max_stack": 5,
     "lose": true,
     "drawing": "drawings/items/consumables/Carrot_drawing.png",
-    "icon": "items/consumable/Carrot.png",
+    "icon": "items/consumables/Carrot.png",
     "rarity": 1,
     "stats": {
       "strength": 0,
@@ -287,15 +287,15 @@ export const items_data = [
   },
 
   {
-    "id": 17,
+    "id": 18,
     "name": "Fish",
     "type": "consumable",
     "description": "Restores energy and gives a bit of experience",
     "value": 15,
     "max_stack": 5,
     "lose": true,
-    "drawing": "drawings/items/consumables/Carrot_drawing.png",
-    "icon": "items/consumable/Carrot.png",
+    "drawing": "drawings/items/consumables/Fish_drawing.png",
+    "icon": "items/consumables/Fish.png",
     "rarity": 1,
     "stats": {
       "strength": 0,
@@ -306,7 +306,7 @@ export const items_data = [
   },
 
   {
-    "id": 18,
+    "id": 19,
     "name": "Meat",
     "type": "consumable",
     "description": "Gives you a bit of everything",
@@ -314,7 +314,7 @@ export const items_data = [
     "max_stack": 3,
     "lose": true,
     "drawing": "drawings/items/consumables/Meat_drawing.png",
-    "icon": "items/consumable/Meat.png",
+    "icon": "items/consumables/Meat.png",
     "rarity": 1,
     "stats": {
       "strength": 10,
@@ -325,7 +325,7 @@ export const items_data = [
   },
 
   {
-    "id": 19,
+    "id": 20,
     "name": "Tomato",
     "type": "consumable",
     "description": "Gives you a bit of energy",
@@ -333,7 +333,7 @@ export const items_data = [
     "max_stack": 10,
     "lose": true,
     "drawing": "drawings/items/consumables/Tomato_drawing.png",
-    "icon": "items/consumable/Tomato.png",
+    "icon": "items/consumables/Tomato.png",
     "rarity": 1,
     "stats": {
       "strength": 0,
@@ -344,7 +344,7 @@ export const items_data = [
   },
 
   {
-    "id": 20,
+    "id": 21,
     "name": "Shovel",
     "type": "consumable",
     "description": "Helps a bit while mining",
@@ -352,7 +352,7 @@ export const items_data = [
     "max_stack": 1,
     "lose": true,
     "drawing": "drawings/items/consumables/Shovel_drawing.png",
-    "icon": "items/consumable/Shovel.png",
+    "icon": "items/consumables/Shovel.png",
     "rarity": 1,
     "stats": {
       "mining_stats": 10
@@ -361,7 +361,7 @@ export const items_data = [
   },
 
   {
-    "id": 21,
+    "id": 22,
     "name": "Pickaxe",
     "type": "consumable",
     "description": "Did someone say mine?",
@@ -369,7 +369,7 @@ export const items_data = [
     "max_stack": 1,
     "lose": true,
     "drawing": "drawings/items/consumables/Pickaxe_drawing.png",
-    "icon": "items/consumable/Pickaxe.png",
+    "icon": "items/consumables/Pickaxe.png",
     "rarity": 1,
     "stats": {
       "mining_stats": 20
@@ -378,7 +378,7 @@ export const items_data = [
   },
 
   {
-    "id": 22,
+    "id": 23,
     "name": "Dynamite",
     "type": "consumable",
     "description": "Send everything to the air, apart from your goodies.",
@@ -386,7 +386,7 @@ export const items_data = [
     "max_stack": 5,
     "lose": true,
     "drawing": "drawings/items/consumables/Dynamite_drawing.png",
-    "icon": "items/consumable/Dynamite.png",
+    "icon": "items/consumables/Dynamite.png",
     "rarity": 2,
     "stats": {
       "mining_stats": 50
@@ -395,7 +395,7 @@ export const items_data = [
   },
 
   {
-    "id": 23,
+    "id": 24,
     "name": "Pistol Ammo",
     "type": "consumable",
     "ammo_type": 1,
@@ -404,13 +404,13 @@ export const items_data = [
     "max_stack": 50,
     "lose": true,
     "drawing": "drawings/items/consumables/Pistol_ammo_drawing.png",
-    "icon": "items/consumable/Pistol_ammo.png",
+    "icon": "items/consumables/Pistol_ammo.png",
     "rarity": 1,
   
   },
 
   {
-    "id": 24,
+    "id": 25,
     "name": "Shotgun Ammo",
     "type": "consumable",
     "ammo_type": 2,
@@ -419,13 +419,13 @@ export const items_data = [
     "max_stack": 20,
     "lose": true,
     "drawing": "drawings/items/consumables/Shotgun_ammo_drawing.png",
-    "icon": "items/consumable/Shotgun_ammo.png",
+    "icon": "items/consumables/Shotgun_ammo.png",
     "rarity": 1,
   
   },
 
    {
-    "id": 25,
+    "id": 26,
     "name": "Rifle Ammo",
     "type": "consumable",
     "ammo_type": 2,
@@ -434,7 +434,7 @@ export const items_data = [
     "max_stack": 10,
     "lose": true,
     "drawing": "drawings/items/consumables/Rifle_ammo_drawing.png",
-    "icon": "items/consumable/Rifle_ammo.png",
+    "icon": "items/consumables/Rifle_ammo.png",
     "rarity": 1,
   
   },
@@ -442,7 +442,7 @@ export const items_data = [
   //═══════════════════ Specials ════════════════════════════════════ 
 
   {
-    "id": 26,
+    "id": 27,
     "name": "Case",
     "type": "special",
     "description": "",
@@ -456,7 +456,7 @@ export const items_data = [
   },
 
   {
-    "id": 27,
+    "id": 28,
     "name": "Shire",
     "type": "horse",
     "description": "Basic horse",
@@ -473,7 +473,7 @@ export const items_data = [
   },
 
   {
-    "id": 28,
+    "id": 29,
     "name": "The Arabian",
     "type": "horse",
     "description": "Sturdy and high horse. Carries a lot of load",
@@ -490,7 +490,7 @@ export const items_data = [
   },
 
   {
-    "id": 29,
+    "id": 30,
     "name": "Mustang",
     "type": "horse",
     "description": "Excellent for combat and hunting",
@@ -507,7 +507,7 @@ export const items_data = [
   },
 
   {
-    "id": 30,
+    "id": 31,
     "name": "Thoroughbred",
     "type": "horse",
     "description": "Fast and agile for getting across the map quickly",
@@ -524,7 +524,7 @@ export const items_data = [
   },
   
   {
-    "id": 31,
+    "id": 32,
     "name": "Kentucky Saddler",
     "type": "horse",
     "description": "Well-balanced horse. Brings a little bit of every status.",

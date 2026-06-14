@@ -45,8 +45,8 @@ async function createInventory(conn, userId) {
 
   await conn.query(
     `INSERT INTO inventory_items (user_id, item_id, quantity, level) VALUES
-    (?, 26, 1, 1),
     (?, 27, 1, 1),
+    (?, 28, 1, 1),
     (?, 1,  1, 1)`,
     [userId, userId, userId]
   );
