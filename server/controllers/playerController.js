@@ -39,7 +39,7 @@ export const createPlayer = async (req, res) => {
 async function createInventory(conn, userId) {
 
   await conn.query(
-    `INSERT INTO inventory (user_id, case_id, horse_id) VALUES (?, 26, 27)`,
+    `INSERT INTO inventory (user_id, case_id, horse_id) VALUES (?, 27, 28)`,
     [userId]
   );
 

@@ -38,7 +38,7 @@ async function renderImage(player) {
     invAvatarImgEl.src = charData.drawingUrl;
 
     // Place name
-    invAvatarImgEl.innerText = player.name;
+    invAvatarNameEl.textContent = player.name;
 
 }
 

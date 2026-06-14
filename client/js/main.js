@@ -12,6 +12,7 @@ import { getToken, getPlayer } from './auth.js';
 import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js';
 import { renderInventory } from './inventory.js';
 import { setPlayerData, getPlayerData } from './playerState.js';
+import { initHUD } from './hud.js';
 
 /*
 MODULES DYNAMIC
@@ -116,6 +117,7 @@ setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm
 setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
 setItemInfo();
+initHUD();
 
 // lights.setupLightsGUI(postFX.bloomPass);
 

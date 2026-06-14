@@ -21,13 +21,43 @@
   </head>
   <body>
     <header>
-      <h1>HEADER</h1>
-    
-
       <span class="corner corner-tl"></span> 
       <span class="corner corner-tr"></span> 
       <span class="corner corner-bl"></span> 
       <span class="corner corner-br"></span> 
+
+      <div class="hdr-avatar-wrap">
+        <div class="hdr-avatar" id="hdr-avatar" aria-label="Player menu">&#9760;</div>
+        <div class="hdr-dropdown" id="hdr-dropdown">
+          <p class="hdr-dropdown-name" id="hdr-player-name">Stranger</p>
+          <button class="hdr-dropdown-btn" id="hdr-logout">&#x2715; &nbsp; End Session</button>
+        </div>
+      </div>
+
+      <div class="hdr-stats">
+
+        <div class="hdr-gold">
+          <span class="hdr-gold-icon">&#9775;</span>
+          <span id="hdr-gold-val">$ 0</span>
+        </div>
+
+        <div class="hdr-stat-group">
+          <span class="hdr-stat-label">Energy</span>
+          <div class="hdr-bar-row" id="hdr-energy-pips"></div>
+        </div>
+
+        <div class="hdr-stat-group">
+          <span class="hdr-stat-label">XP</span>
+          <div class="hdr-bar-row">
+            <div class="hdr-bar-single">
+              <div class="hdr-bar-fill xp" id="hdr-xp-bar" style="width:0%"></div>
+            </div>
+            <span class="hdr-bar-lvl" id="hdr-lvl">LVL 1</span>
+          </div>
+        </div>
+
+
+      </div>
     </header>
 
     <main>
@@ -101,7 +131,7 @@
                 <div class="inv-header">
                   <div class="inv-avatar">
                     <img src="" alt="player" id="inv-avatar-img" />
-                    <p class="inv-avatar-name" id="inv-avatar-name">FRANCIS</p>
+                    <p class="inv-avatar-name" id="inv-avatar-name"></p>
                   </div>
                   
                   <div class="inv-rep-wrap">

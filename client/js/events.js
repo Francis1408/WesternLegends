@@ -377,12 +377,16 @@ export function setItemInfo() {
 
             // Find the scenario id
             const itemData = getItemData(Number(itemId))
-           
-            // Build content
-            const title = `<h2>${itemData.name}</h2>`
 
-            // Append content
-            baloonEl.innerHTML = title;
+            if (itemData) {
+
+                // Build content
+                const title = `<h2>${itemData.name}</h2>`
+    
+                // Append content
+                baloonEl.innerHTML = title;
+            }
+           
 
         });
 

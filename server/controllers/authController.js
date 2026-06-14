@@ -65,9 +65,10 @@ export const login = async (req, res) => {
 
     const token = generateToken(user.id);
 
+
     // Fetches the user player
     const [playerRows] = await pool.query(
-      'SELECT id FROM players WHERE user_id = ?', [user.id]
+      'SELECT user_id FROM players WHERE user_id = ?', [user.id]
     );
 
     res.json({
