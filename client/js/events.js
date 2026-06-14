@@ -3,6 +3,8 @@
 import { container } from "./scene.js";
 import { travelRoute, dijkstra } from "./path.js";
 import { getScenarioData, getBuildingData, getItemData } from "./gameData.js";
+import { renderBuilding } from "./buildings/index.js";
+import { getPlayerData } from "./playerState";
 
 
 
@@ -156,7 +158,9 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
 
         // Checks if it is the final env in the three
         if (!scenarioData.enviroments || scenarioData.enviroments.length === 0) {
-            overviewEl.innerHTML = `<h1>FINAL</h1>`
+            const { html, setup } = renderBuilding(scenarioData)
+            overviewEl.innerHTML = html;
+            setup(); // Attach events
         }
     
         else {

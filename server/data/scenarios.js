@@ -674,7 +674,7 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "modelPath": "Models/Redrock/Gun_shop.glb", 
-                "items": [2, 3, 4, 5, 6, 23, 24, 25],
+                "items": [2, 3, 4, 5, 7, 24, 25, 26],
                 "previewCamera" : {
                     "position": { "x": -1.60, "y": -1.14, "z": -27.28 },
                     "target": { "x": -6.09, "y": -1.06, "z": -27.26 },
@@ -833,7 +833,7 @@ export const scenarios_data = [
             {
                 "id" : "Gun_shop",
                 "modelPath": "Models/Wellington/Gun_shop.glb", 
-                "items": [2, 3, 4, 5, 6, 7, 21, 22, 23, 24, 25],
+                "items": [2, 3, 4, 5, 6, 7, 21, 22, 23, 24, 25, 26],
                 "previewCamera" : {
                     "position": { "x": 9.96, "y": -4.24, "z": -35.90 },
                     "target": { "x": 4.22, "y": -3.77, "z": -35.98 },

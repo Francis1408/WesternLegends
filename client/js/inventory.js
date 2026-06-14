@@ -1,4 +1,5 @@
 import { getCharacterData, getItemData } from "./gameData";
+import { getPlayerData } from "./playerState";
 
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
@@ -6,7 +7,9 @@ const PATHS = {
 };
 
 
-export function renderInventory(player) {
+export function renderInventory() {
+
+    const player = getPlayerData()
 
     const specialSlotsEl = document.querySelector(".inv-special-slots")
     // const invSlotsEL = document.querySelector()

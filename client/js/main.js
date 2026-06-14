@@ -11,6 +11,7 @@ import { loadRoutes } from './path.js';
 import { getToken, getPlayer } from './auth.js';
 import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js';
 import { renderInventory } from './inventory.js';
+import { setPlayerData, getPlayerData } from './playerState.js';
 
 /*
 MODULES DYNAMIC
@@ -44,8 +45,11 @@ if (!res.ok) {
 
 
 const { player } = await res.json();
-console.log(player)
-const startScenario = getScenarioDatabyId(player.scenario) ?? getScenarioDatabyId(0);
+setPlayerData(player);
+
+const playerData  = getPlayerData();
+console.log(playerData)
+const startScenario = getScenarioDatabyId(playerData.scenario) ?? getScenarioDatabyId(0);
 //──────────────────────────────────────────────────── 
 
 loadRoutes();
@@ -107,7 +111,7 @@ cameraManager.subscribe((cam, id) => {
 // })
 
 // Setup
-renderInventory(player)
+renderInventory()
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
 setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
