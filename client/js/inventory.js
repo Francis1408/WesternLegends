@@ -1,8 +1,6 @@
 import { getCharacterData, getItemData } from "./gameData";
-import { getPlayerData } from "./playerState";
 import { getToken } from './auth.js';
 import { showNotification }  from './notification.js';
-import { getItemData } from './gameData.js';
 import { getPlayerData, setPlayerData } from './playerState.js';
 import { API_URL } from "../config.js";
 
