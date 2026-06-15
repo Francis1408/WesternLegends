@@ -19,6 +19,7 @@ const PATHS = {
 
 // ── Guard: must be logged in ───────────────────────────────────────────────
 const token = getToken();
+console.log('Token:', token);
 if (!token) window.location.href = '/auth.html';
 
 // ── Avatar model map ───────────────────────────────────────────────────────
