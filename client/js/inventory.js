@@ -1,5 +1,10 @@
 import { getCharacterData, getItemData } from "./gameData";
 import { getPlayerData } from "./playerState";
+import { getToken } from './auth.js';
+import { showNotification }  from './notification.js';
+import { getItemData } from './gameData.js';
+import { getPlayerData, setPlayerData } from './playerState.js';
+import { API_URL } from "../config.js";
 
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
@@ -103,4 +108,62 @@ function renderNormalSlots(inv) {
 
         grid.appendChild(slot);
     }
+}
+
+
+// ------------- API CALLS ------------
+
+export function buyItem(itemId, quantity = 1) {
+
+  return new Promise((resolve) => {
+    const item   = getItemData(itemId);
+    const player = getPlayerData();
+
+    showNotification({
+      title:   'Confirm Purchase',
+      content: `
+        <p>Are you sure you want to buy</p>
+        <p><strong>${item.name}</strong> for <strong>$ ${item.value * quantity}</strong>?</p>
+        <p>Your gold: $ ${player.gold}</p>
+      `,
+      buttons: [
+        {
+          label: 'Buy',
+          onClick: async () => {
+            try {
+              const res = await fetch(`${API_URL}/inventory/buy`, {
+                method:  'POST',
+                headers: {
+                  'Content-Type':  'application/json',
+                  'Authorization': `Bearer ${getToken()}`
+                },
+                body: JSON.stringify({ item_id: itemId, quantity })
+              });
+
+              const data = await res.json();
+
+              if (!res.ok) {
+                showNotification({
+                  title:   'Cannot Purchase',
+                  content: `<p>${data.message}</p>`,
+                  buttons: [{ label: 'Close' }]
+                });
+                return;
+              }
+
+              resolve(data);
+
+            } catch {
+              showNotification({
+                title:   'Error',
+                content: '<p>Cannot reach the server.</p>',
+                buttons: [{ label: 'Close' }]
+              });
+            }
+          }
+        },
+        { label: 'Cancel' }
+      ]
+    });
+  });
 }

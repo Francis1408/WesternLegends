@@ -1,6 +1,7 @@
 
 import { getItemData } from "../gameData";
-import { getPlayerData } from "../playerState";
+import { getPlayerData, updatePlayer } from "../playerState";
+import { buyItem } from "../inventory";
 
 export function renderGunshop(scenarioData) {
 
@@ -122,5 +123,14 @@ export function setupGunshopEvents() {
         gcWrap.querySelectorAll('.gc-page').forEach(p => p.classList.remove('active'));
         gcWrap.querySelector(radio.id === 'tab-buy' ? '#gc-buy' : '#gc-upgrade').classList.add('active');
         });
+    });
+
+
+    // Buy command
+    gcWrap.querySelector('#gc-buy')?.addEventListener('click', async e => {
+        const btn = e.target.closest('.gc-buy-btn');
+        if (!btn) return;
+        await buyItem(Number(btn.dataset.itemId), 1);
+        await updatePlayer();
     });
 }

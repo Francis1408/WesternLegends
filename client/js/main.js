@@ -12,8 +12,9 @@ import { getToken, getPlayer } from './auth.js';
 import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js';
 import { renderInventory } from './inventory.js';
 import { setPlayerData, getPlayerData } from './playerState.js';
-import { initHUD } from './hud.js';
+import { initHUD, updateHUD } from './hud.js';
 import { API_URL } from '../config.js';
+import { subscribe } from './playerState.js';
 
 /*
 MODULES DYNAMIC
@@ -107,6 +108,11 @@ cameraManager.subscribe((cam) => {
 cameraManager.subscribe((cam, id) => {
   sceneManager.setFocused(id);
 })
+
+subscribe(player => {
+  updateHUD(player);
+  renderInventory(player.inventory);
+});
 
 // cameraManager.subscribe((cam, id) => {
 //   gui.update(cam, cameraManager.controls);

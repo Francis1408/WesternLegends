@@ -5,8 +5,7 @@ import './config/db.js'
 import authRoutes from './routes/auth.js';
 import playerRoutes from './routes/player.js'
 import dataRoutes from './routes/data.js'
-
-
+import inventoryRoutes from './routes/inventory.js';
 const app = express();
 
 app.use(cors());
@@ -15,6 +14,8 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/players', playerRoutes)
 app.use('/api/data', dataRoutes)
+
+app.use('/api/inventory', inventoryRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Backend working 🤠' });
