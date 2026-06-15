@@ -65,11 +65,11 @@ header {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 2px solid rgba(184,134,11,.6);
+  border: 2px solid var(--gold-text);
   box-shadow: 2px 2px 0 #1a0900;
   cursor: pointer;
   overflow: hidden;
-  background: rgba(0,0,0,.3);
+  background: var(--background-color-one);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +92,7 @@ header {
   top: calc(100% + 8px);
   left: 0;
   width: 160px;
-  background: #2e1604;
+  background: var(--wood-dark);
   border: 1px solid rgba(184,134,11,.4);
   box-shadow: 3px 3px 0 #1a0900;
   z-index: 999;
@@ -104,9 +104,9 @@ header {
 
 .hdr-dropdown-name {
   padding: .5rem .75rem .35rem;
-  font-family: 'Rye', serif;
-  font-size: .6rem;
-  color: rgba(245,220,160,.5);
+  font-family: 'Bronco';
+  font-size: 0.7rem;
+  color: var(--gold-text);
   letter-spacing: .1em;
   border-bottom: 1px solid rgba(184,134,11,.2);
 }
@@ -116,8 +116,8 @@ header {
   background: none;
   border: none;
   padding: .5rem .75rem;
-  font-family: 'Rye', serif;
-  font-size: .6rem;
+  font-family: 'Bronco';
+  font-size: 1rem;
   color: #c84040;
   letter-spacing: .08em;
   text-align: left;
@@ -142,11 +142,21 @@ header {
   display: flex;
   align-items: center;
   gap: .35rem;
-  color: #b8860b;
+  color: var(--gold-border);
   font-family: 'Rye', serif;
-  font-size: .7rem;
+  font-size: 1rem;
   letter-spacing: .05em;
   white-space: nowrap;
+  background-color: rgba(0,0,0,.35);
+  padding: 0.5rem;
+  border-radius: 20%;
+}
+
+.hdr-gold > img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.85;
 }
 
 .hdr-stat-group {
@@ -157,7 +167,7 @@ header {
 
 .hdr-stat-label {
   font-family: 'Bronco';
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--gold-text);
   letter-spacing: .12em;
   line-height: 1;
@@ -189,15 +199,15 @@ header {
 
 .hdr-bar-lvl {
   font-family: 'Rye', serif;
-  font-size: .55rem;
-  color: rgba(245,220,160,.6);
+  font-size: 0.7rem;
+  color: var(--gold-text);
   white-space: nowrap;
   margin-left: 2px;
 }
 
 .hdr-pip {
-  width: 14px;
-  height: 7px;
+  width: 20px;
+  height: 10px;
   background: rgba(0,0,0,.35);
   border: 1px solid rgba(184,134,11,.2);
   border-radius: 1px;
