@@ -1,5 +1,5 @@
 import pool from '../config/db.js';
-import { getItemData }     from '../data/items.js';
+import { getItemData } from '../utils/item.js';
 import { buildInventory }  from '../game/inventory.js';
 
 export const buyItem = async (req, res) => {
