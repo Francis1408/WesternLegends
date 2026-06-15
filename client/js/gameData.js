@@ -1,4 +1,5 @@
-// client/js/gameData.js
+import { API_URL } from "../config";
+
 let _items     = [];
 let _scenarios = [];
 let _characters = [];
@@ -8,11 +9,11 @@ let _buildings = [];
 export async function initGameData() {
   try {
     const [items, scenarios, characters, distances, buildings] = await Promise.all([
-      fetch('/api/data/items').then(r => { if (!r.ok) throw new Error(`items ${r.status}`); return r.json(); }),
-      fetch('/api/data/scenarios').then(r => { if (!r.ok) throw new Error(`scenarios ${r.status}`); return r.json(); }),
-      fetch('/api/data/characters').then(r => { if (!r.ok) throw new Error(`characters ${r.status}`); return r.json(); }),
-      fetch('/api/data/distances').then(r => { if (!r.ok) throw new Error(`distances ${r.status}`); return r.json(); }),
-      fetch('/api/data/buildings').then(r => { if (!r.ok) throw new Error(`buildings ${r.status}`); return r.json(); })
+      fetch(`${API_URL}/api/data/items`).then(r => { if (!r.ok) throw new Error(`items ${r.status}`); return r.json(); }),
+      fetch(`${API_URL}/api/data/scenarios`).then(r => { if (!r.ok) throw new Error(`scenarios ${r.status}`); return r.json(); }),
+      fetch(`${API_URL}/api/data/characters`).then(r => { if (!r.ok) throw new Error(`characters ${r.status}`); return r.json(); }),
+      fetch(`${API_URL}/api/data/distances`).then(r => { if (!r.ok) throw new Error(`distances ${r.status}`); return r.json(); }),
+      fetch(`${API_URL}/api/data/buildings`).then(r => { if (!r.ok) throw new Error(`buildings ${r.status}`); return r.json(); })
     ]);
 
     _items      = items;

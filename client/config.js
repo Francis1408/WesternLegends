@@ -1,0 +1,1 @@
+export const API_URL = 'https://westernlegends-production.up.railway.app/api'

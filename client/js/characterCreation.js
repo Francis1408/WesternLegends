@@ -6,12 +6,12 @@ import { loadAvatar, getMixer } from './loader.js';
 import { initGameData, getCharacterData } from './gameData.js';
 import { color } from 'three/tsl';
 import { Scene } from 'three/webgpu';
+import { API_URL } from '../config.js';
 
 
 await initGameData();
 
 
-const API_URL = 'http://localhost:3000/api';
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
   models:   { base: "/Models/Characters/",       ext: ".glb" }

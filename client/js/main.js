@@ -13,6 +13,7 @@ import { initGameData, getScenarioData, getScenarioDatabyId} from './gameData.js
 import { renderInventory } from './inventory.js';
 import { setPlayerData, getPlayerData } from './playerState.js';
 import { initHUD } from './hud.js';
+import { API_URL } from '../config.js';
 
 /*
 MODULES DYNAMIC
@@ -37,7 +38,7 @@ const token = getToken();
 if (!token) window.location.href = '/auth.html';
 
 // Check if player exists via API
-const res  = await fetch(`http://localhost:3000/api/players/me`, {
+const res  = await fetch(`${API_URL}/players/me`, {
   headers: { Authorization: `Bearer ${token}` }
 });
 if (!res.ok) {
