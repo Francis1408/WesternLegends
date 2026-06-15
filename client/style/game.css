@@ -226,6 +226,18 @@ header {
 
 footer {
   flex: 0 0 5vh;
+  position: relative;
+}
+
+footer img {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  height: 120px;        /* tweak freely */
+  width: auto;
+  max-width: none;
+  pointer-events: none;
 }
  
 main {
@@ -727,7 +739,7 @@ input {
 /* HEADER */
 
 .notification_header {
-  background: var(--frame-color);
+  background: var(--wood-mid);
   color: white;
 
   padding: 1rem;
@@ -736,9 +748,10 @@ input {
 }
 
 .notification_header h1 {
+  font-family: 'RioGrande';
   margin: 0;
   text-align: center;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(2rem, 2vw, 2rem);
 }
 
 /* CONTENT */
@@ -752,7 +765,7 @@ input {
   font-size: 2rem;
   line-height: 1.5;
 
-  color: #2a1a06;
+  color: var(--ink);
 }
 
 /* BUTTON AREA */
@@ -1016,7 +1029,7 @@ input {
 }
 
 
-.inv-grid-slot .active:hover { border-color: rgba(184,134,11,.7); transform: translateY(-1px); cursor: pointer;}
+.inv-grid-slot.active:hover { border-color: rgba(184,134,11,.7); transform: translateY(-1px); cursor: pointer;}
 .inv-grid-slot img { width: 70%; height: 70%; object-fit: contain; }
 .inv-grid-slot.empty::after {
   content: '';

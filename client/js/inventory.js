@@ -93,9 +93,9 @@ function renderNormalSlots(inv) {
         const item = inv.items[i];
 
         if (item) {
-            slot.className = 'active';
+            slot.classList.add('active');
             slot.dataset.itemId = `${item.id}`
-            slot.innerHTML = `<img src="${item.icon}" alt="${item.name}" />
+            slot.innerHTML = `<img src="img/${item.icon}" alt="${item.name}" />
             ${item.quantity > 1 ? `<span class="inv-qty">${item.quantity}</span>` : ''}`;
 
         } else {

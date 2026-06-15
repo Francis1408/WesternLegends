@@ -1,4 +1,5 @@
 import { API_URL } from '../config.js';
+import { getToken } from './auth.js';
 
 let _player = null;
 const _subscribers = [];
