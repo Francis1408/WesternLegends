@@ -22,13 +22,13 @@ export async function initGameData() {
     _distances  = distances;
     _buildings = buildings;
 
-    console.log('Game data loaded:', {
-      items:      _items.length,
-      scenarios:  _scenarios.length,
-      characters: _characters.length,
-      distances:  _distances.length,
-      buildings:  _buildings.length,
-    });
+    // console.log('Game data loaded:', {
+    //   items:      _items.length,
+    //   scenarios:  _scenarios.length,
+    //   characters: _characters.length,
+    //   distances:  _distances.length,
+    //   buildings:  _buildings.length,
+    // });
 
   } catch (err) {
     console.error('initGameData failed:', err);

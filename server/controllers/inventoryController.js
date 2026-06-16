@@ -85,7 +85,9 @@ export const equipItem = async (req, res) => {
       [inventory_item_id, req.user.id]
     );
 
-    console.log(req.user.id)
+    console.log(`USER ID: ${req.user.id}`)
+    console.log(`ITEM ID: ${inventory_item_id}`)
+
     if (rows.length === 0) {
       await conn.rollback();
       return res.status(404).json({ message: 'Item not found.' });
