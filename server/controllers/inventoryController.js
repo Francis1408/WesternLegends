@@ -110,3 +110,39 @@ export const equipItem = async (req, res) => {
       conn.release();
   }
 };
+
+export const dropItem = async (req, res) => {
+  const { item_id } = req.body;
+  const conn = await pool.getConnection();
+
+  try {
+    await conn.beginTransaction();
+
+    // Verify the item exists and belongs to this user
+    const [rows] = await conn.query(
+      `SELECT id FROM inventory_items WHERE id = ? AND user_id = ?`,
+      [item_id, req.user.id]
+    );
+
+    if (rows.length === 0) {
+      await conn.rollback();
+      return res.status(404).json({ message: 'Item not found.' });
+    }
+
+    // Drop Item
+    await conn.query(
+      `DELETE FROM inventory_items WHERE id = ? AND user_id = ?`,
+      [item_id, req.user.id]
+    );
+
+    await conn.commit();
+    res.json({ message: 'Item dropped.' });
+
+  } catch (err) {
+      await conn.rollback();
+      console.error(err);
+      res.status(500).json({ message: 'Server error.' });
+  } finally {
+      conn.release();
+  }
+};

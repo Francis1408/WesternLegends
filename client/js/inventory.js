@@ -187,8 +187,8 @@ async function handleDrop(slot) {
     content: '<p>Are you sure you want to drop this item?</p>',
     buttons: [
       { label: 'Drop', onClick: async () => {
-        const instanceId = Number(slot.dataset.itemId);
-        // await dropItem(instanceId);
+        const instanceId = Number(slot.dataset.instanceId);
+        await dropItem(instanceId);
         await updatePlayer();
       }},
       { label: 'Cancel' }
