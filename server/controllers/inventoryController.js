@@ -73,7 +73,7 @@ export const buyItem = async (req, res) => {
 
 
 export const equipItem = async (req, res) => {
-  const { inventory_item_id } = req.body;
+  const { item_id } = req.body;
   const conn = await pool.getConnection();
 
   try {
@@ -82,11 +82,11 @@ export const equipItem = async (req, res) => {
     // Verify the item exists and belongs to this user
     const [rows] = await conn.query(
       `SELECT id FROM inventory_items WHERE id = ? AND user_id = ?`,
-      [inventory_item_id, req.user.id]
+      [item_id, req.user.id]
     );
 
     console.log(`USER ID: ${req.user.id}`)
-    console.log(`ITEM ID: ${inventory_item_id}`)
+    console.log(`ITEM ID: ${item_id}`)
 
     if (rows.length === 0) {
       await conn.rollback();
@@ -96,7 +96,7 @@ export const equipItem = async (req, res) => {
     // Equip it in the correct table
     await conn.query(
       `UPDATE inventory SET weapon_instance_id = ? WHERE user_id = ?`,
-      [inventory_item_id, req.user.id]
+      [item_id, req.user.id]
     );
 
     await conn.commit();
