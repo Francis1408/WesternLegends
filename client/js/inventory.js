@@ -3,6 +3,7 @@ import { getToken } from './auth.js';
 import { showNotification }  from './notification.js';
 import { getPlayerData, setPlayerData } from './playerState.js';
 import { API_URL } from "../config.js";
+import { updatePlayer } from "./playerState.js";
 
 const PATHS = {
   drawings: { base: "/img/drawings/characters/", ext: ".png" },
@@ -83,33 +84,194 @@ function renderSpecialSlot(id, item){
 
 function renderNormalSlots(inv) {
 
-    const grid = document.getElementById('inv-grid')
-    grid.innerHTML = '';
+  const grid = document.getElementById('player-inv-grid')
+  grid.innerHTML = '';
 
-    for (let i = 0; i < inv.totalSlots ; i++) {
+  for (let i = 0; i < inv.totalSlots ; i++) {
 
-        const slot = document.createElement('div');
-        slot.className = 'inv-grid-slot';
-        const item = inv.items[i];
+    const slot = document.createElement('div');
+    slot.className = 'inv-grid-slot';
+    const item = inv.items[i];
 
-        if (item) {
-            slot.classList.add('active');
-            slot.dataset.itemId = `${item.id}`
-            slot.innerHTML = `<img src="img/${item.icon}" alt="${item.name}" />
-            ${item.quantity > 1 ? `<span class="inv-qty">${item.quantity}</span>` : ''}`;
+    if (item) {
+        slot.classList.add('active');
+        slot.dataset.itemId = item.id
+        slot.dataset.instanceId = item.instance_id
+        slot.innerHTML = `<img src="img/${item.icon}" alt="${item.name}" />
+        ${item.quantity > 1 ? `<span class="inv-qty">${item.quantity}</span>` : ''}`;
 
-        } else {
+    } else {
 
-            slot.classList.add('empty');
+        slot.classList.add('empty');
 
-        }
-
-        grid.appendChild(slot);
     }
+
+    grid.appendChild(slot);
+  }
+
+  // Bind the events to the buttons
+  setItemContextMenu();
+}
+
+// ------------- EVENT DELEGATION ------------
+function setItemContextMenu() {
+
+  const grid = document.getElementById('player-inv-grid');
+  const baloonEl = document.getElementById('item-baloon');
+
+  grid.addEventListener('contextmenu', (e) => {
+
+    e.preventDefault();
+
+    const slot = e.target.closest('.inv-grid-slot.active');
+    if (!slot) return;
+
+    const itemId = Number(slot.dataset.itemId)
+    const itemData = getItemData(itemId);
+    if (!itemData) return;
+
+    // Build context options based on item type
+    const options = [];
+
+    if (itemData.type  === 'weapon') {
+      options.push({ label: 'Equip', action: () => handleEquip(slot)});
+    }
+    if (itemData.type === 'consumable' && !itemData.ammo_type && !itemData.stats.mining_stats) { // Cannot consume ammo or mining tools
+      options.push({ label: 'Use',  action: () => handleUse(slot) });
+    }
+
+    options.push({ label: 'Drop', action: () => handleDrop(slot)});
+
+    // Render dropdown in baloon
+    baloonEl.innerHTML = `
+      <p class="ctx-item-name">${itemData.name}</p>
+      ${options.map((o, i) =>
+        `<button class="ctx-btn" data-idx="${i}">${o.label}</button>`
+      ).join('')}
+    `;
+
+    baloonEl.style.left = `${e.pageX + 4}px`;
+    baloonEl.style.top  = `${e.pageY + 4}px`;
+
+    baloonEl.querySelectorAll('.ctx-btn').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        options[i].action();
+        baloonEl.innerHTML = '';
+      })
+    })
+
+    // Close on click outside
+    document.addEventListener('click', () => {
+      baloonEl.innerHTML = '';
+    });
+
+  })
+
+}
+
+async function handleEquip(slot) {
+  const instanceId = Number(slot.dataset.instanceId);
+  await equipWeapon(instanceId);
+  await updatePlayer();
+}
+
+async function handleUse(slot) {
+  const instanceId = Number(slot.dataset.itemId);
+  // await useItem(instanceId);
+  await updatePlayer();
+}
+
+async function handleDrop(slot) {
+  showNotification({
+    title:   'Drop Item',
+    content: '<p>Are you sure you want to drop this item?</p>',
+    buttons: [
+      { label: 'Drop', onClick: async () => {
+        const instanceId = Number(slot.dataset.itemId);
+        // await dropItem(instanceId);
+        await updatePlayer();
+      }},
+      { label: 'Cancel' }
+    ]
+  });
 }
 
 
-// ------------- API CALLS ------------
+
+// ------ API CALLS ---------
+export function equipWeapon(itemId) {
+
+  return new Promise(async (resolve) => {
+    try {
+      const res = await fetch(`${API_URL}/inventory/equip`, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${getToken()}`
+        },
+        body: JSON.stringify({item_id: itemId})
+      });
+      
+      const data = await res.json();
+
+      if (!res.ok) {
+        showNotification({
+          title:   'Cannot Equip',
+          content: `<p>${data.message}</p>`,
+          buttons: [{ label: 'Close' }]
+        });
+        return;
+      }
+      resolve(data)
+
+    } catch {
+      showNotification({
+        title:   'Error',
+        content: '<p>Cannot reach the server.</p>',
+        buttons: [{ label: 'Close' }]
+      });
+    }
+  })
+}
+
+
+export function dropItem(itemId) {
+
+  return new Promise(async (resolve) => {
+    const item = getItemData(itemId);
+
+    try {
+      const res = await fetch(`${API_URL}/inventory/drop`, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${getToken()}`
+        },
+        body: JSON.stringify({item_id: itemId})
+      });
+      
+      const data = await res.json();
+
+      if (!res.ok) {
+        showNotification({
+          title:   'Cannot Drop',
+          content: `<p>${data.message}</p>`,
+          buttons: [{ label: 'Close' }]
+        });
+        return;
+      }
+      resolve(data)
+
+    } catch {
+      showNotification({
+        title:   'Error',
+        content: '<p>Cannot reach the server.</p>',
+        buttons: [{ label: 'Close' }]
+      });
+    }
+  })
+}
+
 
 export function buyItem(itemId, quantity = 1) {
 
@@ -148,6 +310,12 @@ export function buyItem(itemId, quantity = 1) {
                 });
                 return;
               }
+
+              showNotification({
+                  title:   'Success',
+                  content: `<p>${data.message}</p>`,
+                  buttons: [{ label: 'Close' }]
+                });
 
               resolve(data);
 

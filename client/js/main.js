@@ -123,7 +123,7 @@ renderInventory()
 setupEvents(container, cameraManager, sceneManager, raycaster, postFX, onConfirm);
 setMapHud(sceneManager, onConfirm);
 setupTabs(sceneManager);
-setItemInfo();
+// setItemInfo();
 initHUD();
 
 // lights.setupLightsGUI(postFX.bloomPass);

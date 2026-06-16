@@ -234,7 +234,8 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
             if (scenarioData.items) {
 
                 const slot = document.createElement('div');
-                slot.className = 'inv-grid'
+                slot.className = 'inv-grid';
+                slot.id = 'item-grid';
 
                 let itemsTitle = ''
                 if (['Gun_shop', 'Trading_post'].includes(scenarioData.id))   itemsTitle = `<p>Items to buy</p>`
@@ -366,39 +367,32 @@ export function setMapHud(sceneManager, onConfirm) {
 // ------------ ITEMS ----------------
 export function setItemInfo() {
     
-    const slotsEl = document.querySelectorAll('.inv-grid-slot');
-    const baloonEl = document.querySelector('#baloon');
-
-    slotsEl.forEach(slot => {
-        slot.addEventListener('mouseover', (e) => {
-
-            let triggeredEl = e.currentTarget;
-            let itemId = triggeredEl.getAttribute('data-itemid');
-
-            // Find the scenario id
-            const itemData = getItemData(Number(itemId))
-
-            if (itemData) {
-
-                // Build content
-                const title = `<h2>${itemData.name}</h2>`
+    const grid     = document.getElementById('item-grid');
+    const baloonEl = document.getElementById('baloon');
+    // Add effect transition effect to the balloon
     
-                // Append content
-                baloonEl.innerHTML = title;
-            }
-           
+    grid.addEventListener('mouseover', (e) => {
+        const slot = e.target.closest('.inv-grid-slot');
+        if (!slot) return;
+        
+        const itemId = slot.dataset.itemid;   
+        console.log(itemId)
+        if (!itemId) return;
 
-        });
+        const itemData = getItemData(Number(itemId));
+        if (!itemData) return;
 
-        slot.addEventListener('mouseout', () =>{
-            baloonEl.innerHTML = '';
-        });
+        baloonEl.innerHTML = `<h2>${itemData.name}</h2>`;
+  });
 
-        slot.addEventListener('mousemove', (e) => {
+    grid.addEventListener('mouseout', (e) => {
+        const slot = e.target.closest('.inv-grid-slot');
+        if (!slot) return;
+        baloonEl.innerHTML = '';
+    });
 
-            baloonEl.style.left = `${e.pageX}px`;
-            baloonEl.style.top = `${e.pageY}px`;
-        });
-
-    })
+    grid.addEventListener('mousemove', (e) => {
+        baloonEl.style.left = `${e.pageX + 12}px`;
+        baloonEl.style.top  = `${e.pageY + 12}px`;
+    });
 }

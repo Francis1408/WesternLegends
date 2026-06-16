@@ -70,3 +70,40 @@ export const buyItem = async (req, res) => {
         conn.release();
   }
 };
+
+
+export const equipItem = async (req, res) => {
+  const { inventory_item_id } = req.body;
+  const conn = await pool.getConnection();
+
+  try {
+    await conn.beginTransaction();
+
+    // Verify the item exists and belongs to this user
+    const [rows] = await conn.query(
+      `SELECT id FROM inventory_items WHERE id = ? AND user_id = ?`,
+      [inventory_item_id, req.user.id]
+    );
+
+    if (rows.length === 0) {
+      await conn.rollback();
+      return res.status(404).json({ message: 'Item not found.' });
+    }
+
+    // Equip it in the correct table
+    await conn.query(
+      `UPDATE inventory SET weapon_instance_id = ? WHERE user_id = ?`,
+      [inventory_item_id, req.user.id]
+    );
+
+    await conn.commit();
+    res.json({ message: 'Weapon equipped.' });
+
+  } catch (err) {
+      await conn.rollback();
+      console.error(err);
+      res.status(500).json({ message: 'Server error.' });
+  } finally {
+      conn.release();
+  }
+};

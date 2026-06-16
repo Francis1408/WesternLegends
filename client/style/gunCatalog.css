@@ -1,0 +1,296 @@
+
+@import url(basic.css);
+@import url(game.css);
+
+.gc-wrap { 
+    font-family: 'Crimson Pro', serif; 
+}
+
+.gc-header {
+    background: #5c1a1a;
+    padding: 1.2rem 1.5rem .9rem;
+    border-bottom: 3px double #b8860b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.gc-header-title {
+    font-family: 'RioGrande';
+    font-size: 2rem;
+    color: #f5dca0;
+    letter-spacing: .12em;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.5);
+    margin: 0;
+    text-align: center;
+}
+
+.gc-header-sub {
+    font-family: 'Crimson Pro', serif;
+    font-size: .8rem;
+    color: rgba(245,220,160,.55);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.gc-tabs {
+    display: flex;
+    gap: .5rem;
+    margin-top: .4rem;
+}
+
+.gc-tabs label {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    font-family: 'Rye', serif;
+    font-size: .65rem;
+    color: rgba(245,220,160,.6);
+    letter-spacing: .08em;
+    cursor: pointer;
+    padding: .3rem .8rem;
+    border: 1px solid rgba(184,134,11,.3);
+    border-radius: 2px;
+    transition: background .15s, color .15s;
+}
+
+.gc-tabs input[type="radio"] { 
+    display: none; 
+}
+
+.gc-tabs input:checked + label,
+.gc-tabs label:has(+ input:checked) { 
+    color: #f5dca0; 
+    border-color: rgba(184,134,11,.7); 
+    background: rgba(184,134,11,.12); 
+}
+
+.gc-tabs label:hover { 
+    color: #f5dca0; 
+}
+
+.gc-list { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.gc-page { display: none; }
+.gc-page.active { display: block; }
+
+.gc-item {
+    display: flex;
+    gap: 1rem;
+    padding: .9rem 1.2rem;
+    border-bottom: 1px solid rgba(184,134,11,.18);
+    background: #f5e9cc;
+}
+
+.gc-item:last-child { 
+    border-bottom: none; 
+}
+
+.gc-img-wrap {
+    flex-shrink: 0;
+    width: 100px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold-border);
+    border-radius: 2px;
+    overflow: hidden;
+
+    background-image: url(../img/paper_texture.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gc-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: sepia(.3) brightness(.9);
+}
+
+.gc-img-placeholder {
+    font-size: 2rem;
+    opacity: .3;
+    filter: sepia(1);
+}
+
+.gc-info { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: .25rem; 
+}
+
+.gc-name {
+    font-family: 'Bronco';
+    font-size: 1.5rem;
+    color: black;
+    letter-spacing: .06em;
+    margin: 0;
+}
+
+.gc-rarity { 
+    display: flex; 
+    gap: 2px; 
+    margin-top: 1px; 
+}
+.gc-star { 
+    font-size: .8rem; 
+    color: rgba(184,134,11,.4); 
+}
+.gc-star.filled { color: var(--gold-border); }
+
+.gc-desc {
+    font-family: 'TypeWriter';
+    font-size: .7rem;
+    color: black;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.gc-stats {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.gc-stat {
+    font-size: .7rem;
+    color: black;
+    letter-spacing: .05em;
+}
+
+.gc-stat span { 
+    color: #5c1a1a;; 
+    font-weight: 600; 
+}
+
+.gc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .2rem;
+}
+
+.gc-price {
+    font-family: 'Rye', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    letter-spacing: .05em;
+}
+
+.gc-price.free { 
+    color: rgba(90,160,90,.7); 
+}
+
+.gc-buy-btn, .gc-upgrade-btn  {
+    font-family: 'Rye', serif;
+    font-size: 1rem;
+    color: #f5dca0;
+    background: #5c1a1a;
+    border: 1px solid rgba(184,134,11,.5);
+    border-radius: 2px;
+    padding: .3rem .8rem;
+    cursor: pointer;
+    letter-spacing: .07em;
+    box-shadow: 2px 2px 0 #1a0900;
+    transition: transform .1s, box-shadow .1s;
+}
+
+.gc-buy-btn:hover { 
+    transform: translateY(-1px); 
+    box-shadow: 3px 3px 0 #1a0900; 
+}
+.gc-buy-btn:active { 
+    transform: translateY(1px); 
+    box-shadow: 1px 1px 0 #1a0900; 
+}
+
+.gc-upgrade-item {
+    display: flex;
+    gap: 1rem;
+    padding: .9rem 1.2rem;
+    border-bottom: 1px solid rgba(184,134,11,.18);
+    background: #f5e9cc;
+    align-items: center;
+}
+
+.gc-item {
+    display: flex;
+    gap: 1rem;
+    padding: .9rem 1.2rem;
+    border-bottom: 1px solid rgba(184,134,11,.18);
+    background: #f5e9cc;
+}
+
+.gc-upgrade-item:last-child { 
+    border-bottom: none; 
+}
+
+.gc-level-track { 
+    display: flex; 
+    gap: 4px; 
+    align-items: center; 
+}
+
+.gc-level-pip {
+    width: 25px; height: 8px;
+    border-radius: 1px;
+    border: 1px solid rgba(184,134,11,.3);
+    background: rgba(0,0,0,.3);
+}
+
+.gc-level-pip.filled { 
+    background: var(--gold-border); 
+    border-color: #b8860b; 
+}
+
+.gc-upgrade-cost {
+    font-family: 'Rye', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+
+.gc-upgrade-btn { 
+    background: #1a3a1a; 
+} 
+
+.gc-upgrade-btn:hover { 
+    transform: translateY(-1px); 
+}
+
+.gc-upgrade-btn:disabled { 
+    opacity: .35;
+    cursor: not-allowed; 
+    transform: none; 
+}
+
+.gc-empty {
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Rye', serif;
+    font-size: .75rem;
+    color: rgba(245,220,160,.25);
+    letter-spacing: .1em;
+}
+
+.gc-subheader {
+    font-family: 'Bronco';
+    font-size: 1rem;
+    color: #5c1a1a;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: .5rem 1.2rem .3rem;
+    background: #f5dca0;
+    border-bottom: 1px solid rgba(184,134,11,.12);
+    border-top: 1px solid rgba(184,134,11,.12);
+}
