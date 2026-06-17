@@ -11,6 +11,7 @@ import { GammaCorrectionShader } from 'three/addons/shaders/GammaCorrectionShade
 export class PostProcessing {
 
     constructor(renderer, scene, camera) {
+        
         this.composer = new EffectComposer(renderer);
 
         this.renderPass = new RenderPass(scene, camera);

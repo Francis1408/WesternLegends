@@ -204,9 +204,11 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
             if (!isCurrentLocation) {
                 overviewEl.querySelector('.travel_btn').addEventListener('click', () => {
                     console.log(dijkstra(sceneManager.mainCurrentScenario, scenarioData.id))
-                    onConfirm(scenarioData).then(() => {
-                            overviewBuilder(scenarioData, sceneManager, { onConfirm });
-                        });
+                    travelRoute(sceneManager.mainCurrentScenario, scenarioData.id, 4000, () => {
+                        onConfirm(scenarioData).then(() => {
+                                overviewBuilder(scenarioData, sceneManager, { onConfirm });
+                            });
+                    })
                 });
             }
         }
