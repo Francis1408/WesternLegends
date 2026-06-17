@@ -95,10 +95,12 @@ function renderNormalSlots(inv) {
 
     if (item) {
         slot.classList.add('active');
+        if (item.rarity) slot.classList.add(`rarity-${getItemRarity(item.rarity)}`)
         slot.dataset.itemId = item.id
         slot.dataset.instanceId = item.instance_id
         slot.innerHTML = `<img src="img/${item.icon}" alt="${item.name}" />
-        ${item.quantity > 1 ? `<span class="inv-qty">${item.quantity}</span>` : ''}`;
+        ${item.quantity > 1 ? `<span class="inv-qty">${item.quantity}</span>` : ''}
+        ${item.type === 'weapon' ? `<span class="inv-gun-lvl">${getGunLevel(item.level)}</span>` : ''} `;
 
     } else {
 
@@ -112,6 +114,21 @@ function renderNormalSlots(inv) {
   // Bind the events to the buttons
   setItemContextMenu();
 }
+
+function getGunLevel(gunLevel) {
+
+  const level = ['I', 'II', 'III']
+  return level[Number(gunLevel) - 1];
+  
+}
+
+function getItemRarity(itemRarity) {
+
+  const level = ['common', 'uncommon', 'rare', 'epic', 'legendary']
+  return level[Number(itemRarity) - 1];
+  
+}
+
 
 // ------------- EVENT DELEGATION ------------
 function setItemContextMenu() {
@@ -260,6 +277,13 @@ export function dropItem(itemId) {
         });
         return;
       }
+
+      showNotification({
+        title:   'Success',
+        content: `<p>${data.message}</p>`,
+        buttons: [{ label: 'Close' }]
+      });
+
       resolve(data)
 
     } catch {
@@ -315,7 +339,7 @@ export function buyItem(itemId, quantity = 1) {
                   title:   'Success',
                   content: `<p>${data.message}</p>`,
                   buttons: [{ label: 'Close' }]
-                });
+              });
 
               resolve(data);
 
