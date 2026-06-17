@@ -19,7 +19,8 @@ export function calculateTrip(origin, destination) {
 
 export function travelRoute(origin, destination, duration = 4000, onComplete = null) {
 
-
+    console.log(origin)
+    console.log(destination)
     const main_path = `route-${origin}-${destination}`.toLowerCase()
 
 

@@ -5,6 +5,7 @@ import { travelRoute, dijkstra } from "./path.js";
 import { getScenarioData, getBuildingData, getItemData } from "./gameData.js";
 import { renderBuilding } from "./buildings/index.js";
 import { getPlayerData } from "./playerState";
+import { getItemRarity } from "./inventory.js";
 
 
 
@@ -247,7 +248,7 @@ export function overviewBuilder(scenarioData, sceneManager, { onConfirm, onEnter
                 // Iterate through the items list and renders them on screen
                 slot.innerHTML = scenarioData.items.map(itemId => {
                     const itemData = getItemData(itemId);
-                    return itemData ? `<div class="inv-grid-slot" data-itemId="${itemId}" ><img src="../img/${itemData.icon}"></div>` : ''
+                    return itemData ? `<div class="inv-grid-slot rarity-${getItemRarity(itemData.rarity)}" data-itemId="${itemId}" ><img src="../img/${itemData.icon}"></div>` : ''
                 }).join('');
 
                 itemsPreview = itemsTitle + slot.outerHTML + divider

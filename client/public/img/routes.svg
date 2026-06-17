@@ -50,18 +50,18 @@
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
     <!-- thief_camp ↔ wellington -->
-    <path id="route-thief_camp-wellington"
+    <path id="route-wellington-thief_camp"
       d="M 395.27372,182.27123 313.04709,109.66179"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
-    <path id="route-wellington-thief_camp"
+    <path id="route-thief_camp-wellington"
       d="M 313.04709,109.66179 395.27372,182.27123"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 
     <!-- wellington ↔ quarry -->
-    <path id="route-wellington-quarry"
+    <path id="route-quarry-wellington"
       d="m 287.39216,198.20857 c 37.83841,3.55594 73.92973,-3.199 109.2073,-14.75646"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
-    <path id="route-quarry-wellington"
+    <path id="route-wellington-quarry"
       d="M 396.59946,183.45211 C 361.32189,194.76457 325.23057,201.76451 287.39216,198.20857"
       fill="none" stroke="#e92323" stroke-width="1.5" stroke-linecap="round"/>
 

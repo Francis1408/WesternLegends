@@ -74,7 +74,9 @@ function renderSpecialSlot(id, item){
 
     if (item) {
         box.classList.remove('empty');
-        box.innerHTML = `<img src="/img/${item.icon}" alt="${item.name}" />`;
+        if (item.rarity) box.classList.add(`rarity-${getItemRarity(item.rarity)}`)
+        box.innerHTML = `<img src="/img/${item.icon}" alt="${item.name}" />
+        ${item.type === 'weapon' ? `<span class="inv-gun-lvl">${getGunLevel(item.level)}</span>` : ''}`;
     } else {
         box.classList.add('empty');
         box.innerHTML = '';
@@ -122,7 +124,8 @@ function getGunLevel(gunLevel) {
   
 }
 
-function getItemRarity(itemRarity) {
+
+export function getItemRarity(itemRarity) {
 
   const level = ['common', 'uncommon', 'rare', 'epic', 'legendary']
   return level[Number(itemRarity) - 1];
